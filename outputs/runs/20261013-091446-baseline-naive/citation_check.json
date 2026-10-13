@@ -1,0 +1,34 @@
+{
+  "citations": 139,
+  "distinct_sources": 75,
+  "unknown_ids": [],
+  "excluded_citations": [
+    "P06:t1: The target customers described in the brief are households of two or more people cooking at home on ",
+    "P06:t2: The target customers described in the brief are households of two or more people cooking at home on ",
+    "P06:t8: The target customers described in the brief are households of two or more people cooking at home on ",
+    "P06:t9: The target customers described in the brief are households of two or more people cooking at home on "
+  ],
+  "weak_snippet_citations": [
+    "S09: - Market size and habits: Only 11% of households currently use any meal-planning app [S03]. Average "
+  ],
+  "misquotes": [],
+  "verified_quotes": 3,
+  "unverified_numbers": [
+    "65%: - Success metric: Greater than 65% onboarding completion rate and day-7 retention above 40% on an in",
+    "70%: - Success metric: Over 70% of participants complete at least 2 recommended 30-minute meals in a 5-da"
+  ],
+  "wrong_dates": [],
+  "uncited_claims": [
+    "Evidence across 9 usable interviews demonstrates a sharp distinction between observed past behaviour and aspirational st",
+    "- Success metric: Greater than 65% onboarding completion rate and day-7 retention above 40% on an interactive prototype.",
+    "- Success metric: Over 70% of participants complete at least 2 recommended 30-minute meals in a 5-day diary study.",
+    "- Success metric: Less than 5% duplicate purchases reported across 30 participating dual-shopper couples over two weeks.",
+    "- Success metric: Greater than 4% conversion rate to pre-order or deposit commitment on paid subscription tiers."
+  ],
+  "claim_lines": 37,
+  "unsupported_flags": 1,
+  "missing_sections": [],
+  "coverage": 0.865,
+  "blocking": 4,
+  "passed": false
+}

@@ -1,0 +1,95 @@
+{
+  "brief_id": "20261013-100033-agents#draft",
+  "judge_model": "gemini-3.1-pro-preview",
+  "verdict": {
+    "traps": [
+      {
+        "trap_id": "T01",
+        "handled": true,
+        "excerpt": "Interview P06 was entirely excluded due to severe research-method flaws"
+      },
+      {
+        "trap_id": "T02",
+        "handled": true,
+        "excerpt": "While the phrasing in P02:t8 was templated across several transcripts"
+      },
+      {
+        "trap_id": "T03",
+        "handled": true,
+        "excerpt": "Solo Student Households (out-of-target contrast; sample size: 1 interview: P07)"
+      },
+      {
+        "trap_id": "T04",
+        "handled": true,
+        "excerpt": "Retired Couples with Fixed Routines (in-target demographic, but no problem fit; sample size: 1 interview: P09)"
+      },
+      {
+        "trap_id": "T05",
+        "handled": true,
+        "excerpt": "A single stated claim of 30 euros per month from adjacent participant P08 was anchored to an isolated holiday spoilage incident and is excluded as an extreme outlier"
+      },
+      {
+        "trap_id": "T06",
+        "handled": true,
+        "excerpt": "A1 (Usability risk, Riskiest assumption): Households will reliably input and maintain an up-to-date fridge and pantry inventory"
+      },
+      {
+        "trap_id": "T07",
+        "handled": true,
+        "excerpt": "While weekly shoppers follow plans, households with irregular schedules abandon weekly planning apps and feel guilt when plans fall apart"
+      },
+      {
+        "trap_id": "T08",
+        "handled": true,
+        "excerpt": "The idea brief claim that dinner planning causes couples to argue is weakly supported"
+      },
+      {
+        "trap_id": "T09",
+        "handled": true,
+        "excerpt": "Competitor benchmarking shows that the idea brief's claim that existing recipe apps do not know what you already own is contradicted by direct market evidence"
+      },
+      {
+        "trap_id": "T10",
+        "handled": true,
+        "excerpt": "PlanPlate (verified 2024-11-05; possibly outdated)"
+      },
+      {
+        "trap_id": "T11",
+        "handled": true,
+        "excerpt": "The claim that meal-planning software is growing at 25% annually is unsupported"
+      },
+      {
+        "trap_id": "T12",
+        "handled": true,
+        "excerpt": "What is the objectively measured food waste and grocery spend over time, rather than self-reported estimates"
+      }
+    ],
+    "criteria": [
+      {
+        "criterion_id": "C1",
+        "score": 5,
+        "justification": "The brief answers all six required questions in complete, substantial detail, ensuring nothing is left out."
+      },
+      {
+        "criterion_id": "C2",
+        "score": 5,
+        "justification": "Claims are heavily cited and grounded, explicitly detailing raw counts, weighted support, and distinguishing observed behavior from stated preferences."
+      },
+      {
+        "criterion_id": "C3",
+        "score": 5,
+        "justification": "The brief is perfectly calibrated, cautiously evaluating unvalidated metrics (like willingness to pay) and immediately rejecting unreliable assumptions and overclaims."
+      },
+      {
+        "criterion_id": "C4",
+        "score": 5,
+        "justification": "The next steps are exceptionally clear and actionable, detailing participant recruitment, success metrics, test methods, and explicit thresholds for go/no-go pivot decisions."
+      },
+      {
+        "criterion_id": "C5",
+        "score": 5,
+        "justification": "The text is tight, concise, and structured logically with clear headings and bullet points, making it highly readable and actionable for product teams."
+      }
+    ]
+  }
+}

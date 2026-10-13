@@ -1,0 +1,21 @@
+{
+  "citations": 126,
+  "distinct_sources": 73,
+  "unknown_ids": [],
+  "excluded_citations": [],
+  "weak_snippet_citations": [
+    "S09: - Grocery sync friction: Only 4% of grocery purchases were made online according to historic data, m",
+    "S07: - The stat asserting 73% of families struggle with dinner decisions lacks attribution and year [S07]"
+  ],
+  "misquotes": [],
+  "verified_quotes": 4,
+  "unverified_numbers": [],
+  "wrong_dates": [],
+  "uncited_claims": [],
+  "claim_lines": 19,
+  "unsupported_flags": 8,
+  "missing_sections": [],
+  "coverage": 1.0,
+  "blocking": 0,
+  "passed": true
+}

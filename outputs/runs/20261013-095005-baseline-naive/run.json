@@ -1,0 +1,49 @@
+{
+  "run_id": "20261013-095005-baseline-naive",
+  "mode": "baseline-naive",
+  "started_at": "2026-10-13T09:50:05.284614+00:00",
+  "config": {
+    "model": "gemini-3.8-flash",
+    "effort": "medium",
+    "max_tokens": 32000,
+    "max_tool_rounds": 12,
+    "variant": "naive",
+    "code_fingerprint": "369c56e9bcf3"
+  },
+  "recommendation": "test_further",
+  "final_citation_check": {
+    "citations": 83,
+    "distinct_sources": 54,
+    "unknown_ids": [],
+    "excluded_citations": [],
+    "weak_snippet_citations": [
+      "S06: - The claim from snippet S06 of 25% annual market growth lacks source and year verification [S06].",
+      "S07: - The claim from snippet S07 that 73% of families struggle with dinner decisions lacks source and ye"
+    ],
+    "misquotes": [],
+    "verified_quotes": 5,
+    "unverified_numbers": [],
+    "wrong_dates": [],
+    "uncited_claims": [
+      "Evidence shows a sharp contrast between observed household behaviour and stated preferences across 9 unbiased interviews"
+    ],
+    "claim_lines": 24,
+    "unsupported_flags": 3,
+    "missing_sections": [],
+    "coverage": 0.958,
+    "blocking": 0,
+    "passed": true
+  },
+  "totals": {
+    "calls": 1,
+    "input_tokens": 1987,
+    "output_tokens": 3083,
+    "cache_read_tokens": 6840,
+    "thinking_tokens": 1074,
+    "tool_calls": 0,
+    "cost_usd": 0.013565,
+    "model_time_s": 23.707,
+    "wall_clock_s": 23.806,
+    "cost_incomplete": false
+  }
+}

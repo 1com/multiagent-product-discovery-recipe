@@ -1,0 +1,21 @@
+{
+  "citations": 52,
+  "distinct_sources": 44,
+  "unknown_ids": [],
+  "excluded_citations": [],
+  "weak_snippet_citations": [],
+  "misquotes": [],
+  "verified_quotes": 0,
+  "unverified_numbers": [],
+  "uncited_claims": [
+    "- **Inventory Accuracy:** The assumption that an app can maintain an accurate pantry list without constant user input is",
+    "- **Experiment 1 (Low-Friction Inventory):** Test a receipt-scanning or photo-recognition feature to populate inventory.",
+    "- **Experiment 2 (Flexible Planning):** Test a 'choose your own adventure' plan that offers 3 options per night based on"
+  ],
+  "claim_lines": 12,
+  "unsupported_flags": 0,
+  "missing_sections": [],
+  "coverage": 0.75,
+  "blocking": 0,
+  "passed": true
+}

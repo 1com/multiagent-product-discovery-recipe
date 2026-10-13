@@ -1,0 +1,27 @@
+{
+  "citations": 40,
+  "distinct_sources": 33,
+  "unknown_ids": [],
+  "excluded_citations": [],
+  "weak_snippet_citations": [],
+  "misquotes": [],
+  "verified_quotes": 9,
+  "unverified_numbers": [],
+  "uncited_claims": [
+    "The target customer is defined as households of two or more people who cook at home on most weeknights [idea_brief]. Res",
+    "- Shared Households / Flatmates (sample size 1 of 1 interview: P10; target fit: partial): Multiple flatmates sharing a s",
+    "- Single Households (sample size 1 of 1 interview: P07; target fit: out): Individuals living alone who predominantly eat",
+    "Evidence rests on 9 usable interviews (P01-P05, P07-P10). Interview P06 is excluded entirely due to major leading interv",
+    "- A2 (Desirability): Households want automated weekly dinner plans combined with inventory tracking [A2]. Confidence is ",
+    "- A4 (Desirability): PantryPal can solve household shopping coordination and reduce food waste [A4]. Confidence is mediu",
+    "1. E1 (Tests A1): Ask 20 target households to test a prototype receipt or photo scanner interface for one week and track",
+    "2. E2 (Tests A3): Run a landing page test presenting free versus premium pricing tiers to 500 targeted visitors. Success",
+    "Open questions to explore include comparing weekly plans against same-day 'what can I cook tonight' suggestions [F12], e"
+  ],
+  "claim_lines": 23,
+  "unsupported_flags": 1,
+  "missing_sections": [],
+  "coverage": 0.609,
+  "blocking": 0,
+  "passed": true
+}

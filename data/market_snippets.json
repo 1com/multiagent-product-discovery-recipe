@@ -1,0 +1,65 @@
+[
+  {
+    "claim": "Households discard roughly a fifth of the food they buy",
+    "stat": "19%",
+    "source_name": "European Household Food Panel",
+    "source_url": "https://ehfp.example/2025-report",
+    "year": "2025"
+  },
+  {
+    "claim": "Average weekly grocery spend of a two-person household",
+    "stat": "EUR 118",
+    "source_name": "European Household Food Panel",
+    "source_url": "https://ehfp.example/2025-report",
+    "year": "2025"
+  },
+  {
+    "claim": "Share of households that use a meal-planning app",
+    "stat": "11%",
+    "source_name": "Digital Home Habits Report",
+    "source_url": "https://dhh.example/2025",
+    "year": "2025"
+  },
+  {
+    "claim": "Time adults spend each day deciding what to cook",
+    "stat": "22 minutes",
+    "source_name": "National Time Use Study",
+    "source_url": "https://ntus.example/2023",
+    "year": "2023"
+  },
+  {
+    "claim": "Median stated willingness to pay for a cooking app",
+    "stat": "EUR 3.50 per month",
+    "source_name": "Consumer App Pricing Study",
+    "source_url": "https://capstudy.example/2025",
+    "year": "2025"
+  },
+  {
+    "claim": "The meal-planning and meal-kit market is growing quickly every year",
+    "stat": "25% annual growth",
+    "source_name": "",
+    "source_url": "",
+    "year": ""
+  },
+  {
+    "claim": "Most families struggle with dinner decisions",
+    "stat": "73%",
+    "source_name": "",
+    "source_url": "",
+    "year": ""
+  },
+  {
+    "claim": "Households that would pay for automated meal planning",
+    "stat": "97%",
+    "source_name": "App Trends Blog",
+    "source_url": "https://apptrends.example/post/881",
+    "year": "2025"
+  },
+  {
+    "claim": "Share of grocery purchases made online",
+    "stat": "4%",
+    "source_name": "Retail Trends Review",
+    "source_url": "https://retailtrends.example/2016",
+    "year": "2016"
+  }
+]

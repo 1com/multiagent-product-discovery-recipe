@@ -1,0 +1,11 @@
+interview_id,date,persona,household_type,household_size,cooks_most_weeknights,target_fit,participant_words,off_guide_questions,leading_questions,leading_question_ratio,presupposing_questions,acquiescent_answers,templated_sentence_ratio,major_issues,minor_issues,topic_caveats,evidence_quality,evidence_weight,evidence_tier
+P01,2026-09-02,"Mother of two (6 and 9), both parents work full-time, lives in a flat in a mid-sized city",family_with_children,4,yes,in,205,0,0,0.0,2,0,0.47,0,0,0,1.0,1.0,primary
+P02,2026-09-02,"Couple in their thirties, no children, both work long hours, renting a flat",couple_no_children,2,yes,in,204,0,0,0.0,2,0,0.5,0,1,0,0.9,0.9,primary
+P03,2026-09-03,"Single parent of one child, works part-time, tight household budget",family_with_children,2,yes,in,207,0,0,0.0,2,0,0.26,1,0,0,0.7,0.7,supporting
+P04,2026-09-04,"Father of three (4, 7, 11), partner works shifts, owns a house in a suburb",family_with_children,5,yes,in,181,0,0,0.0,2,0,0.44,1,0,0,0.7,0.7,supporting
+P05,2026-09-07,"Freelance couple working from home, no children, irregular schedules",couple_no_children,2,partly,partial,203,0,0,0.0,2,0,0.43,0,0,0,1.0,0.5,supporting
+P06,2026-09-08,"Mother of two, works full-time, lives in a terraced house",family_with_children,3,unclear,in,85,10,9,0.9,0,7,0.2,1,0,0,0.0,0.0,excluded
+P07,2026-09-09,"University student living alone in a small studio, eats out or orders most days",single,1,no,out,172,0,0,0.0,2,0,0.41,0,0,0,1.0,0.25,contrast_only
+P08,2026-09-10,"Couple in their forties, both travel for work, no children",couple_no_children,2,partly,partial,205,0,0,0.0,2,0,0.39,0,0,1,1.0,0.5,supporting
+P09,2026-09-11,"Retired couple in their seventies, cook every day, live in a small town",couple_no_children,2,yes,in,168,0,0,0.0,2,0,0.41,0,1,0,0.9,0.9,primary
+P10,2026-09-14,Four flatmates (late twenties) sharing one kitchen in a city flat,flatmates,4,partly,partial,187,0,0,0.0,2,0,0.39,0,0,0,1.0,0.5,supporting

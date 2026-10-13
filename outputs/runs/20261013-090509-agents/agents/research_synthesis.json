@@ -1,0 +1,384 @@
+{
+  "segments": [
+    {
+      "name": "Families with Children",
+      "interview_ids": [
+        "P01",
+        "P03",
+        "P04"
+      ],
+      "target_fit": "in",
+      "description": "Households with school-aged children balancing work, school pickups, and complex dietary preferences or refusals.",
+      "needs": [
+        "Quick weeknight recipes under thirty minutes",
+        "Accommodating children's preferences and food refusals",
+        "Reducing food waste and grocery overspending"
+      ]
+    },
+    {
+      "name": "Couples Without Children",
+      "interview_ids": [
+        "P02",
+        "P05",
+        "P08",
+        "P09"
+      ],
+      "target_fit": "mixed",
+      "description": "Couples ranging from busy working professionals with erratic schedules (P02, P05, P08) to retired couples with established routines (P09).",
+      "needs": [
+        "Coordinated shopping lists between partners",
+        "Low-effort setup that avoids manual pantry entry",
+        "Flexibility for impromptu dining or schedule changes"
+      ]
+    },
+    {
+      "name": "Shared Households / Flatmates",
+      "interview_ids": [
+        "P10"
+      ],
+      "target_fit": "partial",
+      "description": "Multiple flatmates sharing a single kitchen with decentralized cooking habits and coordination challenges.",
+      "needs": [
+        "Shared visibility of pantry and grocery needs",
+        "Clear tracking of shared vs individual items"
+      ]
+    },
+    {
+      "name": "Single Households",
+      "interview_ids": [
+        "P07"
+      ],
+      "target_fit": "out",
+      "description": "Individuals living alone who predominantly eat out, order delivery, or cook minimal single-portion meals without planning.",
+      "needs": [
+        "Small-portion sizing or minimal-effort cooking options"
+      ]
+    }
+  ],
+  "insights": [
+    {
+      "id": "R1",
+      "kind": "problem",
+      "statement": "Food waste and forgotten items expiring at the back of the fridge are widespread pain points.",
+      "interview_ids": [
+        "P01",
+        "P02",
+        "P03",
+        "P05",
+        "P08",
+        "P10"
+      ],
+      "own_words_interviews": [
+        "P01",
+        "P02",
+        "P03",
+        "P05",
+        "P08",
+        "P10"
+      ],
+      "evidence": [
+        {
+          "source_id": "P01:t2",
+          "quote": "Things disappear in the back of the fridge and I find them two weeks later, usually when they're already off.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P02:t2",
+          "quote": "We throw away so much food. Half a cucumber, wilted herbs, yoghurt that expired last week.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P03:t2",
+          "quote": "The waste bothers me, both the money and the guilt. I probably lose twenty or thirty euros a week.",
+          "kind": "stated_preference"
+        },
+        {
+          "source_id": "P05:t2",
+          "quote": "I buy vegetables with good intentions and then bin them on Sunday.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P08:t2",
+          "quote": "Things disappear in the back of the fridge and I find them two weeks later, usually when they're already off.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P10:t2",
+          "quote": "Nobody remembers what we already have, so we buy duplicates and then one of them goes bad.",
+          "kind": "behaviour"
+        }
+      ],
+      "strength": "strong",
+      "caveats": [
+        "Frustration questions were prompted.",
+        "Financial losses from waste are stated estimates."
+      ]
+    },
+    {
+      "id": "R2",
+      "kind": "problem",
+      "statement": "Daily decision fatigue regarding what to cook on weeknights causes stress and friction.",
+      "interview_ids": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P08"
+      ],
+      "own_words_interviews": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P08"
+      ],
+      "evidence": [
+        {
+          "source_id": "P01:t2",
+          "quote": "Every single day somebody has to decide what's for dinner, and that somebody is me.",
+          "kind": "stated_preference"
+        },
+        {
+          "source_id": "P02:t1",
+          "quote": "We both get home late, so it's usually pasta or something quick. We would like more variety but it never happens.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P03:t2",
+          "quote": "Deciding is exhausting. I would rather cook anything than think about what to cook.",
+          "kind": "stated_preference"
+        },
+        {
+          "source_id": "P04:t2",
+          "quote": "The worst part is the daily question of what to cook. By Wednesday I have no ideas left.",
+          "kind": "stated_preference"
+        },
+        {
+          "source_id": "P05:t2",
+          "quote": "Around four in the afternoon the 'what do we eat tonight' dread starts.",
+          "kind": "stated_preference"
+        },
+        {
+          "source_id": "P01:t1",
+          "quote": "It's chaos between school pickups, homework and work calls. Dinner is whatever I can get on the table in thirty minutes.",
+          "kind": "behaviour"
+        }
+      ],
+      "strength": "strong",
+      "caveats": [
+        "P03 exhibited internal contradiction between liking Sunday planning and finding deciding exhausting."
+      ]
+    },
+    {
+      "id": "R3",
+      "kind": "requirement",
+      "statement": "Setup must be extremely fast and low-effort to prevent user churn.",
+      "interview_ids": [
+        "P02",
+        "P05",
+        "P07",
+        "P08",
+        "P10"
+      ],
+      "own_words_interviews": [
+        "P02",
+        "P05",
+        "P07",
+        "P08",
+        "P10"
+      ],
+      "evidence": [
+        {
+          "source_id": "P02:t8",
+          "quote": "Setup has to be fast. If I need to type in my whole pantry I'll quit on day two.",
+          "kind": "stated_preference"
+        },
+        {
+          "source_id": "P05:t8",
+          "quote": "Setup has to be fast. If I need to type in my whole pantry I'll quit on day two.",
+          "kind": "stated_preference"
+        },
+        {
+          "source_id": "P07:t8",
+          "quote": "Setup has to be fast. If I need to type in my whole pantry I'll quit on day two.",
+          "kind": "stated_preference"
+        },
+        {
+          "source_id": "P08:t8",
+          "quote": "Setup has to be fast. If I need to type in my whole pantry I'll quit on day two.",
+          "kind": "stated_preference"
+        },
+        {
+          "source_id": "P10:t8",
+          "quote": "Setup has to be fast. If I need to type in my whole pantry I'll quit on day two.",
+          "kind": "stated_preference"
+        }
+      ],
+      "strength": "moderate",
+      "caveats": [
+        "Heavy reliance on templated phrasing across multiple interviews indicates potential probing bias by the interviewer."
+      ]
+    },
+    {
+      "id": "R4",
+      "kind": "behaviour_pattern",
+      "statement": "Users vary significantly in shopping rhythm between structured weekly trips and daily top-ups.",
+      "interview_ids": [
+        "P03",
+        "P04",
+        "P05",
+        "P09"
+      ],
+      "own_words_interviews": [
+        "P03",
+        "P04",
+        "P05",
+        "P09"
+      ],
+      "evidence": [
+        {
+          "source_id": "P03:t5",
+          "quote": "I shop once a week, usually on Saturday, plus a couple of top-up trips.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P04:t5",
+          "quote": "I shop once a week, usually on Saturday, plus a couple of top-up trips.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P05:t5",
+          "quote": "I go to the shop almost every day and buy as I go.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P09:t5",
+          "quote": "I go to the shop almost every day and buy as I go.",
+          "kind": "behaviour"
+        }
+      ],
+      "strength": "moderate",
+      "caveats": [
+        "A weekly meal plan with a weekly shopping list aligns best with weekly shoppers, whereas daily shoppers require different workflows."
+      ]
+    }
+  ],
+  "disagreements": [
+    {
+      "topic": "Value of meal planning and structure versus spontaneous cooking",
+      "positions": [
+        {
+          "stance": "Planning ahead is enjoyable, structured, and essential for budget and control.",
+          "interview_ids": [
+            "P01",
+            "P03",
+            "P04"
+          ],
+          "evidence": [
+            {
+              "source_id": "P03:t1",
+              "quote": "Planning is my favourite part of the week, honestly. I would never want an app to take that away from me.",
+              "kind": "stated_preference"
+            }
+          ]
+        },
+        {
+          "stance": "Planning ahead causes stress, and strict plans feel like failure when deviated from.",
+          "interview_ids": [
+            "P05",
+            "P08"
+          ],
+          "evidence": [
+            {
+              "source_id": "P05:t1",
+              "quote": "Planning ahead stresses me out. A plan I don't follow feels like failure, so I decide on the day.",
+              "kind": "stated_preference"
+            }
+          ]
+        }
+      ],
+      "implication": "PantryPal must accommodate both structured planners and spontaneous cooks by offering flexible plans that can be easily modified without making users feel like they failed."
+    },
+    {
+      "topic": "Trust in automated recommendations versus manual control",
+      "positions": [
+        {
+          "stance": "Open to app assistance provided the user retains full editing control and flexibility.",
+          "interview_ids": [
+            "P01",
+            "P02",
+            "P04"
+          ],
+          "evidence": [
+            {
+              "source_id": "P01:t8",
+              "quote": "I want to edit the plan easily. I don't want an app dictating to me.",
+              "kind": "stated_preference"
+            }
+          ]
+        },
+        {
+          "stance": "Distrustful of automated apps dictating habits; prefer simple, private, or manual methods.",
+          "interview_ids": [
+            "P03",
+            "P09"
+          ],
+          "evidence": [
+            {
+              "source_id": "P09:t8",
+              "quote": "I don't trust apps with my shopping habits, so it would have to be very simple and private.",
+              "kind": "stated_preference"
+            }
+          ]
+        }
+      ],
+      "implication": "The product messaging and UI must emphasize user agency, easy editing, and privacy rather than algorithmic imposition."
+    }
+  ],
+  "willingness_to_pay": "Willingness to pay typically ranges from a few euros up to 5-6 euros per month, conditional on the app clearly saving money on groceries or reducing food waste. Several participants (P05, P07, P09) state they would not pay and require a free version with ads. An outlier (P08) stated 30 euros per month, which is excluded from typical figures as it was anchored on a catastrophic holiday fridge disaster rather than normal weekly planning.",
+  "willingness_to_pay_evidence": [
+    {
+      "source_id": "P01:t9",
+      "quote": "A few euros a month, maybe, if it clearly saves me money on groceries.",
+      "kind": "stated_preference"
+    },
+    {
+      "source_id": "P02:t9",
+      "quote": "Maybe five or six euros. More than that and I'd just keep my notes app.",
+      "kind": "stated_preference"
+    },
+    {
+      "source_id": "P04:t9",
+      "quote": "A few euros a month, maybe, if it clearly saves me money on groceries.",
+      "kind": "stated_preference"
+    },
+    {
+      "source_id": "P10:t9",
+      "quote": "A few euros a month, maybe, if it clearly saves me money on groceries.",
+      "kind": "stated_preference"
+    },
+    {
+      "source_id": "P05:t9",
+      "quote": "Honestly I wouldn't pay for it. I'd want a free version.",
+      "kind": "stated_preference"
+    },
+    {
+      "source_id": "P09:t9",
+      "quote": "Honestly I wouldn't pay for it. I'd want a free version.",
+      "kind": "stated_preference"
+    },
+    {
+      "source_id": "P08:t9",
+      "quote": "For something that would stop that, I'd pay thirty euros a month, easy.",
+      "kind": "stated_preference"
+    }
+  ],
+  "evidence_set_aside": [
+    "P06 excluded entirely due to major leading interview issues and verbatim copying of P01.",
+    "P08 willingness to pay of EUR 30/month excluded from typical figures as an outlier anchored on a holiday incident rather than weekly dinner planning.",
+    "P03 internal contradiction regarding meal planning (calling planning the favourite part of the week vs. calling deciding exhausting) requires cautious interpretation.",
+    "P04 attribution inconsistency (switching between wife and husband) requires cautious attribution."
+  ]
+}

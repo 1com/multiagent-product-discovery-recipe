@@ -1,0 +1,4 @@
+{
+  "type": "LLMError",
+  "message": "critic: still calling tools after 12 rounds"
+}

@@ -1,0 +1,111 @@
+{
+  "run_id": "20261013-100033-agents",
+  "mode": "agents",
+  "started_at": "2026-10-13T10:00:33.044453+00:00",
+  "config": {
+    "model": "gemini-3.8-flash",
+    "effort": "medium",
+    "max_tokens": 32000,
+    "max_tool_rounds": 12,
+    "max_revisions": 2,
+    "code_fingerprint": "369c56e9bcf3"
+  },
+  "recommendation": "test_further",
+  "loop_outcome": "approved",
+  "rounds": [
+    {
+      "round": 0,
+      "recommendation": "test_further",
+      "verdict": "revise",
+      "blockers": 3,
+      "majors": 1,
+      "minors": 2,
+      "citation_check": {
+        "citations": 181,
+        "distinct_sources": 59,
+        "unknown_ids": [],
+        "excluded_citations": [],
+        "weak_snippet_citations": [],
+        "misquotes": [],
+        "verified_quotes": 15,
+        "unverified_numbers": [],
+        "wrong_dates": [],
+        "uncited_claims": [],
+        "claim_lines": 50,
+        "unsupported_flags": 21,
+        "missing_sections": [],
+        "coverage": 1.0,
+        "blocking": 0,
+        "passed": true
+      },
+      "serious": 4
+    },
+    {
+      "round": 1,
+      "recommendation": "test_further",
+      "verdict": "approve",
+      "blockers": 0,
+      "majors": 0,
+      "minors": 0,
+      "citation_check": {
+        "citations": 176,
+        "distinct_sources": 60,
+        "unknown_ids": [],
+        "excluded_citations": [],
+        "weak_snippet_citations": [],
+        "misquotes": [],
+        "verified_quotes": 15,
+        "unverified_numbers": [],
+        "wrong_dates": [],
+        "uncited_claims": [
+          "Before building the planner, the team must run three prioritized experiments to test the riskiest assumptions:",
+          "1. Experiment 1: Low-effort inventory input concierge test (tests assumptions A1 and A7).",
+          "2. Experiment 2: Weekly plan vs. same-day recommendations test (tests assumption A2).",
+          "3. Experiment 3: Value proposition and subscription pre-order test (tests assumptions A3, A5, and A6)."
+        ],
+        "claim_lines": 50,
+        "unsupported_flags": 21,
+        "missing_sections": [],
+        "coverage": 0.92,
+        "blocking": 0,
+        "passed": true
+      },
+      "serious": 0
+    }
+  ],
+  "final_citation_check": {
+    "citations": 176,
+    "distinct_sources": 60,
+    "unknown_ids": [],
+    "excluded_citations": [],
+    "weak_snippet_citations": [],
+    "misquotes": [],
+    "verified_quotes": 15,
+    "unverified_numbers": [],
+    "wrong_dates": [],
+    "uncited_claims": [
+      "Before building the planner, the team must run three prioritized experiments to test the riskiest assumptions:",
+      "1. Experiment 1: Low-effort inventory input concierge test (tests assumptions A1 and A7).",
+      "2. Experiment 2: Weekly plan vs. same-day recommendations test (tests assumption A2).",
+      "3. Experiment 3: Value proposition and subscription pre-order test (tests assumptions A3, A5, and A6)."
+    ],
+    "claim_lines": 50,
+    "unsupported_flags": 21,
+    "missing_sections": [],
+    "coverage": 0.92,
+    "blocking": 0,
+    "passed": true
+  },
+  "totals": {
+    "calls": 17,
+    "input_tokens": 205355,
+    "output_tokens": 71397,
+    "cache_read_tokens": 16071,
+    "thinking_tokens": 45639,
+    "tool_calls": 16,
+    "cost_usd": 0.422961,
+    "model_time_s": 509.211,
+    "wall_clock_s": 482.415,
+    "cost_incomplete": false
+  }
+}

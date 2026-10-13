@@ -1,0 +1,66 @@
+# PantryPal discovery brief
+
+## 1. Recommendation
+We recommend testing further before writing production code. While households experience acute daily friction around dinner decision fatigue, spoiled groceries, and uncoordinated duplicate shopping, the core premise of tracking pantry inventory faces severe onboarding and retention risks [P01:t2, P02:t2, P02:t4, P02:t8]. Users explicitly reject rigid automatic plans and heavy data entry, demanding quick setup and full flexibility [P01:t8, P02:t8, P05:t8]. Low stated willingness to pay also requires verifying whether a viable low-friction solution can sustain acquisition and conversion before committing engineering resources [P01:t9, P02:t9, S05].
+
+## 2. Who the users are
+The target customers described in the brief are households of two or more people cooking at home on weeknights [idea_brief]. Across 10 user interviews, the usable participant pool comprises 9 households, as 1 interview (P06) was entirely compromised by leading questions and acquiescence bias [P06:t1, P06:t2, P06:t8, P06:t9].
+
+Relevant user segments include:
+- Busy families with children (represented by P01, P04): Parents juggling full-time work, childcare schedules, and diverse children's food preferences who require dinners ready in 30 minutes or less [P01:t1, P01:t8, P04:t1, P04:t8].
+- Dual-income working couples without children (represented by P02, P05, P08): Partners working long hours or irregular freelance schedules who shop independently without coordination, leading to duplicate purchases or decision paralysis after long work days [P02:t1, P02:t2, P05:t1, P08:t1].
+- Multi-adult shared households and flatmates (represented by P10): Adults sharing kitchen facilities and basic supplies who suffer from uncoordinated grocery group chats, missing communal staples, and accidental duplicates [P10:t1, P10:t2, P10:t3].
+- Out-of-target or non-viable segments: Solo university students who rarely cook (P07) [P07:t1, P07:t2]; retired couples with 40-year fixed daily routines and zero desire for software (P09) [P09:t1, P09:t2]; and planners who already enjoy manual budgeting (P03) [P03:t1].
+
+## 3. Problems that are real
+- Decision fatigue and mental load: Users report severe exhaustion deciding what to cook every single night after work [P01:t2, P03:t2, P04:t2, P05:t2]. Adults spend 22 minutes per day deciding what to cook [S04].
+- Food waste and expired ingredients: Unused produce routinely spoils in the fridge drawer, generating guilt and financial waste [P01:t2, P01:t4, P02:t2, P03:t2, P05:t2, P08:t2]. European households discard approximately 19% of purchased food [S01].
+- Uncoordinated household shopping: When multiple adults shop independently without real-time coordination, households end up buying duplicate items or missing essential ingredients [P02:t2, P02:t4, P04:t2, P04:t4, P10:t2, P10:t3].
+- Failure of rigid meal plans: Fixed meal plans generate stress when schedules disrupt execution, resulting in abandoned planning tools [P03:t4, P05:t1, P05:t4].
+
+## 4. What the evidence says
+Evidence across 9 usable interviews demonstrates a sharp distinction between observed past behaviour and aspirational stated preferences:
+- Food inventory tracking behaviour: Zero participants currently maintain a live digital pantry inventory. Current behaviour relies on glances into the fridge before leaving or paper pads and basic notes apps [P01:t5, P01:t6, P02:t5, P02:t6, P03:t6, P05:t5, P08:t5, P10:t5].
+- The pantry logging friction barrier: Participants explicitly state that they will abandon any service requiring manual pantry entry: "Setup has to be fast. If I need to type in my whole pantry I'll quit on day two" [P02:t8, P05:t8, P07:t8, P08:t8, P10:t8].
+- Control versus automation: While the brief envisioned automatic planning, participants resist algorithmic dictation: "I want to edit the plan easily. I don't want an app dictating to me" [P01:t8, P02:t8, P03:t8, P05:t8]. For some, planning ahead is an active source of stress: "Planning ahead stresses me out. A plan I don't follow feels like failure, so I decide on the day" [P05:t1].
+- Meal speed and constraint handling: Weeknight meals must take thirty minutes at most and account for allergies and family member dislikes [P01:t1, P01:t8, P03:t8, P04:t1, P04:t8].
+- Willingness to pay: Median stated willingness to pay across consumers is EUR 3.50 per month [S05]. Most interviewed users consider paying only a few euros a month (around 3 to 6 euros) conditionally if it demonstrates clear grocery savings, while several prefer a free version [P01:t9, P02:t9, P03:t9, P04:t9, P05:t9, P10:t9]. Participant P08 stated a willingness to pay 30 euros per month, but this represents an outlier reaction driven by a past vacation disaster where spoiled food caused 200 euros in losses [P08:t2, P08:t9].
+- Quality of evidence: Evidence on user pain points is strong, based on consistent behavioral accounts across independent households [P01:t3, P02:t3, P04:t4]. However, willingness to pay remains stated preference and lacks behavioral validation through actual financial transactions [P01:t9, P02:t9, S05].
+
+## 5. Competitors and market
+- Existing direct and indirect competitors:
+  - MealLoop: Targets families with weekly plans, grocery lists, and family sharing at EUR 6.99/month or EUR 49.99/year [C:MealLoop].
+  - PantryGenie: Targets households seeking waste reduction using barcode scanning, inventory tracking, and expiry alerts at EUR 3.99/month [C:PantryGenie].
+  - SupperSync: Targets shared households with shared meal plans, chore rotas, and shared lists at EUR 4.49/month [C:SupperSync].
+  - PlanPlate: Offers a shared meal planning calendar with recipe imports at EUR 2.99/month [C:PlanPlate].
+  - FridgeChef: Suggests recipes from photos of the fridge, offering a free tier with ads and premium at EUR 4.99/month [C:FridgeChef].
+  - WeekWise: Focuses on budget meal planning and price comparison with a free tier and EUR 29.99 one-off purchase [C:WeekWise].
+  - ZeroWaste Kitchen: Free donation-supported community platform focused on leftover recipes [C:ZeroWaste Kitchen].
+- Market size and habits: Only 11% of households currently use any meal-planning app [S03]. Average weekly grocery spend for a two-person household is EUR 118 [S02]. Online grocery adoption was measured at only 4% in 2016 [S09].
+
+## 6. Risks and open assumptions
+- Onboarding attrition risk: Users will abandon the app on day one or two if onboarding requires manually entering existing food stocks [P02:t8, P05:t8, P08:t8, P10:t8].
+- Plan rigidity and churn risk: Users experience unexpected schedule changes; if modifying meal plans requires high friction or induces guilt, users stop opening the application [P01:t8, P02:t8, P05:t4].
+- Multi-user synchronization risk: Household coordination fails when partners do not check shared lists or communicate while shopping [P02:t2, P04:t2, P10:t2].
+- Price sensitivity and monetization risk: App store willingness to pay is low (EUR 3.50/month median), leaving little margin for customer acquisition costs against established competitors [C:MealLoop, C:PantryGenie, S05].
+- Unvalidated technical assumptions: It is an unverified assumption that automated photo recognition or receipt scanning can maintain an accurate pantry model without burdensome user corrections [UNSUPPORTED].
+
+## 7. What to test next
+1. Frictionless Onboarding and Logging Prototype (Priority 1):
+   - Hypothesis: Presenting users with a lightweight receipt-photo or tap-to-select common items workflow will achieve higher onboarding completion than full inventory logging [P02:t8, P08:t8].
+   - Success metric: Greater than 65% onboarding completion rate and day-7 retention above 40% on an interactive prototype.
+2. Flexible Meal Plan Usability Test (Priority 2):
+   - Hypothesis: Providing a dynamic 3-day flexible dinner outline with one-tap recipe swapping reduces plan abandonment compared to a rigid weekly schedule [P01:t8, P05:t1, P05:t4].
+   - Success metric: Over 70% of participants complete at least 2 recommended 30-minute meals in a 5-day diary study.
+3. Household Sync Notification Test (Priority 3):
+   - Hypothesis: Shared push notifications alerting partners when an item is purchased will prevent duplicate grocery buying [P02:t4, P04:t4, P10:t2].
+   - Success metric: Less than 5% duplicate purchases reported across 30 participating dual-shopper couples over two weeks.
+4. Pricing and Pre-order Landing Page Smoke Test (Priority 4):
+   - Hypothesis: Value propositions emphasizing grocery bill reduction and reduced waste will convert users at EUR 3.99 to EUR 4.99 per month [P01:t9, C:PantryGenie, S05].
+   - Success metric: Greater than 4% conversion rate to pre-order or deposit commitment on paid subscription tiers.
+
+## 8. Unsupported or weak claims
+- Unusable interview data (P06): Interview P06 consists entirely of leading questions by the interviewer that nudged the participant into affirmative answers [P06:t1, P06:t2, P06:t3, P06:t4, P06:t5, P06:t6, P06:t7, P06:t8, P06:t9]. All data from P06 is considered methodologically weak and excluded from validated product claims.
+- Outdated ecommerce metrics: The claim that only 4% of grocery purchases are made online relies on data from 2016, which is outdated and cannot be assumed valid for current operations [S09].
+- Uncredited market statistics: The claim that the meal-planning market grows by 25% annually lacks an attributable source and publication year [S06]. Similarly, the claim that 73% of families struggle with dinner decisions has no source or year attached [S07].
+- Unrealistic stated interest: The blog claim that 97% of households would pay for automated meal planning contradicts actual user behaviors, competitor benchmarks, and the 11% market penetration rate [S03, S08, C:MealLoop].

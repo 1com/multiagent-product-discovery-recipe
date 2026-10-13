@@ -1,0 +1,113 @@
+{
+  "run_id": "20261013-091355-agents",
+  "mode": "agents",
+  "started_at": "2026-10-13T09:13:55.425739+00:00",
+  "config": {
+    "model": "gemini-3.8-flash",
+    "effort": "medium",
+    "max_tokens": 32000,
+    "max_tool_rounds": 12,
+    "max_revisions": 2
+  },
+  "recommendation": "test_further",
+  "loop_outcome": "approved",
+  "rounds": [
+    {
+      "round": 0,
+      "recommendation": "test_further",
+      "verdict": "revise",
+      "blockers": 6,
+      "majors": 1,
+      "minors": 2,
+      "citation_check": {
+        "citations": 241,
+        "distinct_sources": 60,
+        "unknown_ids": [],
+        "excluded_citations": [
+          "P06: The interview dataset contains 10 total interviews, of which 9 are usable and 1 is completely exclud",
+          "P06: The interview dataset contains 10 total interviews, of which 9 are usable and 1 is completely exclud"
+        ],
+        "weak_snippet_citations": [],
+        "misquotes": [
+          "\"Stop buying double: shared kitchen inventory & shopping sync\" cited as idea_brief, P02:t2, P04:t4, C:PantryGenie, S05",
+          "\"End the daily dinner debate: automated meal plans\" cited as idea_brief, P02:t2, P04:t4, C:PantryGenie, S05"
+        ],
+        "verified_quotes": 25,
+        "unverified_numbers": [
+          "60%: - Success metric: At least 60% of households (12 of 20) submit inventory updates at least 3 times pe",
+          "15%: - Success metric: Group B achieves at least a 40% higher weeknight meal completion rate and less tha",
+          "€3.49: - Method: Launch landing pages targeting weeknight cooks testing two value propositions: \"Stop buyin"
+        ],
+        "wrong_dates": [],
+        "uncited_claims": [
+          "2. Experiment 2: Static Weekly Plan vs. Same-Day Dynamic Dinner Prompt Prototype (Testing Assumption 2)",
+          "3. Experiment 3: Value Proposition and Pricing Smoke Test (Testing Assumptions 4 and 6)"
+        ],
+        "claim_lines": 47,
+        "unsupported_flags": 0,
+        "missing_sections": [],
+        "coverage": 0.957,
+        "blocking": 4,
+        "passed": false
+      },
+      "serious": 7
+    },
+    {
+      "round": 1,
+      "recommendation": "test_further",
+      "verdict": "approve",
+      "blockers": 0,
+      "majors": 0,
+      "minors": 0,
+      "citation_check": {
+        "citations": 252,
+        "distinct_sources": 59,
+        "unknown_ids": [],
+        "excluded_citations": [],
+        "weak_snippet_citations": [],
+        "misquotes": [],
+        "verified_quotes": 25,
+        "unverified_numbers": [],
+        "wrong_dates": [],
+        "uncited_claims": [],
+        "claim_lines": 48,
+        "unsupported_flags": 0,
+        "missing_sections": [],
+        "coverage": 1.0,
+        "blocking": 0,
+        "passed": true
+      },
+      "serious": 0
+    }
+  ],
+  "final_citation_check": {
+    "citations": 252,
+    "distinct_sources": 59,
+    "unknown_ids": [],
+    "excluded_citations": [],
+    "weak_snippet_citations": [],
+    "misquotes": [],
+    "verified_quotes": 25,
+    "unverified_numbers": [],
+    "wrong_dates": [],
+    "uncited_claims": [],
+    "claim_lines": 48,
+    "unsupported_flags": 0,
+    "missing_sections": [],
+    "coverage": 1.0,
+    "blocking": 0,
+    "passed": true
+  },
+  "totals": {
+    "calls": 20,
+    "input_tokens": 232044,
+    "output_tokens": 62512,
+    "cache_read_tokens": 0,
+    "thinking_tokens": 36285,
+    "tool_calls": 13,
+    "cost_usd": 0.408453,
+    "model_time_s": 501.84,
+    "wall_clock_s": 445.742,
+    "cost_incomplete": false
+  }
+}

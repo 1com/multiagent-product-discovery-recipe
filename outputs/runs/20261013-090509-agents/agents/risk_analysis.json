@@ -1,0 +1,122 @@
+{
+  "assumptions": [
+    {
+      "id": "A1",
+      "statement": "Households will keep a pantry inventory up to date manually or via low-effort input.",
+      "category": "usability",
+      "evidence_for": [],
+      "evidence_against": [
+        "P02:t8",
+        "P05:t8",
+        "P07:t8",
+        "P08:t8",
+        "P10:t8"
+      ],
+      "confidence": "low",
+      "impact_if_wrong": "high",
+      "rationale": "Users explicitly state they will quit if inventory entry requires typing."
+    },
+    {
+      "id": "A2",
+      "statement": "Households want automated weekly dinner plans combined with inventory tracking.",
+      "category": "desirability",
+      "evidence_for": [
+        "P01:t2",
+        "P02:t1",
+        "P03:t2",
+        "P04:t2",
+        "P05:t2",
+        "S01",
+        "S02",
+        "S04"
+      ],
+      "evidence_against": [
+        "P03:t1",
+        "P05:t1",
+        "P09:t8"
+      ],
+      "confidence": "medium",
+      "impact_if_wrong": "high",
+      "rationale": "Decision fatigue is widespread, but some users prefer manual planning or distrust automation."
+    },
+    {
+      "id": "A3",
+      "statement": "Users will pay a monthly subscription fee for PantryPal.",
+      "category": "viability",
+      "evidence_for": [
+        "P01:t9",
+        "P02:t9",
+        "P04:t9",
+        "P10:t9",
+        "S05"
+      ],
+      "evidence_against": [
+        "P05:t9",
+        "P09:t9"
+      ],
+      "confidence": "low",
+      "impact_if_wrong": "high",
+      "rationale": "Many users expect free ad-supported versions or low fees, limiting willingness to pay."
+    },
+    {
+      "id": "A4",
+      "statement": "PantryPal can solve household shopping coordination and reduce food waste.",
+      "category": "desirability",
+      "evidence_for": [
+        "P01:t2",
+        "P02:t2",
+        "P03:t2",
+        "P05:t2",
+        "P08:t2",
+        "P10:t2",
+        "S01",
+        "S02"
+      ],
+      "evidence_against": [
+        "P09:t8"
+      ],
+      "confidence": "medium",
+      "impact_if_wrong": "high",
+      "rationale": "Food waste is a real pain point, but actual behaviour change through an app is unproven."
+    }
+  ],
+  "riskiest_assumptions": [
+    "A1",
+    "A3",
+    "A2",
+    "A4"
+  ],
+  "experiments": [
+    {
+      "id": "E1",
+      "tests_assumptions": [
+        "A1"
+      ],
+      "hypothesis": "Users will complete a low-effort inventory input method without churning during the first week.",
+      "method": "Ask 20 target households to test a prototype receipt or photo scanner interface for one week and track daily inventory updates.",
+      "success_metric": "At least 70 percent of participants log inventory and return to update it at least twice during the week.",
+      "cost": "low"
+    },
+    {
+      "id": "E2",
+      "tests_assumptions": [
+        "A3"
+      ],
+      "hypothesis": "Users are willing to pay EUR 4.99 per month after experiencing grocery savings.",
+      "method": "Run a landing page test presenting free versus premium pricing tiers to 500 targeted visitors.",
+      "success_metric": "At least 5 percent click through and enter payment details.",
+      "cost": "low"
+    }
+  ],
+  "open_questions": [
+    "What are the country, income levels, and recruitment methods of the participants?",
+    "How do users behave over time regarding long-term usage and measured waste?",
+    "How do users prefer to input their inventory (photo, barcode, receipt, or online order history)?",
+    "Do users keep planning after week one?",
+    "What is the competitor traction, user base, ratings, and churn rate?",
+    "What is the specific market size for the target segment?",
+    "Who in the household actually decides what to eat and who pays for the subscription?"
+  ],
+  "suggested_recommendation": "test_further",
+  "recommendation_reason": "While decision fatigue and food waste are validated problems, the high usability risk of inventory maintenance and uncertainty around subscription willingness to pay require targeted testing before full development."
+}

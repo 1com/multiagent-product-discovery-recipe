@@ -1,0 +1,654 @@
+{
+  "totals": {
+    "calls": 17,
+    "input_tokens": 205355,
+    "output_tokens": 71397,
+    "cache_read_tokens": 16071,
+    "thinking_tokens": 45639,
+    "tool_calls": 16,
+    "cost_usd": 0.422961,
+    "model_time_s": 509.211,
+    "wall_clock_s": 482.415,
+    "cost_incomplete": false
+  },
+  "per_agent": {
+    "research_synthesiser": {
+      "calls": 5,
+      "input_tokens": 42294,
+      "output_tokens": 26098,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 18085,
+      "cost_usd": 0.129588,
+      "latency_s": 187.394,
+      "tool_calls": 10
+    },
+    "market_analyst": {
+      "calls": 1,
+      "input_tokens": 2483,
+      "output_tokens": 4215,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 1840,
+      "cost_usd": 0.017669,
+      "latency_s": 27.084,
+      "tool_calls": 0
+    },
+    "risk_analyst": {
+      "calls": 1,
+      "input_tokens": 11627,
+      "output_tokens": 8877,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 5764,
+      "cost_usd": 0.042009,
+      "latency_s": 66.418,
+      "tool_calls": 0
+    },
+    "brief_writer": {
+      "calls": 2,
+      "input_tokens": 41001,
+      "output_tokens": 16303,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 6292,
+      "cost_usd": 0.091887,
+      "latency_s": 109.092,
+      "tool_calls": 0
+    },
+    "critic": {
+      "calls": 8,
+      "input_tokens": 107950,
+      "output_tokens": 15904,
+      "cache_read_tokens": 16071,
+      "thinking_tokens": 13658,
+      "cost_usd": 0.141808,
+      "latency_s": 119.223,
+      "tool_calls": 6
+    }
+  },
+  "calls": [
+    {
+      "agent": "research_synthesiser",
+      "step": "synthesis",
+      "model": "gemini-3.8-flash",
+      "input_tokens": 2041,
+      "output_tokens": 295,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 235,
+      "cost_usd": 0.002637,
+      "latency_s": 4.468,
+      "finish_reason": "STOP",
+      "model_version": "gemini-3.8-flash"
+    },
+    {
+      "agent": "research_synthesiser",
+      "step": "synthesis/tool-round-1",
+      "model": "gemini-3.8-flash",
+      "input_tokens": 5736,
+      "output_tokens": 89,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 29,
+      "cost_usd": 0.004636,
+      "latency_s": 4.067,
+      "finish_reason": "STOP",
+      "model_version": "gemini-3.8-flash"
+    },
+    {
+      "agent": "research_synthesiser",
+      "step": "synthesis/tool-round-2",
+      "model": "gemini-3.8-flash",
+      "input_tokens": 9225,
+      "output_tokens": 77,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 17,
+      "cost_usd": 0.007208,
+      "latency_s": 3.018,
+      "finish_reason": "STOP",
+      "model_version": "gemini-3.8-flash"
+    },
+    {
+      "agent": "research_synthesiser",
+      "step": "synthesis/tool-round-3",
+      "model": "gemini-3.8-flash",
+      "input_tokens": 12591,
+      "output_tokens": 83,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 63,
+      "cost_usd": 0.009754,
+      "latency_s": 3.222,
+      "finish_reason": "STOP",
+      "model_version": "gemini-3.8-flash"
+    },
+    {
+      "agent": "market_analyst",
+      "step": "analysis",
+      "model": "gemini-3.8-flash",
+      "input_tokens": 2483,
+      "output_tokens": 4215,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 1840,
+      "cost_usd": 0.017669,
+      "latency_s": 27.084,
+      "finish_reason": "STOP",
+      "model_version": "gemini-3.8-flash"
+    },
+    {
+      "agent": "research_synthesiser",
+      "step": "synthesis/tool-round-4",
+      "model": "gemini-3.8-flash",
+      "input_tokens": 12701,
+      "output_tokens": 25554,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 17741,
+      "cost_usd": 0.105353,
+      "latency_s": 172.619,
+      "finish_reason": "STOP",
+      "model_version": "gemini-3.8-flash"
+    },
+    {
+      "agent": "risk_analyst",
+      "step": "analysis",
+      "model": "gemini-3.8-flash",
+      "input_tokens": 11627,
+      "output_tokens": 8877,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 5764,
+      "cost_usd": 0.042009,
+      "latency_s": 66.418,
+      "finish_reason": "STOP",
+      "model_version": "gemini-3.8-flash"
+    },
+    {
+      "agent": "brief_writer",
+      "step": "draft",
+      "model": "gemini-3.8-flash",
+      "input_tokens": 15903,
+      "output_tokens": 7980,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 2967,
+      "cost_usd": 0.041852,
+      "latency_s": 56.94,
+      "finish_reason": "STOP",
+      "model_version": "gemini-3.8-flash"
+    },
+    {
+      "agent": "critic",
+      "step": "review-0",
+      "model": "gemini-3.8-flash",
+      "input_tokens": 6542,
+      "output_tokens": 1008,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 814,
+      "cost_usd": 0.008686,
+      "latency_s": 8.17,
+      "finish_reason": "STOP",
+      "model_version": "gemini-3.8-flash"
+    },
+    {
+      "agent": "critic",
+      "step": "review-0/tool-round-1",
+      "model": "gemini-3.8-flash",
+      "input_tokens": 9850,
+      "output_tokens": 301,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 151,
+      "cost_usd": 0.008516,
+      "latency_s": 4.132,
+      "finish_reason": "STOP",
+      "model_version": "gemini-3.8-flash"
+    },
+    {
+      "agent": "critic",
+      "step": "review-0/tool-round-2",
+      "model": "gemini-3.8-flash",
+      "input_tokens": 11843,
+      "output_tokens": 142,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 53,
+      "cost_usd": 0.009415,
+      "latency_s": 2.671,
+      "finish_reason": "STOP",
+      "model_version": "gemini-3.8-flash"
+    },
+    {
+      "agent": "critic",
+      "step": "review-0/tool-round-3",
+      "model": "gemini-3.8-flash",
+      "input_tokens": 12863,
+      "output_tokens": 814,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 775,
+      "cost_usd": 0.0127,
+      "latency_s": 6.076,
+      "finish_reason": "STOP",
+      "model_version": "gemini-3.8-flash"
+    },
+    {
+      "agent": "critic",
+      "step": "review-0/tool-round-4",
+      "model": "gemini-3.8-flash",
+      "input_tokens": 14058,
+      "output_tokens": 3708,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 3678,
+      "cost_usd": 0.024449,
+      "latency_s": 24.446,
+      "finish_reason": "STOP",
+      "model_version": "gemini-3.8-flash"
+    },
+    {
+      "agent": "critic",
+      "step": "review-0/tool-round-5",
+      "model": "gemini-3.8-flash",
+      "input_tokens": 18009,
+      "output_tokens": 1662,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 1644,
+      "cost_usd": 0.019739,
+      "latency_s": 12.008,
+      "finish_reason": "STOP",
+      "model_version": "gemini-3.8-flash"
+    },
+    {
+      "agent": "critic",
+      "step": "review-0/tool-round-6",
+      "model": "gemini-3.8-flash",
+      "input_tokens": 3798,
+      "output_tokens": 6073,
+      "cache_read_tokens": 16071,
+      "thinking_tokens": 4657,
+      "cost_usd": 0.026828,
+      "latency_s": 44.367,
+      "finish_reason": "STOP",
+      "model_version": "gemini-3.8-flash"
+    },
+    {
+      "agent": "brief_writer",
+      "step": "revision-1",
+      "model": "gemini-3.8-flash",
+      "input_tokens": 25098,
+      "output_tokens": 8323,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 3325,
+      "cost_usd": 0.050035,
+      "latency_s": 52.152,
+      "finish_reason": "STOP",
+      "model_version": "gemini-3.8-flash"
+    },
+    {
+      "agent": "critic",
+      "step": "review-1",
+      "model": "gemini-3.8-flash",
+      "input_tokens": 30987,
+      "output_tokens": 2196,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 1886,
+      "cost_usd": 0.031475,
+      "latency_s": 17.353,
+      "finish_reason": "STOP",
+      "model_version": "gemini-3.8-flash"
+    }
+  ],
+  "tool_calls": [
+    {
+      "agent": "research_synthesiser",
+      "tool": "read_interview",
+      "input": {
+        "interview_id": "P01"
+      },
+      "result_ids": [
+        "P01:t1",
+        "P01:t2",
+        "P01:t3",
+        "P01:t4",
+        "P01:t5",
+        "P01:t6",
+        "P01:t7",
+        "P01:t8",
+        "P01:t9",
+        "P01:t10"
+      ],
+      "is_error": false
+    },
+    {
+      "agent": "research_synthesiser",
+      "tool": "read_interview",
+      "input": {
+        "interview_id": "P02"
+      },
+      "result_ids": [
+        "P02:t1",
+        "P02:t2",
+        "P02:t3",
+        "P02:t4",
+        "P02:t5",
+        "P02:t6",
+        "P02:t7",
+        "P02:t8",
+        "P02:t9",
+        "P02:t10"
+      ],
+      "is_error": false
+    },
+    {
+      "agent": "research_synthesiser",
+      "tool": "read_interview",
+      "input": {
+        "interview_id": "P09"
+      },
+      "result_ids": [
+        "P09:t1",
+        "P09:t2",
+        "P09:t3",
+        "P09:t4",
+        "P09:t5",
+        "P09:t6",
+        "P09:t7",
+        "P09:t8",
+        "P09:t9",
+        "P09:t10"
+      ],
+      "is_error": false
+    },
+    {
+      "agent": "research_synthesiser",
+      "tool": "read_interview",
+      "input": {
+        "interview_id": "P03"
+      },
+      "result_ids": [
+        "P03:t1",
+        "P03:t2",
+        "P03:t3",
+        "P03:t4",
+        "P03:t5",
+        "P03:t6",
+        "P03:t7",
+        "P03:t8",
+        "P03:t9",
+        "P03:t10"
+      ],
+      "is_error": false
+    },
+    {
+      "agent": "research_synthesiser",
+      "tool": "read_interview",
+      "input": {
+        "interview_id": "P04"
+      },
+      "result_ids": [
+        "P04:t1",
+        "P04:t2",
+        "P04:t3",
+        "P04:t4",
+        "P04:t5",
+        "P04:t6",
+        "P04:t7",
+        "P04:t8",
+        "P04:t9",
+        "P04:t10"
+      ],
+      "is_error": false
+    },
+    {
+      "agent": "research_synthesiser",
+      "tool": "read_interview",
+      "input": {
+        "interview_id": "P05"
+      },
+      "result_ids": [
+        "P05:t1",
+        "P05:t2",
+        "P05:t3",
+        "P05:t4",
+        "P05:t5",
+        "P05:t6",
+        "P05:t7",
+        "P05:t8",
+        "P05:t9",
+        "P05:t10"
+      ],
+      "is_error": false
+    },
+    {
+      "agent": "research_synthesiser",
+      "tool": "read_interview",
+      "input": {
+        "interview_id": "P07"
+      },
+      "result_ids": [
+        "P07:t1",
+        "P07:t2",
+        "P07:t3",
+        "P07:t4",
+        "P07:t5",
+        "P07:t6",
+        "P07:t7",
+        "P07:t8",
+        "P07:t9",
+        "P07:t10"
+      ],
+      "is_error": false
+    },
+    {
+      "agent": "research_synthesiser",
+      "tool": "read_interview",
+      "input": {
+        "interview_id": "P08"
+      },
+      "result_ids": [
+        "P08:t1",
+        "P08:t2",
+        "P08:t3",
+        "P08:t4",
+        "P08:t5",
+        "P08:t6",
+        "P08:t7",
+        "P08:t8",
+        "P08:t9",
+        "P08:t10"
+      ],
+      "is_error": false
+    },
+    {
+      "agent": "research_synthesiser",
+      "tool": "read_interview",
+      "input": {
+        "interview_id": "P10"
+      },
+      "result_ids": [
+        "P10:t1",
+        "P10:t2",
+        "P10:t3",
+        "P10:t4",
+        "P10:t5",
+        "P10:t6",
+        "P10:t7",
+        "P10:t8",
+        "P10:t9",
+        "P10:t10"
+      ],
+      "is_error": false
+    },
+    {
+      "agent": "research_synthesiser",
+      "tool": "read_interview",
+      "input": {
+        "interview_id": "P06"
+      },
+      "result_ids": [],
+      "is_error": true
+    },
+    {
+      "agent": "critic",
+      "tool": "get_sources",
+      "input": {
+        "ids": [
+          "P01:t4",
+          "P01:t8",
+          "P01:t9",
+          "P01:t10",
+          "P02:t1",
+          "P02:t2",
+          "P02:t3",
+          "P02:t4",
+          "P02:t8",
+          "P02:t9",
+          "P03:t1",
+          "P03:t2",
+          "P03:t9",
+          "P03:t10",
+          "P04:t4",
+          "P04:t5",
+          "P04:t9",
+          "P08:t9",
+          "P09:t1",
+          "P09:t4"
+        ]
+      },
+      "result_ids": [
+        "P01:t4",
+        "P01:t8",
+        "P01:t9",
+        "P01:t10",
+        "P02:t1",
+        "P02:t2",
+        "P02:t3",
+        "P02:t4",
+        "P02:t8",
+        "P02:t9",
+        "P03:t1",
+        "P03:t2",
+        "P03:t9",
+        "P03:t10",
+        "P04:t4",
+        "P04:t5",
+        "P04:t9",
+        "P08:t9",
+        "P09:t1",
+        "P09:t4"
+      ],
+      "is_error": false
+    },
+    {
+      "agent": "critic",
+      "tool": "get_sources",
+      "input": {
+        "ids": [
+          "P01:t2",
+          "P01:t5",
+          "P04:t2",
+          "P05:t1",
+          "P05:t2",
+          "P05:t4",
+          "P05:t9",
+          "P07:t9",
+          "P08:t1",
+          "P09:t2",
+          "P09:t9",
+          "P10:t2",
+          "S01",
+          "S02",
+          "S03",
+          "S04",
+          "S05"
+        ]
+      },
+      "result_ids": [
+        "P01:t2",
+        "P01:t5",
+        "P04:t2",
+        "P05:t1",
+        "P05:t2",
+        "P05:t4",
+        "P05:t9",
+        "P07:t9",
+        "P08:t1",
+        "P09:t2",
+        "P09:t9",
+        "P10:t2",
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05"
+      ],
+      "is_error": false
+    },
+    {
+      "agent": "critic",
+      "tool": "get_sources",
+      "input": {
+        "ids": [
+          "C:FridgeChef",
+          "C:MealLoop",
+          "C:PlanPlate",
+          "C:PantryGenie",
+          "C:SupperSync",
+          "C:ZeroWaste Kitchen",
+          "C:WeekWise",
+          "S06",
+          "S07",
+          "S08",
+          "S09"
+        ]
+      },
+      "result_ids": [
+        "C:FridgeChef",
+        "C:MealLoop",
+        "C:PlanPlate",
+        "C:PantryGenie",
+        "C:SupperSync",
+        "C:ZeroWaste Kitchen",
+        "C:WeekWise",
+        "S06",
+        "S07",
+        "S08",
+        "S09"
+      ],
+      "is_error": false
+    },
+    {
+      "agent": "critic",
+      "tool": "get_sources",
+      "input": {
+        "ids": [
+          "P08:t2",
+          "P08:t3",
+          "P08:t4"
+        ]
+      },
+      "result_ids": [
+        "P08:t2",
+        "P08:t3",
+        "P08:t4"
+      ],
+      "is_error": false
+    },
+    {
+      "agent": "critic",
+      "tool": "get_sources",
+      "input": {
+        "ids": [
+          "P07:t1",
+          "P07:t2"
+        ]
+      },
+      "result_ids": [
+        "P07:t1",
+        "P07:t2"
+      ],
+      "is_error": false
+    },
+    {
+      "agent": "critic",
+      "tool": "get_sources",
+      "input": {
+        "ids": [
+          "idea_brief"
+        ]
+      },
+      "result_ids": [
+        "idea_brief"
+      ],
+      "is_error": false
+    }
+  ]
+}

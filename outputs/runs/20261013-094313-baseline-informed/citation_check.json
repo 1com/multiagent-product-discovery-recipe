@@ -1,0 +1,25 @@
+{
+  "citations": 146,
+  "distinct_sources": 77,
+  "unknown_ids": [],
+  "excluded_citations": [],
+  "weak_snippet_citations": [],
+  "misquotes": [],
+  "verified_quotes": 18,
+  "unverified_numbers": [
+    "EUR 3.49: - Test acquisition messaging highlighting grocery savings and reduced waste at price points of EUR 3"
+  ],
+  "wrong_dates": [],
+  "uncited_claims": [
+    "- Experiment 1: Low-effort inventory onboarding prototype (Concierge / Wizard of Oz)",
+    "- Test whether users will log baseline fridge/pantry items via receipt scanning, photo snapping, or quick-select onboard",
+    "- Compare engagement between two cohorts: Cohort A receives a fixed 5-day dinner plan; Cohort B receives a dynamic tonig",
+    "- Test acquisition messaging highlighting grocery savings and reduced waste at price points of EUR 3.49/month and EUR 4."
+  ],
+  "claim_lines": 35,
+  "unsupported_flags": 3,
+  "missing_sections": [],
+  "coverage": 0.886,
+  "blocking": 0,
+  "passed": true
+}

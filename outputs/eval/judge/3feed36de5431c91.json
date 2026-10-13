@@ -1,0 +1,95 @@
+{
+  "brief_id": "20261013-094241-baseline-naive",
+  "judge_model": "gemini-3.1-pro-preview",
+  "verdict": {
+    "traps": [
+      {
+        "trap_id": "T01",
+        "handled": true,
+        "excerpt": "P06 was subjected entirely to leading questions, making the interview methodologically invalid [P06:t1, P06:t2, P06:t8]."
+      },
+      {
+        "trap_id": "T02",
+        "handled": false,
+        "excerpt": ""
+      },
+      {
+        "trap_id": "T03",
+        "handled": true,
+        "excerpt": "P07 is a solo university student who cooks once a week and relies on takeout, outside the target definition [P07, P07:t1]."
+      },
+      {
+        "trap_id": "T04",
+        "handled": true,
+        "excerpt": "P09 represents a retired couple who have maintained the same cooking routine for forty years with zero desire for digital tools [P09, P09:t1]."
+      },
+      {
+        "trap_id": "T05",
+        "handled": true,
+        "excerpt": "P08 claimed an extreme willingness to pay EUR 30 a month after throwing out EUR 200 of spoiled holiday food, but this represents an unvalidated extreme stated preference following a one-off trauma [P08:t2, P08:t9]."
+      },
+      {
+        "trap_id": "T06",
+        "handled": true,
+        "excerpt": "Inventory onboarding friction risk: If users are forced to scan or type pantry contents manually, they will churn immediately [P02:t8, P05:t8, P08:t8, P10:t8]."
+      },
+      {
+        "trap_id": "T07",
+        "handled": true,
+        "excerpt": "One participant stated, \"Planning is my favourite part of the week, honestly. I would never want an app to take that away from me.\" [P03:t1]. Another stated, \"Planning ahead stresses me out. A plan I don't follow feels like failure, so I decide on the day.\" [P05:t1]."
+      },
+      {
+        "trap_id": "T08",
+        "handled": true,
+        "excerpt": "Household sync risk: Uncoordinated shopping by multiple partners creates waste and duplicates unless updates sync in real time [P02:t2, P04:t4, P10:t2]."
+      },
+      {
+        "trap_id": "T09",
+        "handled": false,
+        "excerpt": ""
+      },
+      {
+        "trap_id": "T10",
+        "handled": false,
+        "excerpt": ""
+      },
+      {
+        "trap_id": "T11",
+        "handled": true,
+        "excerpt": "Claim that 97% of households would pay for automated meal planning: This figure from App Trends Blog is an extreme outlier contradicted by interview data where most users seek free or low-cost apps [P01:t9, P02:t9, P03:t9, P05:t9, S08]. Claim that the meal-planning market grows by 25% annually: Snippet S06 lists no source and no year, making it unverified [S06]. Claim that 73% of families struggle with dinner decisions: Snippet S07 provides no source and no year, making it unverified [S07]. Claim that online grocery purchases represent only 4%: Snippet S09 comes from a 2016 study, which is a decade old and likely outdated [S09]."
+      },
+      {
+        "trap_id": "T12",
+        "handled": false,
+        "excerpt": ""
+      }
+    ],
+    "criteria": [
+      {
+        "criterion_id": "C1",
+        "score": 5,
+        "justification": "The brief is highly comprehensive and answers all six required questions with rich detail, successfully linking problems to specific customer segments and market data."
+      },
+      {
+        "criterion_id": "C2",
+        "score": 5,
+        "justification": "Every key claim is tightly grounded in explicitly cited sources. The brief actively distinguishes between actual behaviors and stated preferences, maximizing the clarity of the evidence."
+      },
+      {
+        "criterion_id": "C3",
+        "score": 4,
+        "justification": "The brief is generally well-calibrated, identifying invalid interviews and rejecting extreme outlier figures. However, it fails to recognize identical templated responses from participants as an anomaly, mistakenly treating them as independent verification."
+      },
+      {
+        "criterion_id": "C4",
+        "score": 5,
+        "justification": "The recommendations are clear and tightly mapped to the riskiest assumptions. The proposed experiments are exceptionally concrete, fully detailing the target audience, method, sample sizes, and threshold success metrics."
+      },
+      {
+        "criterion_id": "C5",
+        "score": 5,
+        "justification": "The brief is perfectly concise and highly readable. It uses strong structural formatting like bullet points and bold headers, making it completely effortless for a product team to scan and act upon."
+      }
+    ]
+  }
+}

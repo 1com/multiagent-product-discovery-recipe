@@ -1,0 +1,19 @@
+{
+  "citations": 96,
+  "distinct_sources": 50,
+  "unknown_ids": [],
+  "excluded_citations": [],
+  "weak_snippet_citations": [],
+  "misquotes": [],
+  "verified_quotes": 9,
+  "unverified_numbers": [],
+  "uncited_claims": [
+    "The target customer is defined as households of two or more people who cook at home on most weeknights [idea_brief]. Res"
+  ],
+  "claim_lines": 23,
+  "unsupported_flags": 13,
+  "missing_sections": [],
+  "coverage": 0.957,
+  "blocking": 0,
+  "passed": true
+}

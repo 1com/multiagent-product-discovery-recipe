@@ -1,0 +1,95 @@
+{
+  "brief_id": "20261013-095927-baseline-naive",
+  "judge_model": "gemini-3.1-pro-preview",
+  "verdict": {
+    "traps": [
+      {
+        "trap_id": "T01",
+        "handled": true,
+        "excerpt": "interview P06 must be discounted due to leading interviewer questions"
+      },
+      {
+        "trap_id": "T02",
+        "handled": false,
+        "excerpt": ""
+      },
+      {
+        "trap_id": "T03",
+        "handled": true,
+        "excerpt": "In contrast, university students living alone cook infrequently and rely on convenience options [P07:t1]."
+      },
+      {
+        "trap_id": "T04",
+        "handled": true,
+        "excerpt": "Similarly, retired couples maintain decades-old stable routines without needing planning apps [P09:t1]."
+      },
+      {
+        "trap_id": "T05",
+        "handled": true,
+        "excerpt": "One extreme outlier offered thirty euros a month following a massive spoilage disaster, but this is an unrepresentative exception [P08:t2, P08:t9]."
+      },
+      {
+        "trap_id": "T06",
+        "handled": true,
+        "excerpt": "Users refuse to log inventory manually, creating severe abandonment risk during onboarding [P02:t8, P05:t8, P08:t8, P10:t8]."
+      },
+      {
+        "trap_id": "T07",
+        "handled": true,
+        "excerpt": "Solo individuals and freelance couples with unpredictable hours feel constrained by rigid meal plans [P05:t1, P07:t1]."
+      },
+      {
+        "trap_id": "T08",
+        "handled": true,
+        "excerpt": "Dual-shopper households experience uncoordinated purchasing, resulting in duplicate ingredients that spoil [P02:t2, P02:t4, P04:t4, P10:t2]."
+      },
+      {
+        "trap_id": "T09",
+        "handled": true,
+        "excerpt": "PantryGenie tracks pantry inventory with barcode scanning and expiry alerts for EUR 3.99/month, but lacks automated dinner planning [C:PantryGenie]."
+      },
+      {
+        "trap_id": "T10",
+        "handled": false,
+        "excerpt": ""
+      },
+      {
+        "trap_id": "T11",
+        "handled": true,
+        "excerpt": "The claim that 97% of households would pay for automated meal planning is an unsubstantiated blog assertion contradicted by interview data [P03:t9, P05:t9, P07:t9, P09:t9, S08]."
+      },
+      {
+        "trap_id": "T12",
+        "handled": false,
+        "excerpt": ""
+      }
+    ],
+    "criteria": [
+      {
+        "criterion_id": "C1",
+        "score": 5,
+        "justification": "The brief comprehensively answers all six essential questions through clearly labeled sections. Every required topic, from user segments to prioritised next steps, is addressed with substantial detail."
+      },
+      {
+        "criterion_id": "C2",
+        "score": 4,
+        "justification": "Claims are meticulously cited to specific participant and source tags throughout the document. However, it misses the small sample size limitation and fails to identify perfectly identical participant quotes as templated data."
+      },
+      {
+        "criterion_id": "C3",
+        "score": 3,
+        "justification": "Conclusions are generally well-calibrated, particularly in flagging market statistics and outliers like the high willingness to pay. However, the brief occasionally overstates findings by asserting that small qualitative studies 'confirm' behavioral trends."
+      },
+      {
+        "criterion_id": "C4",
+        "score": 5,
+        "justification": "The recommendations are clear, justified, and followed by highly specific tests. Each proposed test clearly outlines the method, target audience, sample size, and quantitative success metrics directly tied to the riskiest assumptions."
+      },
+      {
+        "criterion_id": "C5",
+        "score": 5,
+        "justification": "The brief is exceptionally well structured with clear headings and bulleted lists. Its concise layout allows product managers and engineers to easily digest the findings and recommended actions without unnecessary padding."
+      }
+    ]
+  }
+}

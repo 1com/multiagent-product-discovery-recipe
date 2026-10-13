@@ -1,0 +1,23 @@
+{
+  "citations": 176,
+  "distinct_sources": 60,
+  "unknown_ids": [],
+  "excluded_citations": [],
+  "weak_snippet_citations": [],
+  "misquotes": [],
+  "verified_quotes": 15,
+  "unverified_numbers": [],
+  "wrong_dates": [],
+  "uncited_claims": [
+    "Before building the planner, the team must run three prioritized experiments to test the riskiest assumptions:",
+    "1. Experiment 1: Low-effort inventory input concierge test (tests assumptions A1 and A7).",
+    "2. Experiment 2: Weekly plan vs. same-day recommendations test (tests assumption A2).",
+    "3. Experiment 3: Value proposition and subscription pre-order test (tests assumptions A3, A5, and A6)."
+  ],
+  "claim_lines": 50,
+  "unsupported_flags": 21,
+  "missing_sections": [],
+  "coverage": 0.92,
+  "blocking": 0,
+  "passed": true
+}

@@ -1,0 +1,51 @@
+{
+  "run_id": "20261013-094313-baseline-informed",
+  "mode": "baseline-informed",
+  "started_at": "2026-10-13T09:43:13.727051+00:00",
+  "config": {
+    "model": "gemini-3.8-flash",
+    "effort": "medium",
+    "max_tokens": 32000,
+    "max_tool_rounds": 12,
+    "variant": "informed",
+    "code_fingerprint": "369c56e9bcf3"
+  },
+  "recommendation": "test_further",
+  "final_citation_check": {
+    "citations": 146,
+    "distinct_sources": 77,
+    "unknown_ids": [],
+    "excluded_citations": [],
+    "weak_snippet_citations": [],
+    "misquotes": [],
+    "verified_quotes": 18,
+    "unverified_numbers": [
+      "EUR 3.49: - Test acquisition messaging highlighting grocery savings and reduced waste at price points of EUR 3"
+    ],
+    "wrong_dates": [],
+    "uncited_claims": [
+      "- Experiment 1: Low-effort inventory onboarding prototype (Concierge / Wizard of Oz)",
+      "- Test whether users will log baseline fridge/pantry items via receipt scanning, photo snapping, or quick-select onboard",
+      "- Compare engagement between two cohorts: Cohort A receives a fixed 5-day dinner plan; Cohort B receives a dynamic tonig",
+      "- Test acquisition messaging highlighting grocery savings and reduced waste at price points of EUR 3.49/month and EUR 4."
+    ],
+    "claim_lines": 35,
+    "unsupported_flags": 3,
+    "missing_sections": [],
+    "coverage": 0.886,
+    "blocking": 0,
+    "passed": true
+  },
+  "totals": {
+    "calls": 1,
+    "input_tokens": 14845,
+    "output_tokens": 4872,
+    "cache_read_tokens": 0,
+    "thinking_tokens": 1118,
+    "tool_calls": 0,
+    "cost_usd": 0.029404,
+    "model_time_s": 35.498,
+    "wall_clock_s": 35.531,
+    "cost_incomplete": false
+  }
+}

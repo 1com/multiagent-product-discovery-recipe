@@ -1,0 +1,95 @@
+{
+  "brief_id": "20261013-094313-baseline-informed",
+  "judge_model": "gemini-3.1-pro-preview",
+  "verdict": {
+    "traps": [
+      {
+        "trap_id": "T01",
+        "handled": true,
+        "excerpt": "Note: P06 was excluded due to extreme interviewer bias [P06]."
+      },
+      {
+        "trap_id": "T02",
+        "handled": true,
+        "excerpt": "(identical templated phrasing repeated in P05:t8, P07:t8, P10:t8)"
+      },
+      {
+        "trap_id": "T03",
+        "handled": true,
+        "excerpt": "Solo dwellers (Out of target; 1 interview, raw count 1, weighted count 0.25: P07 [weight 0.25])"
+      },
+      {
+        "trap_id": "T04",
+        "handled": true,
+        "excerpt": "Predictable routine retirees (In-target; 1 interview, raw count 1, weighted count 0.90: P09 [weight 0.90]): Cook daily at home, but have decades-old stable habits and lack the problem [P09:t1, P09:t2]."
+      },
+      {
+        "trap_id": "T05",
+        "handled": true,
+        "excerpt": "P08 offered an outlier stated figure of \"thirty euros a month, easy\" [P08:t9], but this was anchored on an extreme one-time holiday spoilage event [P08:t2, P08:t4]."
+      },
+      {
+        "trap_id": "T06",
+        "handled": true,
+        "excerpt": "Critical assumption 1 (Highest risk): Households will keep an inventory up to date."
+      },
+      {
+        "trap_id": "T07",
+        "handled": true,
+        "excerpt": "P03 presented an internal contradiction: stating \"Planning is my favourite part of the week, honestly. I would never want an app to take that away from me.\""
+      },
+      {
+        "trap_id": "T08",
+        "handled": true,
+        "excerpt": "Claim: Households argue about what is for dinner and PantryPal will stop arguments [idea_brief]. Weakly supported; documented in only 1 couple turn [P02:t3]."
+      },
+      {
+        "trap_id": "T09",
+        "handled": true,
+        "excerpt": "The idea brief claims existing apps do not know what you already own [idea_brief]. This claim is contradicted by PantryGenie and FridgeChef, which track inventory or fridge contents"
+      },
+      {
+        "trap_id": "T10",
+        "handled": true,
+        "excerpt": "PlanPlate: Simple meal planning calendar at EUR 2.99/month (verified 2024-11-05; possibly outdated)"
+      },
+      {
+        "trap_id": "T11",
+        "handled": true,
+        "excerpt": "Claim: Annual market growth rate of 25% for meal planning apps [S06]. Marked unsupported due to missing source and date [S06]."
+      },
+      {
+        "trap_id": "T12",
+        "handled": false,
+        "excerpt": ""
+      }
+    ],
+    "criteria": [
+      {
+        "criterion_id": "C1",
+        "score": 5,
+        "justification": "The brief is highly comprehensive and answers all six necessary questions explicitly. Each section provides thorough, meaningful substance, leaving no critical aspect unaddressed."
+      },
+      {
+        "criterion_id": "C2",
+        "score": 5,
+        "justification": "Claims are thoroughly grounded in specific tags and evidence. The strength of the evidence is meticulously quantified using raw and weighted counts, and caveats such as behavioral failure versus stated preferences are explicitly highlighted."
+      },
+      {
+        "criterion_id": "C3",
+        "score": 5,
+        "justification": "The brief demonstrates excellent calibration, recognizing real pains while correctly tempering expectations around manual data entry and willingness to pay. Unreliable metrics and outlier claims are appropriately challenged rather than taken at face value."
+      },
+      {
+        "criterion_id": "C4",
+        "score": 5,
+        "justification": "The recommendation is unambiguous and firmly justified. The proposed next tests are concrete, targeting the riskiest assumptions like inventory onboarding, and they include specific metrics and sample sizes."
+      },
+      {
+        "criterion_id": "C5",
+        "score": 5,
+        "justification": "The brief is highly organized, concise, and sharply structured. The use of clear headings and focused bullet points makes the research findings instantly actionable for a product team."
+      }
+    ]
+  }
+}

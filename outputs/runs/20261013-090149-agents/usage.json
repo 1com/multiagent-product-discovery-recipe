@@ -1,0 +1,273 @@
+{
+  "totals": {
+    "calls": 4,
+    "input_tokens": 15477,
+    "output_tokens": 5804,
+    "cache_read_tokens": 6997,
+    "thinking_tokens": 3629,
+    "tool_calls": 9,
+    "cost_usd": 0.0255,
+    "model_time_s": 107.67,
+    "wall_clock_s": 64.662,
+    "cost_incomplete": false
+  },
+  "per_agent": {
+    "research_synthesiser": {
+      "calls": 3,
+      "input_tokens": 13045,
+      "output_tokens": 1574,
+      "cache_read_tokens": 6997,
+      "thinking_tokens": 1385,
+      "cost_usd": 0.011594,
+      "latency_s": 43.045,
+      "tool_calls": 9
+    },
+    "market_analyst": {
+      "calls": 1,
+      "input_tokens": 2432,
+      "output_tokens": 4230,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 2244,
+      "cost_usd": 0.013906,
+      "latency_s": 64.625,
+      "tool_calls": 0
+    }
+  },
+  "calls": [
+    {
+      "agent": "research_synthesiser",
+      "step": "synthesis",
+      "model": "gemini-3-flash-preview",
+      "input_tokens": 1990,
+      "output_tokens": 743,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 643,
+      "cost_usd": 0.003224,
+      "latency_s": 34.805,
+      "finish_reason": "STOP",
+      "model_version": "gemini-3-flash-preview"
+    },
+    {
+      "agent": "research_synthesiser",
+      "step": "synthesis/tool-round-1",
+      "model": "gemini-3-flash-preview",
+      "input_tokens": 8376,
+      "output_tokens": 165,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 136,
+      "cost_usd": 0.004683,
+      "latency_s": 3.67,
+      "finish_reason": "STOP",
+      "model_version": "gemini-3-flash-preview"
+    },
+    {
+      "agent": "research_synthesiser",
+      "step": "synthesis/tool-round-2",
+      "model": "gemini-3-flash-preview",
+      "input_tokens": 2679,
+      "output_tokens": 666,
+      "cache_read_tokens": 6997,
+      "thinking_tokens": 606,
+      "cost_usd": 0.003687,
+      "latency_s": 4.57,
+      "finish_reason": "STOP",
+      "model_version": "gemini-3-flash-preview"
+    },
+    {
+      "agent": "market_analyst",
+      "step": "analysis",
+      "model": "gemini-3-flash-preview",
+      "input_tokens": 2432,
+      "output_tokens": 4230,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 2244,
+      "cost_usd": 0.013906,
+      "latency_s": 64.625,
+      "finish_reason": "STOP",
+      "model_version": "gemini-3-flash-preview"
+    }
+  ],
+  "tool_calls": [
+    {
+      "agent": "research_synthesiser",
+      "tool": "read_interview",
+      "input": {
+        "interview_id": "P01"
+      },
+      "result_ids": [
+        "P01:t1",
+        "P01:t2",
+        "P01:t3",
+        "P01:t4",
+        "P01:t5",
+        "P01:t6",
+        "P01:t7",
+        "P01:t8",
+        "P01:t9",
+        "P01:t10"
+      ],
+      "is_error": false
+    },
+    {
+      "agent": "research_synthesiser",
+      "tool": "read_interview",
+      "input": {
+        "interview_id": "P02"
+      },
+      "result_ids": [
+        "P02:t1",
+        "P02:t2",
+        "P02:t3",
+        "P02:t4",
+        "P02:t5",
+        "P02:t6",
+        "P02:t7",
+        "P02:t8",
+        "P02:t9",
+        "P02:t10"
+      ],
+      "is_error": false
+    },
+    {
+      "agent": "research_synthesiser",
+      "tool": "read_interview",
+      "input": {
+        "interview_id": "P09"
+      },
+      "result_ids": [
+        "P09:t1",
+        "P09:t2",
+        "P09:t3",
+        "P09:t4",
+        "P09:t5",
+        "P09:t6",
+        "P09:t7",
+        "P09:t8",
+        "P09:t9",
+        "P09:t10"
+      ],
+      "is_error": false
+    },
+    {
+      "agent": "research_synthesiser",
+      "tool": "read_interview",
+      "input": {
+        "interview_id": "P03"
+      },
+      "result_ids": [
+        "P03:t1",
+        "P03:t2",
+        "P03:t3",
+        "P03:t4",
+        "P03:t5",
+        "P03:t6",
+        "P03:t7",
+        "P03:t8",
+        "P03:t9",
+        "P03:t10"
+      ],
+      "is_error": false
+    },
+    {
+      "agent": "research_synthesiser",
+      "tool": "read_interview",
+      "input": {
+        "interview_id": "P04"
+      },
+      "result_ids": [
+        "P04:t1",
+        "P04:t2",
+        "P04:t3",
+        "P04:t4",
+        "P04:t5",
+        "P04:t6",
+        "P04:t7",
+        "P04:t8",
+        "P04:t9",
+        "P04:t10"
+      ],
+      "is_error": false
+    },
+    {
+      "agent": "research_synthesiser",
+      "tool": "search_interviews",
+      "input": {
+        "query": "inventory tracking fridge pantry update waste pay price",
+        "k": 10
+      },
+      "result_ids": [
+        "P03:t9",
+        "P03:t2",
+        "P07:t8",
+        "P08:t8",
+        "P10:t8",
+        "P05:t9",
+        "P09:t9",
+        "P08:t9",
+        "P03:t6",
+        "P09:t6"
+      ],
+      "is_error": false
+    },
+    {
+      "agent": "research_synthesiser",
+      "tool": "read_interview",
+      "input": {
+        "interview_id": "P05"
+      },
+      "result_ids": [
+        "P05:t1",
+        "P05:t2",
+        "P05:t3",
+        "P05:t4",
+        "P05:t5",
+        "P05:t6",
+        "P05:t7",
+        "P05:t8",
+        "P05:t9",
+        "P05:t10"
+      ],
+      "is_error": false
+    },
+    {
+      "agent": "research_synthesiser",
+      "tool": "read_interview",
+      "input": {
+        "interview_id": "P08"
+      },
+      "result_ids": [
+        "P08:t1",
+        "P08:t2",
+        "P08:t3",
+        "P08:t4",
+        "P08:t5",
+        "P08:t6",
+        "P08:t7",
+        "P08:t8",
+        "P08:t9",
+        "P08:t10"
+      ],
+      "is_error": false
+    },
+    {
+      "agent": "research_synthesiser",
+      "tool": "read_interview",
+      "input": {
+        "interview_id": "P10"
+      },
+      "result_ids": [
+        "P10:t1",
+        "P10:t2",
+        "P10:t3",
+        "P10:t4",
+        "P10:t5",
+        "P10:t6",
+        "P10:t7",
+        "P10:t8",
+        "P10:t9",
+        "P10:t10"
+      ],
+      "is_error": false
+    }
+  ]
+}

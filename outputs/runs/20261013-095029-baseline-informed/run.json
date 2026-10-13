@@ -1,0 +1,46 @@
+{
+  "run_id": "20261013-095029-baseline-informed",
+  "mode": "baseline-informed",
+  "started_at": "2026-10-13T09:50:29.024370+00:00",
+  "config": {
+    "model": "gemini-3.8-flash",
+    "effort": "medium",
+    "max_tokens": 32000,
+    "max_tool_rounds": 12,
+    "variant": "informed",
+    "code_fingerprint": "369c56e9bcf3"
+  },
+  "recommendation": "test_further",
+  "final_citation_check": {
+    "citations": 216,
+    "distinct_sources": 86,
+    "unknown_ids": [],
+    "excluded_citations": [],
+    "weak_snippet_citations": [],
+    "misquotes": [],
+    "verified_quotes": 9,
+    "unverified_numbers": [],
+    "wrong_dates": [],
+    "uncited_claims": [
+      "Evidence strength is evaluated across distinct household tiers, separating past behaviour from stated intent:"
+    ],
+    "claim_lines": 31,
+    "unsupported_flags": 11,
+    "missing_sections": [],
+    "coverage": 0.968,
+    "blocking": 0,
+    "passed": true
+  },
+  "totals": {
+    "calls": 1,
+    "input_tokens": 14845,
+    "output_tokens": 5468,
+    "cache_read_tokens": 0,
+    "thinking_tokens": 1055,
+    "tool_calls": 0,
+    "cost_usd": 0.031639,
+    "model_time_s": 41.067,
+    "wall_clock_s": 41.085,
+    "cost_incomplete": false
+  }
+}

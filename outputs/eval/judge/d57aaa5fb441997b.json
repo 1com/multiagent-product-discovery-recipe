@@ -1,0 +1,95 @@
+{
+  "brief_id": "20261013-095029-baseline-informed",
+  "judge_model": "gemini-3.1-pro-preview",
+  "verdict": {
+    "traps": [
+      {
+        "trap_id": "T01",
+        "handled": true,
+        "excerpt": "P06 provides zero evidence weight for any customer claim"
+      },
+      {
+        "trap_id": "T02",
+        "handled": false,
+        "excerpt": ""
+      },
+      {
+        "trap_id": "T03",
+        "handled": true,
+        "excerpt": "Single-person households (out-of-target contrast: P07)"
+      },
+      {
+        "trap_id": "T04",
+        "handled": true,
+        "excerpt": "P09 relies on an ingrained routine developed over forty years, showing no desire for digital planning"
+      },
+      {
+        "trap_id": "T05",
+        "handled": true,
+        "excerpt": "P08 stated a willingness to pay 30 euros per month [P08:t9], but this represents an extreme outlier anchored entirely on a one-time holiday spoilage event"
+      },
+      {
+        "trap_id": "T06",
+        "handled": true,
+        "excerpt": "Riskiest assumption (Value/Feasibility): Households will keep an active pantry and fridge inventory updated inside an app"
+      },
+      {
+        "trap_id": "T07",
+        "handled": true,
+        "excerpt": "P03 stated \"Planning is my favourite part of the week, honestly. I would never want an app to take that away from me.\""
+      },
+      {
+        "trap_id": "T08",
+        "handled": true,
+        "excerpt": "Interpersonal conflict as dinner arguing is weakly supported"
+      },
+      {
+        "trap_id": "T09",
+        "handled": true,
+        "excerpt": "The idea brief asserts that existing recipe apps do not know what users already own [idea_brief]. Competitor data directly contradicts this claim"
+      },
+      {
+        "trap_id": "T10",
+        "handled": true,
+        "excerpt": "PlanPlate offers calendar meal planning at 2.99 euros per month, but its listing has not been verified since 2024-11-05 and may be outdated"
+      },
+      {
+        "trap_id": "T11",
+        "handled": true,
+        "excerpt": "Claim that the meal-planning and meal-kit market grows 25% annually: Market snippet S06 lacks a source and year and is entirely unsupported"
+      },
+      {
+        "trap_id": "T12",
+        "handled": false,
+        "excerpt": ""
+      }
+    ],
+    "criteria": [
+      {
+        "criterion_id": "C1",
+        "score": 5,
+        "justification": "The brief comprehensively covers all six required areas with substantive, dedicated sections. It clearly details the target audience, verified problems, competitive landscape, risks, and next steps."
+      },
+      {
+        "criterion_id": "C2",
+        "score": 5,
+        "justification": "Every claim is meticulously tied to specific sources using bracketed citations. The brief consistently differentiates between observed past behavior and stated intent, and highlights internal contradictions within participant interviews."
+      },
+      {
+        "criterion_id": "C3",
+        "score": 4,
+        "justification": "The brief is well-calibrated and correctly highlights uncertainty around WTP and rigid weekly planning. However, it fails to recognize that identical verbatim quotes across multiple participants indicate compromised, artificial data, treating them as valid signals instead."
+      },
+      {
+        "criterion_id": "C4",
+        "score": 5,
+        "justification": "The recommendation to test further is strongly justified by the evidence. The next steps provide four concrete, prioritized experiments complete with target audiences, prototype formats, and clear success metrics directly tied to the riskiest assumptions."
+      },
+      {
+        "criterion_id": "C5",
+        "score": 5,
+        "justification": "The brief is exceptionally well-organized, concise, and easy to read. Bullet points and bolded takeaways make the insights highly digestible and immediately actionable for a product team."
+      }
+    ]
+  }
+}

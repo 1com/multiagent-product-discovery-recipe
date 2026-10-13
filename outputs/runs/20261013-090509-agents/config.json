@@ -1,0 +1,7 @@
+{
+  "model": "gemini-3.5-flash-lite",
+  "effort": "medium",
+  "max_tokens": 32000,
+  "max_tool_rounds": 12,
+  "max_revisions": 2
+}

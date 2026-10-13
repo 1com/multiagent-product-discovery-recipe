@@ -1,0 +1,19 @@
+theme,label,kind,raw_interviews,weighted_support,non_templated_interviews,interviews,own_words_interviews,excluded_interviews
+food_waste,Food goes off and is thrown away,problem,7,4.1,7,P01; P02; P03; P05; P06; P08; P10,P01; P02; P03; P05; P06; P08; P10,P06
+uncoordinated_household,Household members do not coordinate food decisions,problem,6,4.0,3,P02; P04; P05; P08; P09; P10,P02; P04; P10,
+decision_fatigue,Deciding what to cook every day is a burden,problem,5,3.8,5,P01; P02; P03; P04; P05,P01; P02; P03; P04; P05,
+forgotten_inventory,Loses track of what is already at home,problem,4,2.9,3,P01; P02; P08; P10,P02; P08; P10,
+duplicate_purchases,Buys duplicates or the wrong items,problem,3,2.1,3,P02; P04; P10,P02; P04; P10,
+time_pressure,Little time or energy on weeknights,problem,3,1.9,2,P01; P02; P06,P02; P06,P06
+grocery_cost,Grocery and takeaway costs hurt,problem,2,1.2,2,P03; P08,P03; P08,
+user_control,Wants to edit the plan; no app dictating,requirement,4,3.1,0,P01; P02; P03; P05,,
+fast_setup,Setup must be fast; will not type in the whole pantry,requirement,5,2.65,0,P02; P05; P07; P08; P10,,
+low_effort,Must not feel like a project or homework,requirement,4,2.45,2,P01; P03; P07; P10,P03; P07,
+quick_recipes,Recipes must be realistic for weeknights (30 min),requirement,2,1.7,0,P01; P04,,
+household_preferences,"Picky eaters, allergies and preferences",requirement,2,1.4,1,P03; P04,P04,
+flexibility,Must flex to how each household works,requirement,2,1.4,0,P02; P08,,
+privacy,Distrusts apps with shopping data,requirement,1,0.9,1,P09,P09,
+would_not_pay,Would not pay for it,counter_evidence,3,1.65,1,P05; P07; P09,P07,
+no_pain,Reports little or no problem with dinner today,counter_evidence,2,1.15,2,P07; P09,P07; P09,
+enjoys_planning,Enjoys planning and wants to keep doing it,counter_evidence,1,0.7,1,P03,P03,
+planning_resistance,"Rejects planning ahead, or gave up on a planning app",counter_evidence,1,0.5,1,P05,P05,

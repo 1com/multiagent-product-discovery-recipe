@@ -1,0 +1,1602 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-09-14",
+  "target_customer": "households of two or more people who cook at home on most weeknights.",
+  "data_sha256": {
+    "competitors.csv": "2ab27e9c40fcc92865b5bce61fa34930c9aed7f707f8a5135ab36e9e50e041b9",
+    "idea_brief.md": "fe6375e0847993933d3f5c7b90235a1765b959da7b429180b48ddd02b42b0ddc",
+    "interviews/P01.md": "fffc60012bc3349c1f65469b478711fa5640d89e43f5f0bd59de3e365b9ca35d",
+    "interviews/P02.md": "c34d795c50c4945d16f9ab6a832e3477b5e528bd8ea87c7371bda8e3b6f916bf",
+    "interviews/P03.md": "e994d64e9aafde81a54b7ba07404c29fb417ce3250571c9a3fb166edda8d3ef2",
+    "interviews/P04.md": "96cfcb55b03cc9284d4ff56a9410f3be93dfa5a8064eeea882f4fbae87f5a1c3",
+    "interviews/P05.md": "e8b09006ecc849dd0259b524ab4c0c1d1bbfd16a362a40a25c61bae35bff07e9",
+    "interviews/P06.md": "b0c8345a47c26a6aa7eb7a4eae04dec757706f212172ac5ea885c471ae1c62ee",
+    "interviews/P07.md": "aa3e39951c5b1632795de52a368b7793de4ca394910e4a219f4eea7a6ffbf4da",
+    "interviews/P08.md": "3fec7c78f1f624a910c0a91e445f91ecc5ba7421c69ef17c871872d7470d354c",
+    "interviews/P09.md": "015da0146fcf7f425e855004596673061926ee5b0f04f8a474c01e62fd325a3b",
+    "interviews/P10.md": "ee4f5f72304ae1719a40981e71e64c11bbf48b40c7f4a59cbdfcf390d3d532e6",
+    "market_snippets.json": "9236ebafb96bedc2ee85cd836ed8365b0493beb629bc88f71b0894d595e034b2"
+  },
+  "citation_ids": {
+    "interviews": [
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P05",
+      "P06",
+      "P07",
+      "P08",
+      "P09",
+      "P10"
+    ],
+    "competitors": [
+      "FridgeChef",
+      "MealLoop",
+      "PantryGenie",
+      "PlanPlate",
+      "SupperSync",
+      "WeekWise",
+      "ZeroWaste Kitchen"
+    ],
+    "market_snippets": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S09"
+    ]
+  },
+  "weighting_rule": {
+    "formula": "evidence_weight = evidence_quality x fit_factor",
+    "quality_penalty_per_interview_issue": {
+      "major": 0.3,
+      "minor": 0.1
+    },
+    "fit_factor": {
+      "in": 1.0,
+      "partial": 0.5,
+      "out": 0.25
+    },
+    "leading_exclusion_threshold": 0.5,
+    "tiers": [
+      {
+        "min_weight": 0.8,
+        "tier": "primary"
+      },
+      {
+        "min_weight": 0.4,
+        "tier": "supporting"
+      },
+      {
+        "min_weight": 0.01,
+        "tier": "contrast_only"
+      },
+      {
+        "min_weight": 0.0,
+        "tier": "excluded"
+      }
+    ]
+  },
+  "interviews": {
+    "P01": {
+      "persona": "Mother of two (6 and 9), both parents work full-time, lives in a flat in a mid-sized city",
+      "date": "2026-09-02",
+      "household_type": "family_with_children",
+      "household_size": 4,
+      "target_fit": "in",
+      "fit_rationale": "Family of four with two working parents; dinner is cooked at home every weeknight under time pressure.",
+      "evidence_quality": 1.0,
+      "evidence_weight": 1.0,
+      "evidence_tier": "primary",
+      "shopping_pattern": "weekly",
+      "current_tools": "Notes app for the list; screenshotted recipes",
+      "wtp": {
+        "category": "low_conditional",
+        "max_eur_per_month": null,
+        "quote": "A few euros a month, maybe, if it clearly saves me money on groceries."
+      },
+      "issues": [],
+      "themes": [
+        "decision_fatigue",
+        "food_waste",
+        "forgotten_inventory",
+        "low_effort",
+        "quick_recipes",
+        "time_pressure",
+        "user_control"
+      ],
+      "metrics": {
+        "participant_words": 205,
+        "off_guide_questions": 0,
+        "leading_questions": 0,
+        "acquiescent_answers": 0,
+        "templated_sentence_ratio": 0.47
+      }
+    },
+    "P02": {
+      "persona": "Couple in their thirties, no children, both work long hours, renting a flat",
+      "date": "2026-09-02",
+      "household_type": "couple_no_children",
+      "household_size": 2,
+      "target_fit": "in",
+      "fit_rationale": "Couple who mostly cook something quick at home on weeknights, with occasional takeaway.",
+      "evidence_quality": 0.9,
+      "evidence_weight": 0.9,
+      "evidence_tier": "primary",
+      "shopping_pattern": "ad_hoc",
+      "current_tools": "Shared list app",
+      "wtp": {
+        "category": "low",
+        "max_eur_per_month": 6.0,
+        "quote": "Maybe five or six euros. More than that and I'd just keep my notes app."
+      },
+      "issues": [
+        {
+          "kind": "internal_inconsistency",
+          "severity": "minor",
+          "scope": "interview",
+          "note": "Says they use a shared list app, then compares the price against 'my notes app'.",
+          "quotes": [
+            "We use a shared list app, but it's only a list.",
+            "More than that and I'd just keep my notes app."
+          ]
+        }
+      ],
+      "themes": [
+        "decision_fatigue",
+        "duplicate_purchases",
+        "fast_setup",
+        "flexibility",
+        "food_waste",
+        "forgotten_inventory",
+        "time_pressure",
+        "uncoordinated_household",
+        "user_control"
+      ],
+      "metrics": {
+        "participant_words": 204,
+        "off_guide_questions": 0,
+        "leading_questions": 0,
+        "acquiescent_answers": 0,
+        "templated_sentence_ratio": 0.5
+      }
+    },
+    "P03": {
+      "persona": "Single parent of one child, works part-time, tight household budget",
+      "date": "2026-09-03",
+      "household_type": "family_with_children",
+      "household_size": 2,
+      "target_fit": "in",
+      "fit_rationale": "Single parent and child; cooks every night for budget reasons.",
+      "evidence_quality": 0.7,
+      "evidence_weight": 0.7,
+      "evidence_tier": "supporting",
+      "shopping_pattern": "weekly",
+      "current_tools": "Paper pad on the fridge",
+      "wtp": {
+        "category": "free_or_conditional",
+        "max_eur_per_month": null,
+        "quote": "Only if it clearly reduced food waste. A free version with ads would also be fine."
+      },
+      "issues": [
+        {
+          "kind": "internal_contradiction",
+          "severity": "major",
+          "scope": "interview",
+          "note": "Calls planning the favourite part of the week, then calls deciding exhausting. The planning burden is the core problem PantryPal targets, so neither statement can stand alone.",
+          "quotes": [
+            "Planning is my favourite part of the week, honestly.",
+            "Deciding is exhausting."
+          ]
+        }
+      ],
+      "themes": [
+        "decision_fatigue",
+        "enjoys_planning",
+        "food_waste",
+        "grocery_cost",
+        "household_preferences",
+        "low_effort",
+        "user_control"
+      ],
+      "metrics": {
+        "participant_words": 207,
+        "off_guide_questions": 0,
+        "leading_questions": 0,
+        "acquiescent_answers": 0,
+        "templated_sentence_ratio": 0.26
+      }
+    },
+    "P04": {
+      "persona": "Father of three (4, 7, 11), partner works shifts, owns a house in a suburb",
+      "date": "2026-09-04",
+      "household_type": "family_with_children",
+      "household_size": 5,
+      "target_fit": "in",
+      "fit_rationale": "Family of five; dinner is cooked and negotiated every night.",
+      "evidence_quality": 0.7,
+      "evidence_weight": 0.7,
+      "evidence_tier": "supporting",
+      "shopping_pattern": "weekly",
+      "current_tools": "Shared list app",
+      "wtp": {
+        "category": "low_conditional",
+        "max_eur_per_month": null,
+        "quote": "A few euros a month, maybe, if it clearly saves me money on groceries."
+      },
+      "issues": [
+        {
+          "kind": "attribution_inconsistency",
+          "severity": "major",
+          "scope": "interview",
+          "note": "The persona is a father who talks about 'my wife', then lists 'my husband'. It is unclear who is speaking, so the transcript may mix two people or be mislabelled.",
+          "quotes": [
+            "Father of three",
+            "my wife buys without checking",
+            "Me, my husband and, loudly, three children."
+          ]
+        }
+      ],
+      "themes": [
+        "decision_fatigue",
+        "duplicate_purchases",
+        "household_preferences",
+        "quick_recipes",
+        "uncoordinated_household"
+      ],
+      "metrics": {
+        "participant_words": 181,
+        "off_guide_questions": 0,
+        "leading_questions": 0,
+        "acquiescent_answers": 0,
+        "templated_sentence_ratio": 0.44
+      }
+    },
+    "P05": {
+      "persona": "Freelance couple working from home, no children, irregular schedules",
+      "date": "2026-09-07",
+      "household_type": "couple_no_children",
+      "household_size": 2,
+      "target_fit": "partial",
+      "fit_rationale": "Two people eating at home, but with no routine: food is decided on the day and is sometimes not cooked at all.",
+      "evidence_quality": 1.0,
+      "evidence_weight": 0.5,
+      "evidence_tier": "supporting",
+      "shopping_pattern": "daily",
+      "current_tools": "Nothing; occasional delivery app",
+      "wtp": {
+        "category": "none",
+        "max_eur_per_month": 0.0,
+        "quote": "Honestly I wouldn't pay for it. I'd want a free version."
+      },
+      "issues": [],
+      "themes": [
+        "decision_fatigue",
+        "fast_setup",
+        "food_waste",
+        "planning_resistance",
+        "uncoordinated_household",
+        "user_control",
+        "would_not_pay"
+      ],
+      "metrics": {
+        "participant_words": 203,
+        "off_guide_questions": 0,
+        "leading_questions": 0,
+        "acquiescent_answers": 0,
+        "templated_sentence_ratio": 0.43
+      }
+    },
+    "P06": {
+      "persona": "Mother of two, works full-time, lives in a terraced house",
+      "date": "2026-09-08",
+      "household_type": "family_with_children",
+      "household_size": 3,
+      "target_fit": "in",
+      "fit_rationale": "Working parent of two, so on paper inside the target. Nothing in the transcript can be relied on (see issues).",
+      "evidence_quality": 0.0,
+      "evidence_weight": 0.0,
+      "evidence_tier": "excluded",
+      "shopping_pattern": "unknown",
+      "current_tools": "Unknown (question was leading)",
+      "wtp": {
+        "category": "unusable",
+        "max_eur_per_month": null,
+        "quote": "Probably, yes. Hmm, yes. Why not."
+      },
+      "issues": [
+        {
+          "kind": "leading_interview",
+          "severity": "major",
+          "scope": "interview",
+          "note": "Almost every question suggests its own answer, and the replies simply agree. The opening answer is also a word-for-word copy of P01.",
+          "quotes": [
+            "Wouldn't it be amazing if an app just planned all your meals automatically?",
+            "Yes, definitely, if it did all that.",
+            "Surely there's no good tool for this today, is there?",
+            "Sure, that sounds good."
+          ]
+        }
+      ],
+      "themes": [
+        "food_waste",
+        "time_pressure"
+      ],
+      "metrics": {
+        "participant_words": 85,
+        "off_guide_questions": 10,
+        "leading_questions": 9,
+        "acquiescent_answers": 7,
+        "templated_sentence_ratio": 0.2
+      }
+    },
+    "P07": {
+      "persona": "University student living alone in a small studio, eats out or orders most days",
+      "date": "2026-09-09",
+      "household_type": "single",
+      "household_size": 1,
+      "target_fit": "out",
+      "fit_rationale": "Student living alone who cooks about once a week; fails both target criteria.",
+      "evidence_quality": 1.0,
+      "evidence_weight": 0.25,
+      "evidence_tier": "contrast_only",
+      "shopping_pattern": "ad_hoc",
+      "current_tools": "Nothing; occasional delivery app",
+      "wtp": {
+        "category": "none",
+        "max_eur_per_month": 0.0,
+        "quote": "If it were free and took no effort maybe, but I can't imagine paying for it."
+      },
+      "issues": [],
+      "themes": [
+        "fast_setup",
+        "low_effort",
+        "no_pain",
+        "would_not_pay"
+      ],
+      "metrics": {
+        "participant_words": 172,
+        "off_guide_questions": 0,
+        "leading_questions": 0,
+        "acquiescent_answers": 0,
+        "templated_sentence_ratio": 0.41
+      }
+    },
+    "P08": {
+      "persona": "Couple in their forties, both travel for work, no children",
+      "date": "2026-09-10",
+      "household_type": "couple_no_children",
+      "household_size": 2,
+      "target_fit": "partial",
+      "fit_rationale": "Two-person household, but both travel for work and improvise when home.",
+      "evidence_quality": 1.0,
+      "evidence_weight": 0.5,
+      "evidence_tier": "supporting",
+      "shopping_pattern": "ad_hoc",
+      "current_tools": "Follows recipe accounts; rarely cooks from them",
+      "wtp": {
+        "category": "high_outlier",
+        "max_eur_per_month": 30.0,
+        "quote": "For something that would stop that, I'd pay thirty euros a month, easy."
+      },
+      "issues": [
+        {
+          "kind": "outlier_claim",
+          "severity": "major",
+          "scope": "wtp",
+          "note": "EUR 30/month is anchored on one holiday incident, not on weekly dinner planning, and a dinner planner would not obviously have prevented it. Keep the fridge-waste story, drop the price from any average.",
+          "quotes": [
+            "Last summer we went on holiday for three weeks and I forgot about the fridge.",
+            "For something that would stop that, I'd pay thirty euros a month, easy."
+          ]
+        }
+      ],
+      "themes": [
+        "fast_setup",
+        "flexibility",
+        "food_waste",
+        "forgotten_inventory",
+        "grocery_cost",
+        "uncoordinated_household"
+      ],
+      "metrics": {
+        "participant_words": 205,
+        "off_guide_questions": 0,
+        "leading_questions": 0,
+        "acquiescent_answers": 0,
+        "templated_sentence_ratio": 0.39
+      }
+    },
+    "P09": {
+      "persona": "Retired couple in their seventies, cook every day, live in a small town",
+      "date": "2026-09-11",
+      "household_type": "couple_no_children",
+      "household_size": 2,
+      "target_fit": "in",
+      "fit_rationale": "Retired couple who cook every day: inside the target, but with no reported pain. Being in the target is not the same as having the problem.",
+      "evidence_quality": 0.9,
+      "evidence_weight": 0.9,
+      "evidence_tier": "primary",
+      "shopping_pattern": "daily",
+      "current_tools": "Paper pad on the fridge",
+      "wtp": {
+        "category": "none",
+        "max_eur_per_month": 0.0,
+        "quote": "Honestly I wouldn't pay for it. I'd want a free version."
+      },
+      "issues": [
+        {
+          "kind": "internal_inconsistency",
+          "severity": "minor",
+          "scope": "interview",
+          "note": "Weekly shopping at one stall versus shopping almost daily; a decades-old fixed routine versus 'not in a coordinated way'.",
+          "quotes": [
+            "We shop at the same stall every week.",
+            "I go to the shop almost every day and buy as I go.",
+            "That has not changed in decades.",
+            "Both of us, but not in a coordinated way."
+          ]
+        }
+      ],
+      "themes": [
+        "no_pain",
+        "privacy",
+        "uncoordinated_household",
+        "would_not_pay"
+      ],
+      "metrics": {
+        "participant_words": 168,
+        "off_guide_questions": 0,
+        "leading_questions": 0,
+        "acquiescent_answers": 0,
+        "templated_sentence_ratio": 0.41
+      }
+    },
+    "P10": {
+      "persona": "Four flatmates (late twenties) sharing one kitchen in a city flat",
+      "date": "2026-09-14",
+      "household_type": "flatmates",
+      "household_size": 4,
+      "target_fit": "partial",
+      "fit_rationale": "Four flatmates share a kitchen and staples, but mostly cook for themselves; the pain is shared inventory rather than a shared dinner.",
+      "evidence_quality": 1.0,
+      "evidence_weight": 0.5,
+      "evidence_tier": "supporting",
+      "shopping_pattern": "ad_hoc",
+      "current_tools": "Shared list app and a group chat",
+      "wtp": {
+        "category": "low_conditional",
+        "max_eur_per_month": null,
+        "quote": "A few euros a month, maybe, if it clearly saves me money on groceries."
+      },
+      "issues": [],
+      "themes": [
+        "duplicate_purchases",
+        "fast_setup",
+        "food_waste",
+        "forgotten_inventory",
+        "low_effort",
+        "uncoordinated_household"
+      ],
+      "metrics": {
+        "participant_words": 187,
+        "off_guide_questions": 0,
+        "leading_questions": 0,
+        "acquiescent_answers": 0,
+        "templated_sentence_ratio": 0.39
+      }
+    }
+  },
+  "templated_sentences": [
+    {
+      "sentence": "If I need to type in my whole pantry I'll quit on day two.",
+      "n_interviews": 5,
+      "interviews": [
+        "P02",
+        "P05",
+        "P07",
+        "P08",
+        "P10"
+      ]
+    },
+    {
+      "sentence": "Setup has to be fast.",
+      "n_interviews": 5,
+      "interviews": [
+        "P02",
+        "P05",
+        "P07",
+        "P08",
+        "P10"
+      ]
+    },
+    {
+      "sentence": "Both of us, but not in a coordinated way.",
+      "n_interviews": 4,
+      "interviews": [
+        "P02",
+        "P05",
+        "P08",
+        "P09"
+      ]
+    },
+    {
+      "sentence": "I don't want an app dictating to me.",
+      "n_interviews": 4,
+      "interviews": [
+        "P01",
+        "P02",
+        "P03",
+        "P05"
+      ]
+    },
+    {
+      "sentence": "I want to edit the plan easily.",
+      "n_interviews": 4,
+      "interviews": [
+        "P01",
+        "P02",
+        "P03",
+        "P05"
+      ]
+    },
+    {
+      "sentence": "A few euros a month, maybe, if it clearly saves me money on groceries.",
+      "n_interviews": 3,
+      "interviews": [
+        "P01",
+        "P04",
+        "P10"
+      ]
+    },
+    {
+      "sentence": "Honestly I wouldn't pay for it.",
+      "n_interviews": 3,
+      "interviews": [
+        "P05",
+        "P07",
+        "P09"
+      ]
+    },
+    {
+      "sentence": "I forget half of what's in there.",
+      "n_interviews": 3,
+      "interviews": [
+        "P02",
+        "P08",
+        "P10"
+      ]
+    },
+    {
+      "sentence": "I glance in the fridge before I leave, but only roughly.",
+      "n_interviews": 3,
+      "interviews": [
+        "P02",
+        "P08",
+        "P10"
+      ]
+    },
+    {
+      "sentence": "I'd want a free version.",
+      "n_interviews": 3,
+      "interviews": [
+        "P05",
+        "P07",
+        "P09"
+      ]
+    },
+    {
+      "sentence": "No, that covers it.",
+      "n_interviews": 3,
+      "interviews": [
+        "P04",
+        "P07",
+        "P09"
+      ]
+    },
+    {
+      "sentence": "Thanks for the chat.",
+      "n_interviews": 3,
+      "interviews": [
+        "P04",
+        "P07",
+        "P09"
+      ]
+    },
+    {
+      "sentence": "We use a shared list app, but it's only a list.",
+      "n_interviews": 3,
+      "interviews": [
+        "P02",
+        "P04",
+        "P10"
+      ]
+    },
+    {
+      "sentence": "A paper pad on the fridge.",
+      "n_interviews": 2,
+      "interviews": [
+        "P03",
+        "P09"
+      ]
+    },
+    {
+      "sentence": "Dinner is whatever I can get on the table in thirty minutes.",
+      "n_interviews": 2,
+      "interviews": [
+        "P01",
+        "P06"
+      ]
+    },
+    {
+      "sentence": "I go to the shop almost every day and buy as I go.",
+      "n_interviews": 2,
+      "interviews": [
+        "P05",
+        "P09"
+      ]
+    },
+    {
+      "sentence": "I shop once a week, usually on Saturday, plus a couple of top-up trips.",
+      "n_interviews": 2,
+      "interviews": [
+        "P03",
+        "P04"
+      ]
+    },
+    {
+      "sentence": "It would need to understand allergies and what we actually like, otherwise it's just noise.",
+      "n_interviews": 2,
+      "interviews": [
+        "P03",
+        "P04"
+      ]
+    },
+    {
+      "sentence": "It's chaos between school pickups, homework and work calls.",
+      "n_interviews": 2,
+      "interviews": [
+        "P01",
+        "P06"
+      ]
+    },
+    {
+      "sentence": "Just that every household is different, so it has to flex.",
+      "n_interviews": 2,
+      "interviews": [
+        "P02",
+        "P08"
+      ]
+    },
+    {
+      "sentence": "Nothing really, maybe a delivery app now and then.",
+      "n_interviews": 2,
+      "interviews": [
+        "P05",
+        "P07"
+      ]
+    },
+    {
+      "sentence": "Only that I'd love something that just works without being a project.",
+      "n_interviews": 2,
+      "interviews": [
+        "P01",
+        "P10"
+      ]
+    },
+    {
+      "sentence": "Recipes must be realistic for weeknights.",
+      "n_interviews": 2,
+      "interviews": [
+        "P01",
+        "P04"
+      ]
+    },
+    {
+      "sentence": "Things disappear in the back of the fridge and I find them two weeks later, usually when they're already off.",
+      "n_interviews": 2,
+      "interviews": [
+        "P01",
+        "P08"
+      ]
+    },
+    {
+      "sentence": "Thirty minutes at most.",
+      "n_interviews": 2,
+      "interviews": [
+        "P01",
+        "P04"
+      ]
+    }
+  ],
+  "themes": [
+    {
+      "theme": "food_waste",
+      "label": "Food goes off and is thrown away",
+      "kind": "problem",
+      "raw_interviews": 7,
+      "weighted_support": 4.1,
+      "non_templated_interviews": 7,
+      "interviews": [
+        "P01",
+        "P02",
+        "P03",
+        "P05",
+        "P06",
+        "P08",
+        "P10"
+      ],
+      "own_words_interviews": [
+        "P01",
+        "P02",
+        "P03",
+        "P05",
+        "P06",
+        "P08",
+        "P10"
+      ],
+      "excluded_interviews": [
+        "P06"
+      ]
+    },
+    {
+      "theme": "uncoordinated_household",
+      "label": "Household members do not coordinate food decisions",
+      "kind": "problem",
+      "raw_interviews": 6,
+      "weighted_support": 4.0,
+      "non_templated_interviews": 3,
+      "interviews": [
+        "P02",
+        "P04",
+        "P05",
+        "P08",
+        "P09",
+        "P10"
+      ],
+      "own_words_interviews": [
+        "P02",
+        "P04",
+        "P10"
+      ],
+      "excluded_interviews": []
+    },
+    {
+      "theme": "decision_fatigue",
+      "label": "Deciding what to cook every day is a burden",
+      "kind": "problem",
+      "raw_interviews": 5,
+      "weighted_support": 3.8,
+      "non_templated_interviews": 5,
+      "interviews": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05"
+      ],
+      "own_words_interviews": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05"
+      ],
+      "excluded_interviews": []
+    },
+    {
+      "theme": "forgotten_inventory",
+      "label": "Loses track of what is already at home",
+      "kind": "problem",
+      "raw_interviews": 4,
+      "weighted_support": 2.9,
+      "non_templated_interviews": 3,
+      "interviews": [
+        "P01",
+        "P02",
+        "P08",
+        "P10"
+      ],
+      "own_words_interviews": [
+        "P02",
+        "P08",
+        "P10"
+      ],
+      "excluded_interviews": []
+    },
+    {
+      "theme": "duplicate_purchases",
+      "label": "Buys duplicates or the wrong items",
+      "kind": "problem",
+      "raw_interviews": 3,
+      "weighted_support": 2.1,
+      "non_templated_interviews": 3,
+      "interviews": [
+        "P02",
+        "P04",
+        "P10"
+      ],
+      "own_words_interviews": [
+        "P02",
+        "P04",
+        "P10"
+      ],
+      "excluded_interviews": []
+    },
+    {
+      "theme": "time_pressure",
+      "label": "Little time or energy on weeknights",
+      "kind": "problem",
+      "raw_interviews": 3,
+      "weighted_support": 1.9,
+      "non_templated_interviews": 2,
+      "interviews": [
+        "P01",
+        "P02",
+        "P06"
+      ],
+      "own_words_interviews": [
+        "P02",
+        "P06"
+      ],
+      "excluded_interviews": [
+        "P06"
+      ]
+    },
+    {
+      "theme": "grocery_cost",
+      "label": "Grocery and takeaway costs hurt",
+      "kind": "problem",
+      "raw_interviews": 2,
+      "weighted_support": 1.2,
+      "non_templated_interviews": 2,
+      "interviews": [
+        "P03",
+        "P08"
+      ],
+      "own_words_interviews": [
+        "P03",
+        "P08"
+      ],
+      "excluded_interviews": []
+    },
+    {
+      "theme": "user_control",
+      "label": "Wants to edit the plan; no app dictating",
+      "kind": "requirement",
+      "raw_interviews": 4,
+      "weighted_support": 3.1,
+      "non_templated_interviews": 0,
+      "interviews": [
+        "P01",
+        "P02",
+        "P03",
+        "P05"
+      ],
+      "own_words_interviews": [],
+      "excluded_interviews": []
+    },
+    {
+      "theme": "fast_setup",
+      "label": "Setup must be fast; will not type in the whole pantry",
+      "kind": "requirement",
+      "raw_interviews": 5,
+      "weighted_support": 2.65,
+      "non_templated_interviews": 0,
+      "interviews": [
+        "P02",
+        "P05",
+        "P07",
+        "P08",
+        "P10"
+      ],
+      "own_words_interviews": [],
+      "excluded_interviews": []
+    },
+    {
+      "theme": "low_effort",
+      "label": "Must not feel like a project or homework",
+      "kind": "requirement",
+      "raw_interviews": 4,
+      "weighted_support": 2.45,
+      "non_templated_interviews": 2,
+      "interviews": [
+        "P01",
+        "P03",
+        "P07",
+        "P10"
+      ],
+      "own_words_interviews": [
+        "P03",
+        "P07"
+      ],
+      "excluded_interviews": []
+    },
+    {
+      "theme": "quick_recipes",
+      "label": "Recipes must be realistic for weeknights (30 min)",
+      "kind": "requirement",
+      "raw_interviews": 2,
+      "weighted_support": 1.7,
+      "non_templated_interviews": 0,
+      "interviews": [
+        "P01",
+        "P04"
+      ],
+      "own_words_interviews": [],
+      "excluded_interviews": []
+    },
+    {
+      "theme": "household_preferences",
+      "label": "Picky eaters, allergies and preferences",
+      "kind": "requirement",
+      "raw_interviews": 2,
+      "weighted_support": 1.4,
+      "non_templated_interviews": 1,
+      "interviews": [
+        "P03",
+        "P04"
+      ],
+      "own_words_interviews": [
+        "P04"
+      ],
+      "excluded_interviews": []
+    },
+    {
+      "theme": "flexibility",
+      "label": "Must flex to how each household works",
+      "kind": "requirement",
+      "raw_interviews": 2,
+      "weighted_support": 1.4,
+      "non_templated_interviews": 0,
+      "interviews": [
+        "P02",
+        "P08"
+      ],
+      "own_words_interviews": [],
+      "excluded_interviews": []
+    },
+    {
+      "theme": "privacy",
+      "label": "Distrusts apps with shopping data",
+      "kind": "requirement",
+      "raw_interviews": 1,
+      "weighted_support": 0.9,
+      "non_templated_interviews": 1,
+      "interviews": [
+        "P09"
+      ],
+      "own_words_interviews": [
+        "P09"
+      ],
+      "excluded_interviews": []
+    },
+    {
+      "theme": "would_not_pay",
+      "label": "Would not pay for it",
+      "kind": "counter_evidence",
+      "raw_interviews": 3,
+      "weighted_support": 1.65,
+      "non_templated_interviews": 1,
+      "interviews": [
+        "P05",
+        "P07",
+        "P09"
+      ],
+      "own_words_interviews": [
+        "P07"
+      ],
+      "excluded_interviews": []
+    },
+    {
+      "theme": "no_pain",
+      "label": "Reports little or no problem with dinner today",
+      "kind": "counter_evidence",
+      "raw_interviews": 2,
+      "weighted_support": 1.15,
+      "non_templated_interviews": 2,
+      "interviews": [
+        "P07",
+        "P09"
+      ],
+      "own_words_interviews": [
+        "P07",
+        "P09"
+      ],
+      "excluded_interviews": []
+    },
+    {
+      "theme": "enjoys_planning",
+      "label": "Enjoys planning and wants to keep doing it",
+      "kind": "counter_evidence",
+      "raw_interviews": 1,
+      "weighted_support": 0.7,
+      "non_templated_interviews": 1,
+      "interviews": [
+        "P03"
+      ],
+      "own_words_interviews": [
+        "P03"
+      ],
+      "excluded_interviews": []
+    },
+    {
+      "theme": "planning_resistance",
+      "label": "Rejects planning ahead, or gave up on a planning app",
+      "kind": "counter_evidence",
+      "raw_interviews": 1,
+      "weighted_support": 0.5,
+      "non_templated_interviews": 1,
+      "interviews": [
+        "P05"
+      ],
+      "own_words_interviews": [
+        "P05"
+      ],
+      "excluded_interviews": []
+    }
+  ],
+  "competitors": {
+    "FridgeChef": {
+      "competitor": "FridgeChef",
+      "positioning": "Recipe suggestions from photos of your fridge",
+      "target_user": "Individuals who like to improvise",
+      "pricing": "Free with ads; Premium EUR 4.99/month",
+      "has_free_tier": true,
+      "lowest_paid_eur_month": 4.99,
+      "one_off_eur": null,
+      "last_verified": "2026-08-12",
+      "days_since_verified": 33,
+      "freshness": "current",
+      "source_url": "https://fridgechef.example/pricing",
+      "url_is_placeholder": true,
+      "issues": [],
+      "capabilities": [
+        "knows_inventory"
+      ]
+    },
+    "MealLoop": {
+      "competitor": "MealLoop",
+      "positioning": "Weekly meal planner with automatic grocery lists",
+      "target_user": "Families",
+      "pricing": "EUR 6.99/month or EUR 49.99/year",
+      "has_free_tier": false,
+      "lowest_paid_eur_month": 4.17,
+      "one_off_eur": null,
+      "last_verified": "2026-07-30",
+      "days_since_verified": 46,
+      "freshness": "current",
+      "source_url": "https://mealloop.example/plans",
+      "url_is_placeholder": true,
+      "issues": [],
+      "capabilities": [
+        "weekly_plan",
+        "shopping_list",
+        "household_sharing"
+      ]
+    },
+    "PlanPlate": {
+      "competitor": "PlanPlate",
+      "positioning": "Simple meal planning calendar",
+      "target_user": "Couples and flatmates",
+      "pricing": "EUR 2.99/month",
+      "has_free_tier": false,
+      "lowest_paid_eur_month": 2.99,
+      "one_off_eur": null,
+      "last_verified": "2024-11-05",
+      "days_since_verified": 678,
+      "freshness": "stale",
+      "source_url": "https://planplate.example/pricing",
+      "url_is_placeholder": true,
+      "issues": [
+        "last verified 678 days before the research date"
+      ],
+      "capabilities": [
+        "weekly_plan",
+        "household_sharing"
+      ]
+    },
+    "PantryGenie": {
+      "competitor": "PantryGenie",
+      "positioning": "Pantry inventory tracker with expiry alerts",
+      "target_user": "Households that want to reduce waste",
+      "pricing": "EUR 3.99/month",
+      "has_free_tier": false,
+      "lowest_paid_eur_month": 3.99,
+      "one_off_eur": null,
+      "last_verified": "2026-06-18",
+      "days_since_verified": 88,
+      "freshness": "current",
+      "source_url": "https://pantrygenie.example/pricing",
+      "url_is_placeholder": true,
+      "issues": [],
+      "capabilities": [
+        "knows_inventory",
+        "shopping_list",
+        "waste_reduction"
+      ]
+    },
+    "WeekWise": {
+      "competitor": "WeekWise",
+      "positioning": "Budget-focused meal plans",
+      "target_user": "Budget-conscious families",
+      "pricing": "Free; EUR 29.99 one-off for full recipe pack",
+      "has_free_tier": true,
+      "lowest_paid_eur_month": null,
+      "one_off_eur": 29.99,
+      "last_verified": "2026-05-02",
+      "days_since_verified": 135,
+      "freshness": "current",
+      "source_url": null,
+      "url_is_placeholder": false,
+      "issues": [
+        "no source URL"
+      ],
+      "capabilities": [
+        "weekly_plan"
+      ]
+    },
+    "ZeroWaste Kitchen": {
+      "competitor": "ZeroWaste Kitchen",
+      "positioning": "Use-it-up recipes for leftover ingredients",
+      "target_user": "Environmentally motivated cooks",
+      "pricing": "Free (donation supported)",
+      "has_free_tier": true,
+      "lowest_paid_eur_month": null,
+      "one_off_eur": null,
+      "last_verified": "2025-01-20",
+      "days_since_verified": 602,
+      "freshness": "stale",
+      "source_url": "https://zerowastekitchen.example",
+      "url_is_placeholder": true,
+      "issues": [
+        "last verified 602 days before the research date",
+        "source is a home page, not a pricing page"
+      ],
+      "capabilities": [
+        "waste_reduction"
+      ]
+    },
+    "SupperSync": {
+      "competitor": "SupperSync",
+      "positioning": "Shared household dinner planner and chore assignment",
+      "target_user": "Shared households",
+      "pricing": "EUR 4.49/month per household",
+      "has_free_tier": false,
+      "lowest_paid_eur_month": 4.49,
+      "one_off_eur": null,
+      "last_verified": "2026-08-25",
+      "days_since_verified": 20,
+      "freshness": "current",
+      "source_url": "https://suppersync.example/pricing",
+      "url_is_placeholder": true,
+      "issues": [],
+      "capabilities": [
+        "weekly_plan",
+        "shopping_list",
+        "household_sharing"
+      ]
+    }
+  },
+  "market_snippets": {
+    "S01": {
+      "snippet_id": "S01",
+      "claim": "Households discard roughly a fifth of the food they buy",
+      "stat": "19%",
+      "source_name": "European Household Food Panel",
+      "year": 2025,
+      "age_years": 1,
+      "reliability": "usable",
+      "issues": []
+    },
+    "S02": {
+      "snippet_id": "S02",
+      "claim": "Average weekly grocery spend of a two-person household",
+      "stat": "EUR 118",
+      "source_name": "European Household Food Panel",
+      "year": 2025,
+      "age_years": 1,
+      "reliability": "usable",
+      "issues": []
+    },
+    "S03": {
+      "snippet_id": "S03",
+      "claim": "Share of households that use a meal-planning app",
+      "stat": "11%",
+      "source_name": "Digital Home Habits Report",
+      "year": 2025,
+      "age_years": 1,
+      "reliability": "usable",
+      "issues": []
+    },
+    "S04": {
+      "snippet_id": "S04",
+      "claim": "Time adults spend each day deciding what to cook",
+      "stat": "22 minutes",
+      "source_name": "National Time Use Study",
+      "year": 2023,
+      "age_years": 3,
+      "reliability": "usable_with_caveat",
+      "issues": [
+        "3 years old (aging)"
+      ]
+    },
+    "S05": {
+      "snippet_id": "S05",
+      "claim": "Median stated willingness to pay for a cooking app",
+      "stat": "EUR 3.50 per month",
+      "source_name": "Consumer App Pricing Study",
+      "year": 2025,
+      "age_years": 1,
+      "reliability": "usable",
+      "issues": []
+    },
+    "S06": {
+      "snippet_id": "S06",
+      "claim": "The meal-planning and meal-kit market is growing quickly every year",
+      "stat": "25% annual growth",
+      "source_name": null,
+      "year": null,
+      "age_years": null,
+      "reliability": "unsupported",
+      "issues": [
+        "no source",
+        "no year",
+        "scope_conflation: Bundles meal-planning apps with meal kits; meal-kit growth says nothing about demand for a planning app."
+      ]
+    },
+    "S07": {
+      "snippet_id": "S07",
+      "claim": "Most families struggle with dinner decisions",
+      "stat": "73%",
+      "source_name": null,
+      "year": null,
+      "age_years": null,
+      "reliability": "unsupported",
+      "issues": [
+        "no source",
+        "no year"
+      ]
+    },
+    "S08": {
+      "snippet_id": "S08",
+      "claim": "Households that would pay for automated meal planning",
+      "stat": "97%",
+      "source_name": "App Trends Blog",
+      "year": 2025,
+      "age_years": 1,
+      "reliability": "unreliable",
+      "issues": [
+        "blog, not primary research",
+        "implausible: 97% would pay contradicts the 11% who use a planning app (S03), the EUR 3.50 median willingness to pay (S05) and three of ten interviewees who would not pay at all."
+      ]
+    },
+    "S09": {
+      "snippet_id": "S09",
+      "claim": "Share of grocery purchases made online",
+      "stat": "4%",
+      "source_name": "Retail Trends Review",
+      "year": 2016,
+      "age_years": 10,
+      "reliability": "stale",
+      "issues": [
+        "10 years old"
+      ]
+    }
+  },
+  "injection_scan": {
+    "pattern": "ignore (all |any )?(previous|prior|above)|disregard (the|all|previous)|system prompt|you are an? (ai|assistant|language model)|\\bas an ai\\b|new instructions|follow these instructions|<\\s*/?\\s*(system|assistant|instructions?)\\s*>",
+    "hits": []
+  },
+  "questions": {
+    "Q1": "Who took part, and how well do they match the target customer?",
+    "Q2": "How strong is the evidence in each interview?",
+    "Q3": "Which themes recur, and where do participants disagree?",
+    "Q4": "How trustworthy and current are the competitor entries and market snippets?",
+    "Q5": "What does the data not tell us that a discovery brief needs?"
+  },
+  "findings": [
+    {
+      "id": "F01",
+      "question": "Q1",
+      "title": "Only part of the sample is the target customer",
+      "finding": "6 of 10 participants meet both target criteria (two or more people, cooking at home most weeknights): P01, P02, P03, P04, P06 and P09. P05, P08 and P10 are partial fits (several people, but irregular or separate cooking) and P07 is outside the target (lives alone, cooks about once a week).",
+      "evidence": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08",
+        "P09",
+        "P10"
+      ],
+      "so_the_agent_will": "So the agent will tag every interview-based claim with the segment it comes from, never generalise from out-of-target interviews to the target customer, and label partial-fit evidence as coming from an adjacent segment.",
+      "headline": true
+    },
+    {
+      "id": "F02",
+      "question": "Q1",
+      "title": "No segment has enough interviews to generalise",
+      "finding": "After excluding unusable interviews, the sample splits into families with children (P01, P03 and P04), couples without children (P02, P05, P08 and P09), flatmates (P10) and one person living alone (P07). The largest segment has 4 interviews.",
+      "evidence": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P07",
+        "P08",
+        "P09",
+        "P10"
+      ],
+      "so_the_agent_will": "So the agent will report support as interview counts within a segment (for example '3 of 4 couples'), never as percentages, and state the sample size next to every segment-level claim.",
+      "headline": false
+    },
+    {
+      "id": "F03",
+      "question": "Q1",
+      "title": "Being in the target is not the same as having the problem",
+      "finding": "P09 meets the target definition but reports little or no problem with dinner today and would not pay. By contrast, 3 of 3 usable families with children (P01, P03 and P04) describe deciding what to cook as a burden, and P02, P04 and P10 (households where several people shop) report duplicate purchases.",
+      "evidence": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P07",
+        "P09",
+        "P10"
+      ],
+      "so_the_agent_will": "So the agent will keep 'in the target' separate from 'has the problem', and list the target definition itself as an assumption to test.",
+      "headline": false
+    },
+    {
+      "id": "F04",
+      "question": "Q2",
+      "title": "P06 is not usable evidence",
+      "finding": "P06 departs from the shared interview guide on 10 of 10 questions; 9 are leading (for example \"Wouldn't it be amazing if an app just planned all your meals automatically?\") and 7 answers simply agree. Its opening answer is a word-for-word copy of P01.",
+      "evidence": [
+        "P06",
+        "P01"
+      ],
+      "so_the_agent_will": "So the agent will give P06 zero weight: it will not cite P06 for any customer claim and will mention it only as a research-method problem.",
+      "headline": true
+    },
+    {
+      "id": "F05",
+      "question": "Q2",
+      "title": "Templated answers inflate how often themes appear",
+      "finding": "25 answer sentences appear word for word in two or more interviews; on average 39% of an interview's sentences are shared with another interview. The most common requirement, \"Setup has to be fast. If I need to type in my whole pantry I'll quit on day two.\", appears in 5 interviews and never in a participant's own words.",
+      "evidence": [
+        "P02",
+        "P05",
+        "P07",
+        "P08",
+        "P10"
+      ],
+      "so_the_agent_will": "So the agent will count support by distinct interviews, show raw and evidence-weighted counts side by side, flag templated quotes, and treat theme frequencies as upper bounds rather than independent agreement.",
+      "headline": true
+    },
+    {
+      "id": "F06",
+      "question": "Q2",
+      "title": "Several transcripts contradict themselves",
+      "finding": "P02, P03, P04 and P09 contain statements that conflict with each other (major in P03 and P04). P03 calls planning \"my favourite part of the week\" but says \"Deciding is exhausting\"; P04's persona is a father who mentions both \"my wife\" and \"my husband\".",
+      "evidence": [
+        "P02",
+        "P03",
+        "P04",
+        "P09"
+      ],
+      "so_the_agent_will": "So the agent will not cite a contradicted statement on its own: when it uses one of these interviews it will show the conflicting quote next to it and lower its confidence.",
+      "headline": false
+    },
+    {
+      "id": "F07",
+      "question": "Q2",
+      "title": "Past behaviour is stronger evidence than stated opinion",
+      "finding": "Questions about last Tuesday and \"the last time this went wrong\" produce concrete episodes (spinach in P01, basil bought twice in P02, chicken bought twice in P04, the holiday fridge in P08). Questions about trust and payment ask people to predict their own behaviour. The guide itself presupposes a problem in 2 questions (\"most frustrating part\", \"went wrong\").",
+      "evidence": [
+        "P01",
+        "P02",
+        "P04",
+        "P08"
+      ],
+      "so_the_agent_will": "So the agent will prefer past-behaviour quotes as evidence that a problem is real, label requirements and willingness to pay as stated intent, and treat answers about frustration as prompted rather than spontaneous.",
+      "headline": false
+    },
+    {
+      "id": "F08",
+      "question": "Q2",
+      "title": "Willingness to pay is low and conditional",
+      "finding": "3 would not pay (P05, P07 and P09). P01, P03, P04 and P10 would pay a few euros only if the app clearly saves money or reduces waste (or accept a free version with ads). P02 caps it at about EUR 6. P08's EUR 30/month is anchored on one holiday incident, and P06's \"yes\" was led. The market median in S05 is EUR 3.50 per month.",
+      "evidence": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08",
+        "P09",
+        "P10",
+        "S05"
+      ],
+      "so_the_agent_will": "So the agent will report willingness to pay as a range with its conditions attached, leave the outlier out of any typical figure, and never claim that willingness to pay is validated.",
+      "headline": false
+    },
+    {
+      "id": "F09",
+      "question": "Q2",
+      "title": "No instruction-like text was found in the data",
+      "finding": "A scan of every file for instruction-like phrases found 0 matches.",
+      "evidence": [],
+      "so_the_agent_will": "So the agent will still pass all source text to the model as quoted data inside clear delimiters and will never follow instructions that appear in it.",
+      "headline": false
+    },
+    {
+      "id": "F10",
+      "question": "Q3",
+      "title": "5 problems are backed by several interviews in their own words",
+      "finding": "Problems raised by at least 3 interviews in their own words, ranked by evidence-weighted support: food goes off and is thrown away (own words: P01, P02, P03, P05, P08 and P10; weighted 4.1); household members do not coordinate food decisions (own words: P02, P04 and P10; templated sentence only: P05, P08 and P09; weighted 4.0); deciding what to cook every day is a burden (own words: P01, P02, P03, P04 and P05; weighted 3.8); loses track of what is already at home (own words: P02, P08 and P10; templated sentence only: P01; weighted 2.9); buys duplicates or the wrong items (own words: P02, P04 and P10; weighted 2.1).",
+      "evidence": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P08",
+        "P10"
+      ],
+      "so_the_agent_will": "So the agent will build problem statements from these themes first, citing the interviews for each and giving the weighted support, and will not cite excluded interviews even when they mention the theme.",
+      "headline": true
+    },
+    {
+      "id": "F11",
+      "question": "Q3",
+      "title": "The core mechanic runs into the strongest barrier",
+      "finding": "PantryPal only works if it knows what is in the fridge, yet 5 interviews (P02, P05, P07, P08 and P10) say they will quit if they have to type in their pantry, and P05 already gave up on a meal-planning app within a week. Competitors FridgeChef and PantryGenie show existing low-effort input methods (photo recognition, barcode scanning).",
+      "evidence": [
+        "P02",
+        "P05",
+        "P07",
+        "P08",
+        "P10",
+        "FridgeChef",
+        "PantryGenie"
+      ],
+      "so_the_agent_will": "So the agent will make 'households will keep a pantry inventory up to date' the riskiest assumption, and will propose testing low-effort input before the planner itself.",
+      "headline": true
+    },
+    {
+      "id": "F12",
+      "question": "Q3",
+      "title": "Planning itself is contested",
+      "finding": "Rejected planning ahead or gave up on a planning app: P05 (\"A plan I don't follow feels like failure\"). Enjoys planning and would not hand it over: P03. Wants to edit any plan rather than have an app \"dictating\": P01, P02, P03 and P05 (a templated sentence). The only enthusiasm for fully automatic planning comes from the led interview P06.",
+      "evidence": [
+        "P01",
+        "P02",
+        "P03",
+        "P05"
+      ],
+      "so_the_agent_will": "So the agent will present the weekly-plan format as an open question, not a validated need, and propose comparing a weekly plan with same-day 'what can I cook tonight' suggestions.",
+      "headline": false
+    },
+    {
+      "id": "F13",
+      "question": "Q3",
+      "title": "Only some households shop in a weekly rhythm",
+      "finding": "Weekly shoppers: P01, P03 and P04. Near-daily: P05 and P09. Ad hoc, glancing in the fridge before leaving: P02, P07, P08 and P10.",
+      "evidence": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P07",
+        "P08",
+        "P09",
+        "P10"
+      ],
+      "so_the_agent_will": "So the agent will flag that a weekly plan with a weekly shopping list fits weekly shoppers best, and will treat shopping rhythm as a way to segment users.",
+      "headline": false
+    },
+    {
+      "id": "F14",
+      "question": "Q3",
+      "title": "The 'stop arguing' promise is barely supported",
+      "finding": "The idea brief promises households will stop arguing about \"what's for dinner\". Only P02 describes an argument about what to eat, and P04 a nightly negotiation with children. Coordination problems are mostly about shopping (duplicates, shared lists), not dinner arguments.",
+      "evidence": [
+        "P02",
+        "P04",
+        "P10"
+      ],
+      "so_the_agent_will": "So the agent will mark the 'stop arguing' part of the value proposition as weakly supported and reframe it as a shopping-coordination problem where the evidence allows.",
+      "headline": false
+    },
+    {
+      "id": "F15",
+      "question": "Q4",
+      "title": "Competitor rows: 2 stale, 1 without a source",
+      "finding": "PlanPlate was last verified 678 days before the research date; ZeroWaste Kitchen was last verified 602 days before the research date. WeekWise has no source URL. The other 5 rows were verified within 135 days. All URLs are placeholder domains, so the CSV row is the citable source.",
+      "evidence": [
+        "PlanPlate",
+        "ZeroWaste Kitchen",
+        "WeekWise"
+      ],
+      "so_the_agent_will": "So the agent will cite competitors by name with their last_verified date, caveat PlanPlate and ZeroWaste Kitchen as possibly outdated, and mark WeekWise details as unsourced.",
+      "headline": false
+    },
+    {
+      "id": "F16",
+      "question": "Q4",
+      "title": "The pitch already exists on the market, in pieces",
+      "finding": "Every part of the PantryPal pitch is offered by at least one competitor (knows what you already own: FridgeChef and PantryGenie; weekly dinner plan: MealLoop, PlanPlate, SupperSync and WeekWise; shopping list: MealLoop, PantryGenie and SupperSync; shared across the household: MealLoop, PlanPlate and SupperSync; reduces food waste: PantryGenie and ZeroWaste Kitchen). No competitor combines knowing the inventory with a weekly plan. The idea brief's claim \"Existing recipe apps give ideas but do not know what you already own.\" is contradicted by FridgeChef and PantryGenie.",
+      "evidence": [
+        "FridgeChef",
+        "MealLoop",
+        "PlanPlate",
+        "PantryGenie",
+        "WeekWise",
+        "ZeroWaste Kitchen",
+        "SupperSync"
+      ],
+      "so_the_agent_will": "So the agent will describe differentiation as the combination of inventory awareness and weekly planning, not either one alone, and will mark the idea-brief claim as contradicted by the competitor rows.",
+      "headline": true
+    },
+    {
+      "id": "F17",
+      "question": "Q4",
+      "title": "Competitor prices anchor at a few euros a month",
+      "finding": "The lowest paid prices (annual plans converted to per month) run from EUR 2.99 to EUR 4.99 across 5 competitors; FridgeChef, WeekWise and ZeroWaste Kitchen offer a free tier. This matches the S05 median of EUR 3.50 per month and the \"few euros\" heard in interviews.",
+      "evidence": [
+        "FridgeChef",
+        "MealLoop",
+        "PantryGenie",
+        "PlanPlate",
+        "SupperSync",
+        "WeekWise",
+        "ZeroWaste Kitchen",
+        "S05"
+      ],
+      "so_the_agent_will": "So the agent will keep pricing hypotheses inside the band set by competitors and S05, and treat any higher price as untested.",
+      "headline": false
+    },
+    {
+      "id": "F18",
+      "question": "Q4",
+      "title": "Only 5 of 9 market snippets can back a claim",
+      "finding": "Usable: S01, S02, S03 and S05; usable with an age caveat: S04. No source: S06 and S07. Unreliable: S08 (a blog claiming 97% would pay, contradicting S03 and S05). Stale: S09 (from 2016). S03 itself is a caution: only 11% of households use a meal-planning app.",
+      "evidence": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "S07",
+        "S08",
+        "S09"
+      ],
+      "so_the_agent_will": "So the agent will cite only S01, S02, S03, S04 and S05 as market evidence (with the age caveat on S04), mark any claim that rests on S06, S07, S08 and S09 as unsupported, and never repeat those figures as fact.",
+      "headline": true
+    },
+    {
+      "id": "F19",
+      "question": "Q5",
+      "title": "What the data cannot answer",
+      "finding": "Missing: country, income and recruitment of participants; behaviour over time (usage, measured waste; waste figures are self-estimates); how people would want to tell the app what they own (photo, barcode, receipt, online order history); whether anyone keeps planning after week one; competitor traction (users, ratings, churn); market size for the target segment specifically; and who in the household decides and who pays.",
+      "evidence": [],
+      "so_the_agent_will": "So the agent will list these as open questions under 'what to test next' and will not fill them with assumptions or outside knowledge.",
+      "headline": true
+    }
+  ]
+}

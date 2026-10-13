@@ -1,0 +1,47 @@
+{
+  "run_id": "20261013-085651-baseline-naive",
+  "mode": "baseline-naive",
+  "started_at": "2026-10-13T08:56:51.417802+00:00",
+  "config": {
+    "model": "gemini-3-flash-preview",
+    "effort": "medium",
+    "max_tokens": 32000,
+    "max_tool_rounds": 12,
+    "variant": "naive"
+  },
+  "recommendation": "test_further",
+  "final_citation_check": {
+    "citations": 52,
+    "distinct_sources": 44,
+    "unknown_ids": [],
+    "excluded_citations": [],
+    "weak_snippet_citations": [],
+    "misquotes": [],
+    "verified_quotes": 0,
+    "unverified_numbers": [],
+    "uncited_claims": [
+      "- **Inventory Accuracy:** The assumption that an app can maintain an accurate pantry list without constant user input is",
+      "- **Experiment 1 (Low-Friction Inventory):** Test a receipt-scanning or photo-recognition feature to populate inventory.",
+      "- **Experiment 2 (Flexible Planning):** Test a 'choose your own adventure' plan that offers 3 options per night based on"
+    ],
+    "claim_lines": 12,
+    "unsupported_flags": 0,
+    "missing_sections": [],
+    "coverage": 0.75,
+    "blocking": 0,
+    "passed": true
+  },
+  "totals": {
+    "calls": 1,
+    "input_tokens": 8705,
+    "output_tokens": 4160,
+    "cache_read_tokens": 0,
+    "thinking_tokens": 2907,
+    "tool_calls": 0,
+    "cost_usd": 0.016833,
+    "model_time_s": 43.008,
+    "wall_clock_s": 43.033,
+    "cost_incomplete": false
+  },
+  "note": "brief.md and citation_check.json re-derived from the same model output after fixing line-break decoding"
+}

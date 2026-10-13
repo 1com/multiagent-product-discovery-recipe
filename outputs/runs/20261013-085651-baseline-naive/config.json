@@ -1,0 +1,7 @@
+{
+  "model": "gemini-3-flash-preview",
+  "effort": "medium",
+  "max_tokens": 32000,
+  "max_tool_rounds": 12,
+  "variant": "naive"
+}

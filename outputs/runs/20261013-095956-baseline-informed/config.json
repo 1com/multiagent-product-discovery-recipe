@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.8-flash",
+  "effort": "medium",
+  "max_tokens": 32000,
+  "max_tool_rounds": 12,
+  "variant": "informed",
+  "code_fingerprint": "369c56e9bcf3"
+}

@@ -1,0 +1,3 @@
+# The dataset is checksummed (tests/test_data_integrity.py): keep its bytes identical on
+# every platform by disabling line-ending conversion.
+data/** -text

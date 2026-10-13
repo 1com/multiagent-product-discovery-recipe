@@ -1,0 +1,98 @@
+interview_id,theme,kind,turn,sentence,templated
+P01,time_pressure,problem,1,"It's chaos between school pickups, homework and work calls.",True
+P01,decision_fatigue,problem,2,It's the mental load.,False
+P01,decision_fatigue,problem,2,"Every single day somebody has to decide what's for dinner, and that somebody is me.",False
+P01,food_waste,problem,2,"Things disappear in the back of the fridge and I find them two weeks later, usually when they're already off.",True
+P01,forgotten_inventory,problem,2,"Things disappear in the back of the fridge and I find them two weeks later, usually when they're already off.",True
+P01,food_waste,problem,4,It went slimy in the drawer and I felt terrible about it.,False
+P01,quick_recipes,requirement,8,Recipes must be realistic for weeknights.,True
+P01,quick_recipes,requirement,8,Thirty minutes at most.,True
+P01,user_control,requirement,8,I want to edit the plan easily.,True
+P01,user_control,requirement,8,I don't want an app dictating to me.,True
+P01,low_effort,requirement,10,Only that I'd love something that just works without being a project.,True
+P02,time_pressure,problem,1,"We both get home late, so it's usually pasta or something quick.",False
+P02,food_waste,problem,2,We throw away so much food.,False
+P02,duplicate_purchases,problem,2,"My partner and I both shop, and we constantly end up with two packs of the same thing, or nothing for the planned recipe.",False
+P02,uncoordinated_household,problem,2,"My partner and I both shop, and we constantly end up with two packs of the same thing, or nothing for the planned recipe.",False
+P02,decision_fatigue,problem,3,"Last Tuesday we got home at eight, argued for ten minutes about what to eat and ended up ordering pizza even though we had vegetables at home.",False
+P02,time_pressure,problem,3,"Last Tuesday we got home at eight, argued for ten minutes about what to eat and ended up ordering pizza even though we had vegetables at home.",False
+P02,forgotten_inventory,problem,4,We bought basil twice in one week because each of us thought we were out.,False
+P02,duplicate_purchases,problem,4,We bought basil twice in one week because each of us thought we were out.,False
+P02,food_waste,problem,4,Both went bad.,False
+P02,forgotten_inventory,problem,5,I forget half of what's in there.,True
+P02,uncoordinated_household,problem,7,"Both of us, but not in a coordinated way.",True
+P02,fast_setup,requirement,8,Setup has to be fast.,True
+P02,fast_setup,requirement,8,If I need to type in my whole pantry I'll quit on day two.,True
+P02,user_control,requirement,8,I want to edit the plan easily.,True
+P02,user_control,requirement,8,I don't want an app dictating to me.,True
+P02,flexibility,requirement,10,"Just that every household is different, so it has to flex.",True
+P03,grocery_cost,problem,1,I cook every night because it's cheaper.,False
+P03,grocery_cost,problem,1,"I plan on Sunday, otherwise I overspend on the way home.",False
+P03,enjoys_planning,counter_evidence,1,"Planning is my favourite part of the week, honestly.",False
+P03,enjoys_planning,counter_evidence,1,I would never want an app to take that away from me.,False
+P03,food_waste,problem,2,"The waste bothers me, both the money and the guilt.",False
+P03,grocery_cost,problem,2,I probably lose twenty or thirty euros a week.,False
+P03,decision_fatigue,problem,2,Deciding is exhausting.,False
+P03,grocery_cost,problem,3,"It's fine, it's what we can afford.",False
+P03,grocery_cost,problem,4,That cost me thirty euros I didn't have.,False
+P03,household_preferences,requirement,8,"It would need to understand allergies and what we actually like, otherwise it's just noise.",True
+P03,user_control,requirement,8,I want to edit the plan easily.,True
+P03,user_control,requirement,8,I don't want an app dictating to me.,True
+P03,food_waste,problem,9,Only if it clearly reduced food waste.,False
+P03,low_effort,requirement,10,I think the biggest thing is not making it feel like homework.,False
+P04,household_preferences,requirement,1,With three kids there's always somebody with a preference or a food they refuse.,False
+P04,decision_fatigue,problem,2,The worst part is the daily question of what to cook.,False
+P04,decision_fatigue,problem,2,By Wednesday I have no ideas left.,False
+P04,uncoordinated_household,problem,2,"I add things, and my wife buys without checking.",False
+P04,household_preferences,requirement,3,"Tuesday I made pasta for four, with one separate portion without sauce for the youngest, and a different vegetable because the middle one hates peppers.",False
+P04,duplicate_purchases,problem,4,"My wife bought chicken and I bought chicken, the same afternoon.",False
+P04,household_preferences,requirement,8,"It would need to understand allergies and what we actually like, otherwise it's just noise.",True
+P04,quick_recipes,requirement,8,Recipes must be realistic for weeknights.,True
+P04,quick_recipes,requirement,8,Thirty minutes at most.,True
+P05,planning_resistance,counter_evidence,1,Planning ahead stresses me out.,False
+P05,planning_resistance,counter_evidence,1,"A plan I don't follow feels like failure, so I decide on the day.",False
+P05,food_waste,problem,2,I buy vegetables with good intentions and then bin them on Sunday.,False
+P05,decision_fatigue,problem,2,Around four in the afternoon the 'what do we eat tonight' dread starts.,False
+P05,planning_resistance,counter_evidence,4,By Thursday I hadn't followed the plan and I just stopped opening it.,False
+P05,uncoordinated_household,problem,7,"Both of us, but not in a coordinated way.",True
+P05,fast_setup,requirement,8,Setup has to be fast.,True
+P05,fast_setup,requirement,8,If I need to type in my whole pantry I'll quit on day two.,True
+P05,user_control,requirement,8,I want to edit the plan easily.,True
+P05,user_control,requirement,8,I don't want an app dictating to me.,True
+P05,would_not_pay,counter_evidence,9,Honestly I wouldn't pay for it.,True
+P06,time_pressure,problem,1,"It's chaos between school pickups, homework and work calls.",True
+P06,time_pressure,problem,3,"Last Tuesday was busy, I made something quick, I don't remember exactly what.",False
+P06,food_waste,problem,4,"Sometimes things go off in the fridge, yes.",False
+P07,no_pain,counter_evidence,2,I don't cook enough for it to bother me.,False
+P07,fast_setup,requirement,8,Setup has to be fast.,True
+P07,fast_setup,requirement,8,If I need to type in my whole pantry I'll quit on day two.,True
+P07,would_not_pay,counter_evidence,9,Honestly I wouldn't pay for it.,True
+P07,low_effort,requirement,9,"If it were free and took no effort maybe, but I can't imagine paying for it.",False
+P07,would_not_pay,counter_evidence,9,"If it were free and took no effort maybe, but I can't imagine paying for it.",False
+P08,food_waste,problem,2,"Things disappear in the back of the fridge and I find them two weeks later, usually when they're already off.",True
+P08,forgotten_inventory,problem,2,"Things disappear in the back of the fridge and I find them two weeks later, usually when they're already off.",True
+P08,forgotten_inventory,problem,2,Last summer we went on holiday for three weeks and I forgot about the fridge.,False
+P08,food_waste,problem,2,I came back to a smell I will never forget and we threw out maybe two hundred euros of food.,False
+P08,grocery_cost,problem,2,I came back to a smell I will never forget and we threw out maybe two hundred euros of food.,False
+P08,forgotten_inventory,problem,4,"Since then I check obsessively before travelling, but I still forget small things.",False
+P08,forgotten_inventory,problem,5,I forget half of what's in there.,True
+P08,uncoordinated_household,problem,7,"Both of us, but not in a coordinated way.",True
+P08,fast_setup,requirement,8,Setup has to be fast.,True
+P08,fast_setup,requirement,8,If I need to type in my whole pantry I'll quit on day two.,True
+P08,flexibility,requirement,10,"Just that every household is different, so it has to flex.",True
+P09,no_pain,counter_evidence,1,"Our daughter says we should use an app for the shopping list, but we have never needed one.",False
+P09,no_pain,counter_evidence,2,"Not much, honestly.",False
+P09,no_pain,counter_evidence,2,"Sometimes I'd like fresh ideas, but it isn't a problem.",False
+P09,uncoordinated_household,problem,7,"Both of us, but not in a coordinated way.",True
+P09,privacy,requirement,8,"I don't trust apps with my shopping habits, so it would have to be very simple and private.",False
+P09,would_not_pay,counter_evidence,9,Honestly I wouldn't pay for it.,True
+P10,uncoordinated_household,problem,2,The group chat for groceries is a mess.,False
+P10,uncoordinated_household,problem,2,In the flat the shared stuff gets used up and nobody replaces it.,False
+P10,food_waste,problem,2,"Nobody remembers what we already have, so we buy duplicates and then one of them goes bad.",False
+P10,forgotten_inventory,problem,2,"Nobody remembers what we already have, so we buy duplicates and then one of them goes bad.",False
+P10,duplicate_purchases,problem,2,"Nobody remembers what we already have, so we buy duplicates and then one of them goes bad.",False
+P10,forgotten_inventory,problem,5,I forget half of what's in there.,True
+P10,uncoordinated_household,problem,7,"Everyone in the flat, which is exactly the problem.",False
+P10,fast_setup,requirement,8,Setup has to be fast.,True
+P10,fast_setup,requirement,8,If I need to type in my whole pantry I'll quit on day two.,True
+P10,low_effort,requirement,10,Only that I'd love something that just works without being a project.,True

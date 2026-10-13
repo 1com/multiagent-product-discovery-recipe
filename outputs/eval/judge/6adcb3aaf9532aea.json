@@ -1,0 +1,95 @@
+{
+  "brief_id": "20261013-095005-baseline-naive",
+  "judge_model": "gemini-3.1-pro-preview",
+  "verdict": {
+    "traps": [
+      {
+        "trap_id": "T01",
+        "handled": true,
+        "excerpt": "interview P06 is compromised due to leading questions and acquiescence bias"
+      },
+      {
+        "trap_id": "T02",
+        "handled": false,
+        "excerpt": ""
+      },
+      {
+        "trap_id": "T03",
+        "handled": true,
+        "excerpt": "Non-target segments: Single university students who rarely cook (e.g., P07)"
+      },
+      {
+        "trap_id": "T04",
+        "handled": true,
+        "excerpt": "retired couples with entrenched daily cooking routines and no desire for digital planning tools (e.g., P09)"
+      },
+      {
+        "trap_id": "T05",
+        "handled": true,
+        "excerpt": "One participant stated they would pay 30 euros a month after a severe holiday spoilage incident"
+      },
+      {
+        "trap_id": "T06",
+        "handled": true,
+        "excerpt": "Onboarding attrition risk: Requiring users to log existing fridge and pantry items creates high initial drop-off"
+      },
+      {
+        "trap_id": "T07",
+        "handled": true,
+        "excerpt": "Conversely, one budget-conscious cook views planning as an enjoyable ritual: \"Planning is my favourite part of the week, honestly. I would never want an app to take that away from me.\""
+      },
+      {
+        "trap_id": "T08",
+        "handled": true,
+        "excerpt": "Household grocery misalignment: Lack of coordination leads to duplicate purchases or missing ingredients for planned dinners"
+      },
+      {
+        "trap_id": "T09",
+        "handled": false,
+        "excerpt": ""
+      },
+      {
+        "trap_id": "T10",
+        "handled": false,
+        "excerpt": ""
+      },
+      {
+        "trap_id": "T11",
+        "handled": true,
+        "excerpt": "The claim from snippet S08 that 97% of households would pay for automated meal planning is an unsubstantiated blog claim"
+      },
+      {
+        "trap_id": "T12",
+        "handled": false,
+        "excerpt": ""
+      }
+    ],
+    "criteria": [
+      {
+        "criterion_id": "C1",
+        "score": 5,
+        "justification": "The brief is remarkably complete, addressing all six questions with substantive detail across clearly labeled sections."
+      },
+      {
+        "criterion_id": "C2",
+        "score": 5,
+        "justification": "Claims are consistently tied to specific sources with clear inline citations. The brief also expertly distinguishes between observed household behavior and stated preferences."
+      },
+      {
+        "criterion_id": "C3",
+        "score": 5,
+        "justification": "The brief shows excellent calibration by matching its confidence to the evidence, calling out unsupported market statistics, and explicitly advocating for further testing rather than assuming validated demand."
+      },
+      {
+        "criterion_id": "C4",
+        "score": 5,
+        "justification": "The recommendations are clear and justified, and the proposed experiments include precise target audiences, timeframes, and concrete success metrics directly tied to the riskiest assumptions."
+      },
+      {
+        "criterion_id": "C5",
+        "score": 5,
+        "justification": "The brief is tight, exceptionally well structured with concise bullet points, and free of padding, making it very easy for a product team to read and act upon."
+      }
+    ]
+  }
+}

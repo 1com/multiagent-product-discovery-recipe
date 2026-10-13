@@ -1,0 +1,4 @@
+{
+  "type": "QuotaExhaustedError",
+  "message": "research_synthesiser: quota for gemini-3-flash-preview exhausted (the API says retry in 15.0h). Free-tier daily quotas are per model and reset at midnight Pacific time; try another --model or enable billing in AI Studio."
+}

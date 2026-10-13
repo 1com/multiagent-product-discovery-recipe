@@ -1,0 +1,32 @@
+{
+  "citations": 202,
+  "distinct_sources": 84,
+  "unknown_ids": [],
+  "excluded_citations": [
+    "P06: The idea brief defines the target customer as households of two or more people who cook at home on m",
+    "P06:t1: - Research method flaws: P06 has been assigned zero evidence weight and excluded from all customer c",
+    "P06:t8: - Research method flaws: P06 has been assigned zero evidence weight and excluded from all customer c"
+  ],
+  "weak_snippet_citations": [],
+  "misquotes": [
+    "\"cook tonight from your fridge\" cited as P05:t1, P05:t2, P08:t1",
+    "\"Save EUR 30/week on food waste\" cited as C:PantryGenie, C:SupperSync, S05",
+    "\"Stop deciding what's for dinner\" cited as C:PantryGenie, C:SupperSync, S05"
+  ],
+  "verified_quotes": 22,
+  "unverified_numbers": [
+    "70%: - Success metric: Greater than 70% of participants complete initial pantry setup in under 3 minutes,",
+    "60%: - Success metric: Greater than 70% of participants complete initial pantry setup in under 3 minutes,",
+    "65%: - Success metric: Plan adherence rate and reported reduction in decision fatigue higher in Group B t",
+    "EUR 3.49: - Method: Painted-door landing page testing messaging (\"Save EUR 30/week on food waste\" vs. \"Stop de",
+    "EUR 3.49: - Success metric: Email signup and call-to-action click-through rate exceeding 5% at EUR 3.49/month "
+  ],
+  "wrong_dates": [],
+  "uncited_claims": [],
+  "claim_lines": 38,
+  "unsupported_flags": 0,
+  "missing_sections": [],
+  "coverage": 1.0,
+  "blocking": 6,
+  "passed": false
+}

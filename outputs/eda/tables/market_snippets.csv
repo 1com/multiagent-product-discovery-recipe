@@ -1,0 +1,10 @@
+snippet_id,claim,stat,source_name,year,age_years,reliability,issues
+S01,Households discard roughly a fifth of the food they buy,19%,European Household Food Panel,2025,1,usable,
+S02,Average weekly grocery spend of a two-person household,EUR 118,European Household Food Panel,2025,1,usable,
+S03,Share of households that use a meal-planning app,11%,Digital Home Habits Report,2025,1,usable,
+S04,Time adults spend each day deciding what to cook,22 minutes,National Time Use Study,2023,3,usable_with_caveat,3 years old (aging)
+S05,Median stated willingness to pay for a cooking app,EUR 3.50 per month,Consumer App Pricing Study,2025,1,usable,
+S06,The meal-planning and meal-kit market is growing quickly every year,25% annual growth,,,,unsupported,no source; no year; scope_conflation: Bundles meal-planning apps with meal kits; meal-kit growth says nothing about demand for a planning app.
+S07,Most families struggle with dinner decisions,73%,,,,unsupported,no source; no year
+S08,Households that would pay for automated meal planning,97%,App Trends Blog,2025,1,unreliable,"blog, not primary research; implausible: 97% would pay contradicts the 11% who use a planning app (S03), the EUR 3.50 median willingness to pay (S05) and three of ten interviewees who would not pay at all."
+S09,Share of grocery purchases made online,4%,Retail Trends Review,2016,10,stale,10 years old

@@ -1,0 +1,101 @@
+{
+  "run_id": "20261013-095110-agents",
+  "mode": "agents",
+  "started_at": "2026-10-13T09:51:10.114813+00:00",
+  "config": {
+    "model": "gemini-3.8-flash",
+    "effort": "medium",
+    "max_tokens": 32000,
+    "max_tool_rounds": 12,
+    "max_revisions": 2,
+    "code_fingerprint": "369c56e9bcf3"
+  },
+  "recommendation": "test_further",
+  "loop_outcome": "approved",
+  "rounds": [
+    {
+      "round": 0,
+      "recommendation": "test_further",
+      "verdict": "revise",
+      "blockers": 2,
+      "majors": 2,
+      "minors": 3,
+      "citation_check": {
+        "citations": 219,
+        "distinct_sources": 63,
+        "unknown_ids": [],
+        "excluded_citations": [],
+        "weak_snippet_citations": [],
+        "misquotes": [],
+        "verified_quotes": 17,
+        "unverified_numbers": [],
+        "wrong_dates": [],
+        "uncited_claims": [],
+        "claim_lines": 48,
+        "unsupported_flags": 28,
+        "missing_sections": [],
+        "coverage": 1.0,
+        "blocking": 0,
+        "passed": true
+      },
+      "serious": 4
+    },
+    {
+      "round": 1,
+      "recommendation": "test_further",
+      "verdict": "approve",
+      "blockers": 0,
+      "majors": 0,
+      "minors": 0,
+      "citation_check": {
+        "citations": 225,
+        "distinct_sources": 68,
+        "unknown_ids": [],
+        "excluded_citations": [],
+        "weak_snippet_citations": [],
+        "misquotes": [],
+        "verified_quotes": 18,
+        "unverified_numbers": [],
+        "wrong_dates": [],
+        "uncited_claims": [],
+        "claim_lines": 48,
+        "unsupported_flags": 28,
+        "missing_sections": [],
+        "coverage": 1.0,
+        "blocking": 0,
+        "passed": true
+      },
+      "serious": 0
+    }
+  ],
+  "final_citation_check": {
+    "citations": 225,
+    "distinct_sources": 68,
+    "unknown_ids": [],
+    "excluded_citations": [],
+    "weak_snippet_citations": [],
+    "misquotes": [],
+    "verified_quotes": 18,
+    "unverified_numbers": [],
+    "wrong_dates": [],
+    "uncited_claims": [],
+    "claim_lines": 48,
+    "unsupported_flags": 28,
+    "missing_sections": [],
+    "coverage": 1.0,
+    "blocking": 0,
+    "passed": true
+  },
+  "totals": {
+    "calls": 18,
+    "input_tokens": 224881,
+    "output_tokens": 77750,
+    "cache_read_tokens": 36647,
+    "thinking_tokens": 48139,
+    "tool_calls": 17,
+    "cost_usd": 0.462973,
+    "model_time_s": 521.588,
+    "wall_clock_s": 497.183,
+    "cost_incomplete": false
+  }
+}

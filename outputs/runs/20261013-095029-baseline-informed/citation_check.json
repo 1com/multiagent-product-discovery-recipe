@@ -1,0 +1,20 @@
+{
+  "citations": 216,
+  "distinct_sources": 86,
+  "unknown_ids": [],
+  "excluded_citations": [],
+  "weak_snippet_citations": [],
+  "misquotes": [],
+  "verified_quotes": 9,
+  "unverified_numbers": [],
+  "wrong_dates": [],
+  "uncited_claims": [
+    "Evidence strength is evaluated across distinct household tiers, separating past behaviour from stated intent:"
+  ],
+  "claim_lines": 31,
+  "unsupported_flags": 11,
+  "missing_sections": [],
+  "coverage": 0.968,
+  "blocking": 0,
+  "passed": true
+}

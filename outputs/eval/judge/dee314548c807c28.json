@@ -1,0 +1,95 @@
+{
+  "brief_id": "20261013-095110-agents",
+  "judge_model": "gemini-3.1-pro-preview",
+  "verdict": {
+    "traps": [
+      {
+        "trap_id": "T01",
+        "handled": true,
+        "excerpt": "interview P06 excluded due to research-method defects"
+      },
+      {
+        "trap_id": "T02",
+        "handled": true,
+        "excerpt": "A templated phrase identical to P02:t8 appeared across P05, P08, and P10, so frequency must be treated as an upper bound rather than independent agreement"
+      },
+      {
+        "trap_id": "T03",
+        "handled": true,
+        "excerpt": "Solo dwellers (out-of-target; sample size: 1 interview; P07)"
+      },
+      {
+        "trap_id": "T04",
+        "handled": true,
+        "excerpt": "Two-person households cooking every night who match the demographic target but have decades-long routines and daily shopping habits that produce zero dinner friction"
+      },
+      {
+        "trap_id": "T05",
+        "handled": true,
+        "excerpt": "An outlier stated price of EUR 30 per month from P08 was anchored on an isolated holiday spoilage disaster costing EUR 200 rather than routine weeknight cooking, and must be excluded from typical estimates"
+      },
+      {
+        "trap_id": "T06",
+        "handled": true,
+        "excerpt": "Usability risk (highest priority): Households will keep an accurate fridge and pantry inventory up to date in the app without abandoning it"
+      },
+      {
+        "trap_id": "T07",
+        "handled": true,
+        "excerpt": "adjacent irregular couples and daily shoppers find rigid multi-day plans stressful"
+      },
+      {
+        "trap_id": "T08",
+        "handled": true,
+        "excerpt": "showing that stopping arguments is a weak framing compared to shopping synchronization"
+      },
+      {
+        "trap_id": "T09",
+        "handled": true,
+        "excerpt": "directly disproving the idea brief's claim that apps do not know what users own"
+      },
+      {
+        "trap_id": "T10",
+        "handled": true,
+        "excerpt": "verification data is stale (nearly two years old)"
+      },
+      {
+        "trap_id": "T11",
+        "handled": true,
+        "excerpt": "Unverified market snippet S06 (25% annual meal planning market growth): Unsupported because it lacks an author, publication year, and source methodology"
+      },
+      {
+        "trap_id": "T12",
+        "handled": true,
+        "excerpt": "What is the objectively measured baseline of household food waste over time, rather than retrospective self-estimates"
+      }
+    ],
+    "criteria": [
+      {
+        "criterion_id": "C1",
+        "score": 5,
+        "justification": "The brief comprehensively answers all six questions, providing detailed and substantive insights across the board."
+      },
+      {
+        "criterion_id": "C2",
+        "score": 5,
+        "justification": "Evidence is rigorously cited with explicit sample sizes, distinctions between stated intent and past behavior, and careful handling of contradictions and templates."
+      },
+      {
+        "criterion_id": "C3",
+        "score": 5,
+        "justification": "Conclusions are perfectly calibrated to the evidence, consistently avoiding overclaims and explicitly calling out unsupported assumptions and market stats."
+      },
+      {
+        "criterion_id": "C4",
+        "score": 5,
+        "justification": "Recommendations are highly actionable, featuring three clearly prioritized experiments complete with hypotheses, exact metrics, sample sizes, and explicit pivot decisions."
+      },
+      {
+        "criterion_id": "C5",
+        "score": 5,
+        "justification": "The document is exceptionally well-structured, densely informative but concise, making it immediately useful for cross-functional product teams."
+      }
+    ]
+  }
+}
