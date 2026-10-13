@@ -169,6 +169,9 @@ def test_excerpt_matching():
     assert excerpt_in_brief("The 97% figure ... is unreliable", brief)
     assert not excerpt_in_brief("97% would pay", brief)
     assert not excerpt_in_brief("", brief)
+    # Markdown formatting in the brief must not hide a correct quote
+    bold = "- **PlanPlate (verified 2024-11-05, stale data):** EUR 2.99/month [C:PlanPlate]."
+    assert excerpt_in_brief("PlanPlate (verified 2024-11-05, stale data): EUR 2.99/month", bold)
 
 
 def test_full_evaluation_writes_report_and_blind_kit(runs, ctx, tmp_path):

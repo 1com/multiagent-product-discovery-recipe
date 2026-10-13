@@ -104,9 +104,17 @@ def judge(llm: LLM | None, record: BriefRecord, report: CitationReport,
     return assess(record.brief_id, verdict, record.markdown, report)
 
 
+_MARKUP = re.compile(r"[*_`#>]")  # Markdown emphasis, code, heading and quote marks
+
+
+def _plain(text: str) -> str:
+    """Text without Markdown formatting: the judge quotes words, not `**bold**` markers."""
+    return normalise(_MARKUP.sub("", text))
+
+
 def excerpt_in_brief(excerpt: str, markdown: str) -> bool:
-    brief = normalise(markdown)
-    parts = [p.strip(" .,;:!?\"'") for p in re.split(r"\.\.\.|…", normalise(excerpt))]
+    brief = _plain(markdown)
+    parts = [p.strip(" .,;:!?\"'") for p in re.split(r"\.\.\.|…", _plain(excerpt))]
     parts = [p for p in parts if len(p) >= 8]
     return bool(parts) and all(p in brief for p in parts)
 

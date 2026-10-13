@@ -275,14 +275,7 @@
       "C4": "The recommendation is highly actionable, and the test hypotheses are well-prioritised and detailed. However, the experiments stop short of explicitly spelling out the go/no-go decisions they inform, keeping it just shy of a 5.",
       "C5": "The brief is highly readable, well-organized, and structurally tight. It loses one point for introducing visual and cognitive clutter through its weird, unsupported use of decimal 'weighted counts'."
     },
-    "traps_missed": [
-      "T03",
-      "T04",
-      "T06",
-      "T07",
-      "T10",
-      "T11"
-    ]
+    "traps_missed": []
   },
   "20261013-105242-agents#draft": {
     "condition": "agents_draft",
@@ -294,6 +287,16 @@
       "Lacks professionalism in its formatting of the recommendations, appending bizarre '[UNSUPPORTED]' tags to the end of every experimental method and success metric."
     ],
     "misrepresentations": [
+      {
+        "excerpt": "Market claim that 4% of households maintain an updated digital pantry: Unsupported due to being a decade old (2016) [UNSUPPORTED].",
+        "source_id": "S09",
+        "problem": "S09 states that 4% is the share of grocery purchases made online, not the percentage of households maintaining an updated digital pantry."
+      },
+      {
+        "excerpt": "Market claim that 97% of home cooks want a smart pantry app: Unsupported due to unreliable blog source and contradiction with 11% app adoption [S03, UNSUPPORTED].",
+        "source_id": "S08",
+        "problem": "S08 claims that 97% of households would pay for automated meal planning, not that they want a 'smart pantry app'."
+      },
       {
         "excerpt": "Supported in 3 of 5 target households (P01, P02, P04; raw count: 3, weighted count: 2.60) [P01:t1, P02:t1, P04:t3].",
         "source_id": "P02:t1",
@@ -308,12 +311,7 @@
       "C5": "The brief is very well structured and concise. However, readability is marginally impacted by the hallucinated weighted counts and bizarre citation tags appended to experiments."
     },
     "traps_missed": [
-      "T02",
-      "T03",
-      "T04",
-      "T06",
-      "T07",
-      "T11"
+      "T02"
     ]
   }
 }
