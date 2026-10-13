@@ -38,14 +38,15 @@ The 97% figure comes from a blog and is unreliable, so it is not used [S08].
 
 @pytest.fixture(autouse=True)
 def no_real_api(monkeypatch, tmp_path):
-    """Tests must never reach the Gemini API or read the developer's real .env."""
+    """Tests must never reach a model (Gemini API or local Ollama) or read the real .env."""
     from discovery_chef import cli
-    from discovery_chef.llm import client
+    from discovery_chef.llm import gemini, ollama
 
-    def refuse():
-        raise RuntimeError("tests must not create a real Gemini client")
+    def refuse(*args, **kwargs):
+        raise RuntimeError("tests must not call a real model (Gemini or Ollama)")
 
-    monkeypatch.setattr(client, "make_client", refuse)
+    monkeypatch.setattr(gemini, "make_client", refuse)
+    monkeypatch.setattr(ollama, "_post_json", refuse)
     monkeypatch.setattr(cli, "ENV_FILE", tmp_path / "no.env")
     for name in cli.CREDENTIAL_VARS:
         monkeypatch.delenv(name, raising=False)

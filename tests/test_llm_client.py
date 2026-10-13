@@ -1,4 +1,4 @@
-"""The LLM client against a scripted fake of the Gemini SDK (no network).
+"""The Gemini client against a scripted fake of the Gemini SDK (no network).
 
 The fake returns real google-genai `Content` / `Part` objects, so history handling and
 thought signatures are tested against the SDK's actual types.
@@ -12,7 +12,6 @@ from pydantic import BaseModel
 
 from discovery_chef.llm import (
     Conversation,
-    LLMClient,
     LLMConfig,
     LLMError,
     RefusalError,
@@ -21,7 +20,8 @@ from discovery_chef.llm import (
     ToolOutput,
     TruncatedError,
 )
-from discovery_chef.llm import client as client_module
+from discovery_chef.llm import gemini as client_module
+from discovery_chef.llm.gemini import GeminiClient
 from discovery_chef.llm.pricing import TokenUsage, price_for, usage_from_response
 
 
@@ -66,7 +66,7 @@ class FakeGenAI:
 def make_client(responses, **config):
     tracker = RunTracker()
     fake = FakeGenAI(responses)
-    return LLMClient(LLMConfig(**config), tracker, client=fake), fake, tracker
+    return GeminiClient(LLMConfig(**config), tracker, client=fake), fake, tracker
 
 
 def echo_tool():

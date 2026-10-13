@@ -1,0 +1,42 @@
+{
+  "totals": {
+    "calls": 1,
+    "input_tokens": 8710,
+    "output_tokens": 1791,
+    "cache_read_tokens": 0,
+    "thinking_tokens": 0,
+    "tool_calls": 0,
+    "cost_usd": 0.0,
+    "model_time_s": 509.695,
+    "wall_clock_s": 510.973,
+    "cost_incomplete": false
+  },
+  "per_agent": {
+    "single_prompt_naive": {
+      "calls": 1,
+      "input_tokens": 8710,
+      "output_tokens": 1791,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 0,
+      "cost_usd": 0.0,
+      "latency_s": 509.695,
+      "tool_calls": 0
+    }
+  },
+  "calls": [
+    {
+      "agent": "single_prompt_naive",
+      "step": "brief/answer",
+      "model": "ollama:qwen3.5:4b",
+      "input_tokens": 8710,
+      "output_tokens": 1791,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 0,
+      "cost_usd": 0.0,
+      "latency_s": 509.695,
+      "finish_reason": "stop",
+      "model_version": null
+    }
+  ],
+  "tool_calls": []
+}

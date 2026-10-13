@@ -6,7 +6,7 @@ from discovery_chef.agents.common import get_sources_tool, role_prompt, search_i
 from discovery_chef.agents.contracts import Critique, DiscoveryBrief
 from discovery_chef.citations import CitationReport
 from discovery_chef.context import DiscoveryContext
-from discovery_chef.llm import Conversation, LLMClient
+from discovery_chef.llm import LLM, Conversation
 
 NAME = "critic"
 
@@ -40,7 +40,7 @@ would have written differently."""
 class Critic:
     """Keeps one conversation across rounds so it can tell which objections were fixed."""
 
-    def __init__(self, llm: LLMClient, ctx: DiscoveryContext):
+    def __init__(self, llm: LLM, ctx: DiscoveryContext):
         self.llm = llm
         self.ctx = ctx
         self.conversation = Conversation(system=role_prompt(

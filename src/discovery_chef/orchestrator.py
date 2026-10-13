@@ -35,7 +35,7 @@ from discovery_chef.agents.critic import Critic
 from discovery_chef.agents.writer import BriefWriter
 from discovery_chef.citations import CitationReport, check_brief
 from discovery_chef.context import DiscoveryContext
-from discovery_chef.llm import LLMClient
+from discovery_chef.llm import LLM
 from discovery_chef.runs import RunRecorder
 
 
@@ -66,7 +66,7 @@ class PipelineResult:
     critiques: list[Critique] = field(default_factory=list)
 
 
-def run_pipeline(llm: LLMClient, ctx: DiscoveryContext, recorder: RunRecorder | None = None,
+def run_pipeline(llm: LLM, ctx: DiscoveryContext, recorder: RunRecorder | None = None,
                  *, max_revisions: int = 2) -> PipelineResult:
     def save(name, data):
         if recorder:

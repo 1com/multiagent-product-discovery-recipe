@@ -108,7 +108,7 @@ def test_stalled_when_revisions_do_not_help(ctx, passing_brief):
 @pytest.mark.parametrize("variant", ["naive", "informed"])
 def test_baseline_prompt_variants(ctx, variant):
     conversation = build_conversation(ctx, variant)
-    prompt = conversation.system + conversation.messages[0].parts[0].text
+    prompt = conversation.system + conversation.messages[0].text
     assert 'id="P02:t4"' in prompt and "C:MealLoop" in prompt and 'id="S08"' in prompt
     has_eda = "exploratory data analysis" in prompt and 'tier="excluded"' in prompt
     assert has_eda == (variant == "informed")

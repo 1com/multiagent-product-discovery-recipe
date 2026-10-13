@@ -10,7 +10,7 @@ from discovery_chef.agents.common import (
 )
 from discovery_chef.agents.contracts import MarketAnalysis
 from discovery_chef.context import DiscoveryContext
-from discovery_chef.llm import Conversation, LLMClient
+from discovery_chef.llm import LLM, Conversation
 
 NAME = "market_analyst"
 
@@ -28,7 +28,7 @@ charges, how current and well-sourced its row is, and how much of a threat it is
 say so."""
 
 
-def run(llm: LLMClient, ctx: DiscoveryContext) -> MarketAnalysis:
+def run(llm: LLM, ctx: DiscoveryContext) -> MarketAnalysis:
     reliability = "\n".join(
         f"- {sid}: {meta['reliability']} ({'; '.join(meta['issues']) or 'no issues'})"
         for sid, meta in ctx.profile["market_snippets"].items()

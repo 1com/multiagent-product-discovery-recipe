@@ -10,7 +10,7 @@ from discovery_chef.agents.common import (
 )
 from discovery_chef.agents.contracts import ResearchSynthesis
 from discovery_chef.context import DiscoveryContext
-from discovery_chef.llm import Conversation, LLMClient
+from discovery_chef.llm import LLM, Conversation
 
 NAME = "research_synthesiser"
 
@@ -35,7 +35,7 @@ that rests only on templated sentences is weak.
 - Willingness to pay: report the range and its conditions. It is stated intent, not demand."""
 
 
-def run(llm: LLMClient, ctx: DiscoveryContext) -> ResearchSynthesis:
+def run(llm: LLM, ctx: DiscoveryContext) -> ResearchSynthesis:
     conversation = Conversation(
         system=role_prompt("research synthesiser", JOB.format(budget=llm.config.max_tool_rounds),
                            ctx, eda_questions=("Q1", "Q2", "Q3")),

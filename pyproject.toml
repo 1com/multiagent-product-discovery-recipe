@@ -20,6 +20,7 @@ dev = [
     "nbconvert>=7.16",
     "pytest>=8.3",
     "ruff>=0.6",
+    "streamlit>=1.40",
 ]
 
 [build-system]

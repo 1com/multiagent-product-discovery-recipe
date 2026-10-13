@@ -12,7 +12,7 @@ from discovery_chef.agents.contracts import (
 )
 from discovery_chef.citations import CitationReport
 from discovery_chef.context import DiscoveryContext
-from discovery_chef.llm import Conversation, LLMClient
+from discovery_chef.llm import LLM, Conversation
 
 NAME = "brief_writer"
 
@@ -30,7 +30,7 @@ the automated citation check, and leave the parts that were fine unchanged."""
 class BriefWriter:
     """Keeps one conversation so each revision sees the draft history (append-only)."""
 
-    def __init__(self, llm: LLMClient, ctx: DiscoveryContext):
+    def __init__(self, llm: LLM, ctx: DiscoveryContext):
         self.llm = llm
         self.conversation = Conversation(system=role_prompt("brief writer", JOB, ctx,
                                                             eda_questions=()))

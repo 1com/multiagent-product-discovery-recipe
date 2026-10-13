@@ -5,7 +5,7 @@ from __future__ import annotations
 from discovery_chef.agents.common import as_json, idea_source, role_prompt
 from discovery_chef.agents.contracts import MarketAnalysis, ResearchSynthesis, RiskAnalysis
 from discovery_chef.context import DiscoveryContext
-from discovery_chef.llm import Conversation, LLMClient
+from discovery_chef.llm import LLM, Conversation
 
 NAME = "risk_analyst"
 
@@ -25,7 +25,7 @@ decision.
 - Suggest build, pivot or test further, with the reason."""
 
 
-def run(llm: LLMClient, ctx: DiscoveryContext, research: ResearchSynthesis,
+def run(llm: LLM, ctx: DiscoveryContext, research: ResearchSynthesis,
         market: MarketAnalysis) -> RiskAnalysis:
     gaps = "\n".join(f"- {f['finding']}" for f in ctx.findings("Q5"))
     conversation = Conversation(

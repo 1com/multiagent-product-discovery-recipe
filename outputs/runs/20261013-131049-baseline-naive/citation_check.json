@@ -1,0 +1,34 @@
+{
+  "citations": 57,
+  "distinct_sources": 36,
+  "unknown_ids": [],
+  "excluded_citations": [],
+  "weak_snippet_citations": [
+    "S07: - **Market**: 73% of families struggle with dinner decisions, yet only 11% use a meal-planning app ["
+  ],
+  "misquotes": [
+    "\"Users want automated plans.\" cited as P03:t1, P05:t8",
+    "\"Students and retirees are not target users.\" cited as P07:t1, P09:t1"
+  ],
+  "verified_quotes": 1,
+  "unverified_numbers": [
+    "60%: - Threshold: ≥60% completion without help text.",
+    "15%: - Threshold: ≥15% conversion to EUR 3–5/mo plan."
+  ],
+  "wrong_dates": [],
+  "uncited_claims": [
+    "- **PantryGenie (C:PantryGenie)** offers inventory tracking and expiry alerts for EUR 3.99/month; this aligns better wit",
+    "- **SupperSync (C:SupperSync)** handles chore assignment and shared lists for EUR 4.49/month, addressing the coordinatio",
+    "- **Gap**: There is no dominant competitor that combines robust inventory management with low-friction manual meal draft",
+    "- **Value Perception**: The value of knowing what's in the fridge may be undervalued by users unless tied to direct fina",
+    "- **Competitive Pressure**: Existing tools like MealLoop and SupperSync are well-funded; PantryPal needs a unique angle ",
+    "- Success metric: Conversion to paid tier after seeing estimated waste savings.",
+    "- Success metric: Daily active usage of shared list features over planning features."
+  ],
+  "claim_lines": 20,
+  "unsupported_flags": 3,
+  "missing_sections": [],
+  "coverage": 0.65,
+  "blocking": 2,
+  "passed": false
+}

@@ -31,7 +31,12 @@ PRICES: dict[str, Price] = {
 }
 
 
+LOCAL = Price(input=0.0, output=0.0, cache_read=0.0)
+
+
 def price_for(model: str) -> Price | None:
+    if model.startswith("ollama:"):  # runs on your own machine
+        return LOCAL
     name = model.removeprefix("models/")
     if name in PRICES:
         return PRICES[name]

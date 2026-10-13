@@ -20,7 +20,7 @@ from discovery_chef.agents.common import (
 )
 from discovery_chef.agents.contracts import DiscoveryBrief
 from discovery_chef.context import DiscoveryContext
-from discovery_chef.llm import Conversation, LLMClient
+from discovery_chef.llm import LLM, Conversation
 
 Variant = Literal["naive", "informed"]
 NAME = "single_prompt"
@@ -72,6 +72,6 @@ def build_conversation(ctx: DiscoveryContext, variant: Variant) -> Conversation:
     return Conversation(system=system).say("\n\n".join(parts))
 
 
-def run_baseline(llm: LLMClient, ctx: DiscoveryContext, variant: Variant) -> DiscoveryBrief:
+def run_baseline(llm: LLM, ctx: DiscoveryContext, variant: Variant) -> DiscoveryBrief:
     return llm.run(agent=f"{NAME}_{variant}", step="brief",
                    conversation=build_conversation(ctx, variant), output_type=DiscoveryBrief)

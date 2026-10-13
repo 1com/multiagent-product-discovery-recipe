@@ -16,8 +16,8 @@ RUNS_DIR = OUTPUTS_DIR / "runs"
 
 # Code that shapes what the model sees or how its output is judged during a run. Runs are
 # only compared with each other when this code and the EDA profile were identical.
-_FINGERPRINTED = ("agents", "baseline.py", "citations.py", "context.py", "llm/client.py",
-                  "orchestrator.py", "retrieval.py")
+_FINGERPRINTED = ("agents", "baseline.py", "citations.py", "context.py", "llm/base.py",
+                  "llm/gemini.py", "llm/ollama.py", "orchestrator.py", "retrieval.py")
 
 
 def code_fingerprint() -> str:

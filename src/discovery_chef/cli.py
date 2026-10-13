@@ -7,6 +7,7 @@ Stages run in order; each writes to `outputs/` and later stages read from there.
     baseline    Phase 2 - single-prompt discovery brief -> outputs/runs/<id>-baseline-<variant>/
     experiment  Phase 3 - every system N times          -> outputs/runs/
     evaluate    Phase 3 - score and compare the runs    -> outputs/eval/
+    demo        Replay recorded runs in the browser (no API calls)
 """
 
 from __future__ import annotations
@@ -64,17 +65,25 @@ def main(argv: list[str] | None = None) -> int:
     evaluate.add_argument("--all-versions", action="store_true",
                           help="include runs made with any code or prompts")
 
+    stages.add_parser("demo", help="replay recorded runs in the browser (no API calls)")
+
     args = parser.parse_args(argv)
     if args.stage == "eda":
         return _run_eda(args)
+    if args.stage == "demo":
+        return _demo()
     if args.stage == "search":
         return _search(args)
     _load_env_file()
     stage = {"run": _run_agents, "baseline": _run_baseline, "experiment": _run_experiment,
              "evaluate": _evaluate}[args.stage]
     try:
-        if not (args.stage == "evaluate" and args.no_judge):
-            _check_credentials()
+        if args.stage == "evaluate":
+            if not args.no_judge:
+                _check_credentials()  # the judge runs on Gemini
+        else:
+            _resolve_model_options(args)
+            _check_provider(args)
         return stage(args)
     except _UserFacingError as error:
         print(f"error: {error}", file=sys.stderr)
@@ -82,13 +91,46 @@ def main(argv: list[str] | None = None) -> int:
 
 
 def _add_model_options(parser: argparse.ArgumentParser) -> None:
-    from discovery_chef.llm import DEFAULT_MODEL, EFFORTS, LLMConfig
+    from discovery_chef.llm import DEFAULT_MODELS, EFFORTS, PROVIDERS, LLMConfig
 
-    parser.add_argument("--model", default=DEFAULT_MODEL, help=f"default {DEFAULT_MODEL}")
-    parser.add_argument("--effort", default="medium", choices=EFFORTS,
-                        help="Gemini thinking level (default medium)")
+    parser.add_argument("--provider", default="gemini", choices=PROVIDERS,
+                        help="gemini = Google's API (needs a key); ollama = local models "
+                        "(free, slower)")
+    parser.add_argument("--model", default=None,
+                        help="default: " + ", ".join(f"{m} for {p}"
+                                                     for p, m in DEFAULT_MODELS.items()))
+    parser.add_argument("--effort", default=None, choices=EFFORTS,
+                        help="thinking level (default: medium for gemini; low = no thinking "
+                        "for ollama)")
     parser.add_argument("--max-tokens", type=int, default=LLMConfig.max_tokens,
                         help="output ceiling per call, thinking included")
+    parser.add_argument("--num-ctx", type=int, default=LLMConfig.num_ctx,
+                        help="ollama only: context window in tokens (more needs more memory)")
+
+
+def _resolve_model_options(args) -> None:
+    from discovery_chef.llm import DEFAULT_EFFORT, DEFAULT_MODELS
+
+    args.model = args.model or DEFAULT_MODELS[args.provider]
+    args.effort = args.effort or DEFAULT_EFFORT[args.provider]
+
+
+def _check_provider(args) -> None:
+    """Fail before creating a run folder if the chosen provider cannot work."""
+    if args.provider == "gemini":
+        _check_credentials()
+        return
+    from discovery_chef.llm import LLMError
+    from discovery_chef.llm.ollama import installed_models
+
+    try:
+        installed = installed_models()
+    except LLMError as error:
+        raise _UserFacingError(str(error)) from error
+    names = set(installed) | {name.removesuffix(":latest") for name in installed}
+    if args.model not in names:
+        raise _UserFacingError(f"Ollama model {args.model!r} is not installed. Run `ollama "
+                               f"pull {args.model}` (installed: {', '.join(installed)})")
 
 
 class _UserFacingError(Exception):
@@ -158,11 +200,12 @@ def _search(args) -> int:
 
 
 def _llm(args):
-    from discovery_chef.llm import LLMClient, LLMConfig, RunTracker
+    from discovery_chef.llm import LLMConfig, RunTracker, create_llm
 
-    config = LLMConfig(model=args.model, effort=args.effort, max_tokens=args.max_tokens)
+    config = LLMConfig(provider=args.provider, model=args.model, effort=args.effort,
+                       max_tokens=args.max_tokens, num_ctx=args.num_ctx)
     tracker = RunTracker()
-    return LLMClient(config, tracker), config, tracker
+    return create_llm(config, tracker), config, tracker
 
 
 def _run_agents(args) -> int:
@@ -176,7 +219,7 @@ def _run_agents(args) -> int:
                   "code_fingerprint": code_fingerprint()}
     recorder.json("config.json", run_config)
     print(f"Run {recorder.run_id}: research + market (parallel) -> risk -> writer -> critic "
-          f"(model {config.model}, effort {config.effort})")
+          f"({config.provider} {config.model}, effort {config.effort})")
     with _api_errors(recorder, tracker):
         result = run_pipeline(llm, ctx, recorder, max_revisions=args.max_revisions)
 
@@ -210,8 +253,8 @@ def _run_baseline(args) -> int:
     run_config = {**vars(config), "variant": args.variant,
                   "code_fingerprint": code_fingerprint()}
     recorder.json("config.json", run_config)
-    print(f"Run {recorder.run_id}: single prompt ({args.variant}, model {config.model}, "
-          f"effort {config.effort})")
+    print(f"Run {recorder.run_id}: single prompt ({args.variant}, {config.provider} "
+          f"{config.model}, effort {config.effort})")
     with _api_errors(recorder, tracker):
         brief = run_baseline(llm, ctx, args.variant)
 
@@ -260,7 +303,7 @@ def _evaluate(args) -> int:
     from discovery_chef.eval.collect import collect
     from discovery_chef.eval.judge import JUDGE_MODEL
     from discovery_chef.eval.report import evaluate
-    from discovery_chef.llm import DEFAULT_MODEL, LLMClient, LLMConfig, RunTracker
+    from discovery_chef.llm import DEFAULT_MODEL, LLMConfig, RunTracker, create_llm
     from discovery_chef.paths import OUTPUTS_DIR
     from discovery_chef.runs import RUNS_DIR, code_fingerprint
 
@@ -277,8 +320,8 @@ def _evaluate(args) -> int:
 
     judge_model = args.judge_model or JUDGE_MODEL
     tracker = RunTracker()
-    judge_llm = None if args.no_judge else LLMClient(
-        LLMConfig(model=judge_model, effort="high"), tracker)
+    judge_llm = None if args.no_judge else create_llm(
+        LLMConfig(provider="gemini", model=judge_model, effort="high"), tracker)
     out_dir = OUTPUTS_DIR / "eval"
     setup = {"model under test": model,
              "code fingerprint": fingerprint or "any",
@@ -307,6 +350,13 @@ def _evaluate(args) -> int:
         print(f"  judge cost ${tracker.summary()['totals']['cost_usd']:.3f} over "
               f"{len(tracker.calls)} calls")
     return 0
+
+
+def _demo() -> int:
+    import subprocess
+
+    app = Path(__file__).parent / "demo.py"
+    return subprocess.call([sys.executable, "-m", "streamlit", "run", str(app)])
 
 
 def _fingerprints_on_disk(runs_dir: Path, model: str) -> dict[str, int]:

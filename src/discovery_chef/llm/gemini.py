@@ -1,4 +1,4 @@
-"""One way to call Gemini for every agent: structured output, optional tools, tracked cost.
+"""Gemini provider: structured output, optional tools, tracked cost.
 
 Each call goes through `client.models.generate_content` with:
 - a Pydantic `response_schema`, so every hand-off is validated JSON,
@@ -15,39 +15,29 @@ from __future__ import annotations
 
 import logging
 import time
-from collections.abc import Callable, Sequence
-from dataclasses import dataclass, field
-from typing import TypeVar
+from collections.abc import Sequence
 
 from google.genai import types
-from pydantic import BaseModel
 
+from discovery_chef.llm.base import (
+    BUDGET_SPENT,
+    Conversation,
+    LLMConfig,
+    LLMError,
+    QuotaExhaustedError,
+    RefusalError,
+    T,
+    Tool,
+    TruncatedError,
+    UserTurn,
+    parse_output,
+    run_tool,
+)
 from discovery_chef.llm.pricing import usage_from_response
-from discovery_chef.llm.tracking import RunTracker, ToolRecord
-
-DEFAULT_MODEL = "gemini-3.8-flash"
-EFFORTS = ("low", "medium", "high")  # Gemini thinking levels every Gemini 3 model accepts
+from discovery_chef.llm.tracking import RunTracker
 
 # Finish reasons that mean a safety system blocked the answer.
 BLOCKED = {"SAFETY", "BLOCKLIST", "PROHIBITED_CONTENT", "SPII", "RECITATION"}
-
-T = TypeVar("T", bound=BaseModel)
-
-
-class LLMError(RuntimeError):
-    pass
-
-
-class RefusalError(LLMError):
-    pass
-
-
-class TruncatedError(LLMError):
-    pass
-
-
-class QuotaExhaustedError(LLMError):
-    """The API asked us to wait longer than is worth waiting (e.g. a daily quota)."""
 
 
 # Rate limits (HTTP 429) are handled here rather than by the SDK's retry, because the
@@ -55,47 +45,16 @@ class QuotaExhaustedError(LLMError):
 MAX_RATE_LIMIT_WAIT_S = 90
 MAX_RATE_LIMIT_RETRIES = 5
 
-BUDGET_SPENT = ("You have used all {budget} rounds of tool calls. Do not call any more tools: "
-                "give your final answer now, based on what you have already checked.")
+
+def _declaration(tool: Tool) -> types.FunctionDeclaration:
+    return types.FunctionDeclaration(name=tool.name, description=tool.description,
+                                     parameters_json_schema=tool.input_schema)
 
 
-@dataclass(frozen=True)
-class LLMConfig:
-    model: str = DEFAULT_MODEL
-    effort: str = "medium"  # thinking level: low | medium | high
-    max_tokens: int = 32000  # output ceiling, thinking included
-    max_tool_rounds: int = 12
-
-
-@dataclass(frozen=True)
-class ToolOutput:
-    text: str
-    ids: list[str] = field(default_factory=list)  # source IDs returned, for the trace
-
-
-@dataclass(frozen=True)
-class Tool:
-    name: str
-    description: str
-    input_schema: dict
-    handler: Callable[[dict], ToolOutput]
-
-    def declaration(self) -> types.FunctionDeclaration:
-        return types.FunctionDeclaration(name=self.name, description=self.description,
-                                         parameters_json_schema=self.input_schema)
-
-
-@dataclass
-class Conversation:
-    """System prompt plus turns. User turns are plain text; model turns are stored as the
-    SDK returned them so their thought signatures survive."""
-
-    system: str
-    messages: list = field(default_factory=list)
-
-    def say(self, text: str) -> Conversation:
-        self.messages.append(types.Content(role="user", parts=[types.Part(text=text)]))
-        return self
+def _contents(conversation: Conversation) -> list:
+    """Neutral user turns become Gemini Content; model turns are already native."""
+    return [types.Content(role="user", parts=[types.Part(text=m.text)])
+            if isinstance(m, UserTurn) else m for m in conversation.messages]
 
 
 def make_client():
@@ -129,7 +88,7 @@ def retry_delay_s(error) -> float | None:
     return None
 
 
-class LLMClient:
+class GeminiClient:
     def __init__(self, config: LLMConfig, tracker: RunTracker, client=None):
         self.config = config
         self.tracker = tracker
@@ -174,7 +133,7 @@ class LLMClient:
             thinking_config=types.ThinkingConfig(
                 thinking_level=types.ThinkingLevel[self.config.effort.upper()]),
             max_output_tokens=self.config.max_tokens,
-            tools=[types.Tool(function_declarations=[t.declaration() for t in tools])]
+            tools=[types.Tool(function_declarations=[_declaration(t) for t in tools])]
             if tools else None,
             # Tools stay declared (the history contains their calls) but may not be called.
             tool_config=None if allow_tools or not tools else types.ToolConfig(
@@ -210,7 +169,7 @@ class LLMClient:
         for attempt in range(MAX_RATE_LIMIT_RETRIES + 1):
             try:
                 return self._client.models.generate_content(
-                    model=self.config.model, contents=conversation.messages, config=config)
+                    model=self.config.model, contents=_contents(conversation), config=config)
             except errors.ClientError as error:
                 if error.code != 429:
                     raise
@@ -229,24 +188,11 @@ class LLMClient:
     def _parse(self, agent: str, response, output_type: type[T]) -> T:
         if isinstance(response.parsed, output_type):
             return response.parsed
-        try:  # the SDK leaves `parsed` empty if its own parse fails; say why
-            return output_type.model_validate_json(response.text or "")
-        except ValueError as error:
-            raise LLMError(f"{agent}: output did not match {output_type.__name__}: {error}"
-                           ) from error
+        # the SDK leaves `parsed` empty if its own parse fails; validate to say why
+        return parse_output(agent, response.text, output_type)
 
     def _run_tool(self, agent: str, tool_map: dict[str, Tool], call) -> types.Part:
-        args = dict(call.args or {})
-        tool = tool_map.get(call.name)
-        try:
-            if tool is None:
-                raise ValueError(f"unknown tool {call.name!r}")
-            output = tool.handler(args)
-            self.tracker.add_tool(ToolRecord(agent, call.name, args, output.ids))
-            response = {"result": output.text}
-        except Exception as error:  # report to the model instead of crashing the run
-            self.tracker.add_tool(ToolRecord(agent, call.name, args, [], is_error=True))
-            response = {"error": str(error)}
+        response = run_tool(self.tracker, agent, tool_map, call.name, dict(call.args or {}))
         part = types.Part.from_function_response(name=call.name, response=response)
         part.function_response.id = call.id  # pairs the result with its call
         return part

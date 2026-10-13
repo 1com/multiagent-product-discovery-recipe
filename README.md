@@ -19,21 +19,34 @@ uv run pytest                          # offline: data, EDA, retrieval, citation
 uv run discovery-chef eda --notebook   # Phase 1: write outputs/eda/ and re-run the notebook
 ```
 
-Phase 2 calls Google's Gemini API, so it needs a Gemini API key
-([get one](https://aistudio.google.com/apikey)). Copy `.env.example` to `.env`, fill in
-`GEMINI_API_KEY`, then run:
+To see the agents at work without running anything, open the demo. It replays the
+recorded runs in `outputs/runs/` in your browser, with no API calls:
+
+```bash
+uv run discovery-chef demo
+```
+
+Phase 2 calls a model. Choose a provider:
+
+| Provider | Needs | Speed | Cost |
+|---|---|---|---|
+| `gemini` (default) | a Gemini API key ([get one](https://aistudio.google.com/apikey)) in `.env` as `GEMINI_API_KEY` | ~30 s single prompt, ~8 min multi-agent | ~$0.03 / ~$0.45 per brief at list price |
+| `ollama` | [Ollama](https://ollama.com) running locally, plus `ollama pull qwen3.5:4b` | slow on a CPU (minutes per call), fast on a GPU | free |
 
 ```bash
 uv run discovery-chef search "bought the same thing twice"   # try the retrieval (free)
 uv run discovery-chef run                                     # multi-agent brief
 uv run discovery-chef baseline --variant naive                # single prompt, raw data
 uv run discovery-chef baseline --variant informed             # single prompt + EDA rules
+uv run discovery-chef baseline --provider ollama --num-ctx 16384 --max-tokens 8192
 ```
 
-Every run uses your API quota and prints its cost at list price (on the free tier the real
-cost is $0). All three use `gemini-3.8-flash` (Google's recommended stable model) at
-thinking level `--effort medium` by default; change both with `--model` (for example
-`gemini-3.1-pro-preview`, which has no free tier) and `--effort low|medium|high`.
+Gemini defaults to `gemini-3.8-flash` at `--effort medium`. Ollama defaults to `qwen3.5:4b`
+with thinking off (`--effort low`). Ollama silently truncates prompts that exceed its
+context window, so the client checks prompt size first and asks for a larger `--num-ctx`
+when needed. The multi-agent run needs about 32k tokens of context (more memory). Small
+local models write weaker briefs than Gemini; the evaluation compares runs on the same
+model only.
 
 ## Pipeline
 
@@ -47,6 +60,7 @@ own folder under `outputs/`. Run them in order.
 | 2 | Single-prompt baseline | `discovery-chef baseline` | `data/` (+ `outputs/eda/` if informed) | `outputs/runs/<id>-baseline-<variant>/` | built |
 | 3 | Repeated runs of every system | `discovery-chef experiment --repeats 3` | as above | `outputs/runs/` | built |
 | 3 | Evaluation (rubric, cost, latency) | `discovery-chef evaluate` | `outputs/runs/` | `outputs/eval/` | built |
+| - | Demo: replay recorded runs | `discovery-chef demo` | `outputs/runs/`, `outputs/eval/` | - | built |
 
 Phase 2 refuses to start if `outputs/eda/evidence_profile.json` is missing or was built
 from different data (it compares checksums), so agents never act on stale rules.
@@ -71,7 +85,9 @@ src/discovery_chef/
   context.py                  what a Phase 2 run reads: dataset + EDA profile + index (stale check)
   retrieval.py                BM25 over interview turns; passages cite as P02:t4
   llm/
-    client.py                 Gemini: structured output + tool loop + safety-block handling
+    base.py                   provider-neutral pieces: config, tools, conversation, errors
+    gemini.py                 Gemini: structured output + tool loop + safety-block handling
+    ollama.py                 Ollama (local): tool phase, then schema-constrained answer
     pricing.py, tracking.py   per-call cost (incl. cached and thinking tokens) and latency
   agents/
     contracts.py              hand-off contracts (Pydantic, enforced as structured output)
@@ -81,6 +97,7 @@ src/discovery_chef/
   baseline.py                 the single-prompt baseline (naive / informed)
   citations.py                deterministic citation, quote and number checks
   runs.py                     run folders under outputs/runs/, plus the code fingerprint
+  demo.py                     Streamlit app replaying recorded runs (`discovery-chef demo`)
   eval/
     rubric.py                 the quality rubric: 12 traps from the EDA, 5 criteria with anchors
     collect.py                finds comparable runs; four conditions per comparison

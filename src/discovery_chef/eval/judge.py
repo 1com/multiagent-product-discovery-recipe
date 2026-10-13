@@ -30,7 +30,7 @@ from discovery_chef.eval.rubric import (
     faithfulness,
     judge_prompt,
 )
-from discovery_chef.llm import Conversation, LLMClient
+from discovery_chef.llm import LLM, Conversation
 
 JUDGE_MODEL = "gemini-3.1-pro-preview"
 
@@ -79,7 +79,7 @@ def cache_key(markdown: str, model: str, sources: str) -> str:
     return hashlib.sha256(text.encode()).hexdigest()[:16]
 
 
-def judge(llm: LLMClient | None, record: BriefRecord, report: CitationReport,
+def judge(llm: LLM | None, record: BriefRecord, report: CitationReport,
           cache_dir: Path, *, model: str, sources: str) -> Judgement | None:
     """Judge a brief with `model`, from the cache when possible.
 
