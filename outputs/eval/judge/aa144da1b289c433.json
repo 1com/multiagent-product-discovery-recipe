@@ -1,0 +1,119 @@
+{
+  "brief_id": "20261013-105242-agents#draft",
+  "judge_model": "gemini-3.1-pro-preview",
+  "verdict": {
+    "weaknesses": [
+      "The brief fails to recognize that several participants (P02, P05, P07, P08, P10) gave identical, templated answers regarding app setup, inappropriately treating these as independent qualitative validation.",
+      "Misrepresents market statistics S08 and S09 by fundamentally altering their meaning (e.g., changing 'grocery purchases made online' to 'updated digital pantry').",
+      "Introduces hallucinated and undefined quantitative metrics (e.g., 'weighted count: 2.60') that are meaningless for a qualitative sample of 10 and distract from real insights.",
+      "Inaccurately cites P02 as requiring a strict 30-minute weeknight limit, when the participant only stated a desire for 'something quick'.",
+      "Lacks professionalism in its formatting of the recommendations, appending bizarre '[UNSUPPORTED]' tags to the end of every experimental method and success metric."
+    ],
+    "misrepresentations": [
+      {
+        "excerpt": "Market claim that 4% of households maintain an updated digital pantry: Unsupported due to being a decade old (2016) [UNSUPPORTED].",
+        "source_id": "S09",
+        "problem": "S09 states that 4% is the share of grocery purchases made online, not the percentage of households maintaining an updated digital pantry."
+      },
+      {
+        "excerpt": "Market claim that 97% of home cooks want a smart pantry app: Unsupported due to unreliable blog source and contradiction with 11% app adoption [S03, UNSUPPORTED].",
+        "source_id": "S08",
+        "problem": "S08 claims that 97% of households would pay for automated meal planning, not that they want a 'smart pantry app'."
+      },
+      {
+        "excerpt": "Supported in 3 of 5 target households (P01, P02, P04; raw count: 3, weighted count: 2.60) [P01:t1, P02:t1, P04:t3].",
+        "source_id": "P02:t1",
+        "problem": "P02:t1 states they eat 'pasta or something quick' but does not mention the strict 30-minute weeknight constraint claimed in the text."
+      }
+    ],
+    "traps": [
+      {
+        "trap_id": "T01",
+        "handled": true,
+        "excerpt": "P06 is excluded due to methodological defects"
+      },
+      {
+        "trap_id": "T02",
+        "handled": false,
+        "excerpt": ""
+      },
+      {
+        "trap_id": "T03",
+        "handled": true,
+        "excerpt": "Single Home Occupants / Students (Out-of-target): 1 interview (P07)"
+      },
+      {
+        "trap_id": "T04",
+        "handled": true,
+        "excerpt": "Retired Couples with Established Routines (Core target demographically, but counter-segment): 1 household interviewed (P09)"
+      },
+      {
+        "trap_id": "T05",
+        "handled": true,
+        "excerpt": "An outlier stated willingness to pay of EUR 30 per month from P08 was an emotional reaction to a one-off holiday disaster where EUR 200 of food spoiled over three weeks, and is excluded from typical figures"
+      },
+      {
+        "trap_id": "T06",
+        "handled": true,
+        "excerpt": "Assumption 1 (Usability / Riskiest): Households will keep an inventory updated over time without abandoning the app due to tracking friction"
+      },
+      {
+        "trap_id": "T07",
+        "handled": true,
+        "excerpt": "Advance 7-day planning is an unvalidated format: While batch shoppers organise weekly online orders or Sunday plans [P01:t5, P03:t1], irregular households report that advance planning induces guilt and causes app abandonment"
+      },
+      {
+        "trap_id": "T08",
+        "handled": true,
+        "excerpt": "This reframes the idea brief's claim about arguing over dinner into a concrete coordination breakdown"
+      },
+      {
+        "trap_id": "T09",
+        "handled": true,
+        "excerpt": "The idea brief claims that existing recipe apps do not know what you already own, but this claim is contradicted by active competitors"
+      },
+      {
+        "trap_id": "T10",
+        "handled": true,
+        "excerpt": "PlanPlate (verified 2024-11-05, stale data)"
+      },
+      {
+        "trap_id": "T11",
+        "handled": true,
+        "excerpt": "Market claim of 25% annual growth in meal planning software: Unsupported due to missing citation"
+      },
+      {
+        "trap_id": "T12",
+        "handled": true,
+        "excerpt": "What is the objective measured financial waste per household compared to self-reported estimates"
+      }
+    ],
+    "criteria": [
+      {
+        "criterion_id": "C1",
+        "score": 5,
+        "justification": "The brief thoroughly addresses every question, from user segmentation and validated problems to competitive landscape, key assumptions, and concrete next steps."
+      },
+      {
+        "criterion_id": "C2",
+        "score": 3,
+        "justification": "Claims are consistently cited, but the score is capped at 3 due to misrepresenting multiple market statistics and incorrectly citing P02 for a strict time limit."
+      },
+      {
+        "criterion_id": "C3",
+        "score": 3,
+        "justification": "Generally well-calibrated in its conclusions, but it overstates the strength of evidence by blindly counting templated responses as independent validation."
+      },
+      {
+        "criterion_id": "C4",
+        "score": 4,
+        "justification": "The recommended tests are highly actionable, clearly identifying the target audience, sample size, and success metrics, though the random insertion of unsupported tags creates slight confusion."
+      },
+      {
+        "criterion_id": "C5",
+        "score": 4,
+        "justification": "The brief is very well structured and concise. However, readability is marginally impacted by the hallucinated weighted counts and bizarre citation tags appended to experiments."
+      }
+    ]
+  }
+}

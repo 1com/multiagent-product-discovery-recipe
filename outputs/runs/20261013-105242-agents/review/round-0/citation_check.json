@@ -1,0 +1,20 @@
+{
+  "citations": 176,
+  "distinct_sources": 67,
+  "unknown_ids": [],
+  "excluded_citations": [],
+  "weak_snippet_citations": [],
+  "misquotes": [],
+  "verified_quotes": 0,
+  "unverified_numbers": [],
+  "wrong_dates": [],
+  "uncited_claims": [
+    "Research identifies distinct segments across 9 usable interviews (P06 is excluded due to methodological defects):"
+  ],
+  "claim_lines": 48,
+  "unsupported_flags": 12,
+  "missing_sections": [],
+  "coverage": 0.979,
+  "blocking": 0,
+  "passed": true
+}

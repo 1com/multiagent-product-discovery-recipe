@@ -1,0 +1,694 @@
+{
+  "segments": [
+    {
+      "name": "Busy Working Families with Children",
+      "interview_ids": [
+        "P01",
+        "P03",
+        "P04"
+      ],
+      "target_fit": "in",
+      "description": "Multi-person households with school-age children and working parents who cook weeknight dinners under severe time constraints, tight budgets, and competing dietary requirements. (Note: P06 excluded due to research-method bias).",
+      "needs": [
+        "Fast weeknight recipes with preparation times capped at thirty minutes",
+        "Ability to accommodate children's selective preferences and allergies without preparing multiple separate meals",
+        "Reduction of fresh produce spoilage and wasted grocery budget",
+        "Low-effort coordination to avoid duplicate grocery purchases between partners"
+      ]
+    },
+    {
+      "name": "Dual-Income Working Couples Without Children",
+      "interview_ids": [
+        "P02"
+      ],
+      "target_fit": "in",
+      "description": "Two-person households where both adults work long hours, arriving home late with limited cognitive energy to decide on meals, seeking variety but struggling with produce spoilage and shopping coordination.",
+      "needs": [
+        "Effortless weeknight dinner decisions after long work days",
+        "Prevention of fresh vegetable and herb spoilage in the fridge",
+        "Synchronized grocery shopping to stop buying duplicate ingredients",
+        "Flexible meal suggestions that do not feel prescriptive or rigid"
+      ]
+    },
+    {
+      "name": "Retired Couples with Established Routines",
+      "interview_ids": [
+        "P09"
+      ],
+      "target_fit": "in",
+      "description": "Older two-person households who cook daily based on decades-long established routines, high familiarity with pantry stocks, and near-daily local shopping.",
+      "needs": [
+        "Occasional novel recipe ideas without disrupting existing reliable routines",
+        "Privacy and simplicity with zero digital management friction",
+        "Free utility with no recurring subscription fees"
+      ]
+    },
+    {
+      "name": "Couples with Irregular Schedules or Travel (Adjacent)",
+      "interview_ids": [
+        "P05",
+        "P08"
+      ],
+      "target_fit": "partial",
+      "description": "Two-person households characterised by unpredictable schedules due to freelancing from home or frequent work travel, making structured advance weekly dinner planning impractical.",
+      "needs": [
+        "Dynamic on-the-day meal ideas based on whatever ingredients are currently in the fridge",
+        "Preventing severe produce and food spoilage before and during periods away from home",
+        "Zero-guilt planning that accommodates abandoned or shifted dinner plans"
+      ]
+    },
+    {
+      "name": "Flatmates Sharing a Kitchen (Adjacent)",
+      "interview_ids": [
+        "P10"
+      ],
+      "target_fit": "partial",
+      "description": "Multi-person shared apartments where housemates share kitchen space and common staple ingredients but primarily cook and shop individually on weeknights.",
+      "needs": [
+        "Visibility into shared communal supplies to avoid running out of cooking essentials",
+        "Coordination mechanisms to prevent purchasing duplicate perishables that crowd shared fridge shelves",
+        "Zero-friction tracking that does not feel like chores or homework"
+      ]
+    },
+    {
+      "name": "Single Home Occupants / Students (Out of Target)",
+      "interview_ids": [
+        "P07"
+      ],
+      "target_fit": "out",
+      "description": "Single-person households who cook infrequently (around once a week) and rely on takeout or dining out. Serves strictly as a contrast group.",
+      "needs": [
+        "Effortless single-portion ideas when cooking at home",
+        "Free services requiring zero manual tracking overhead"
+      ]
+    }
+  ],
+  "insights": [
+    {
+      "id": "R1",
+      "kind": "problem",
+      "statement": "Forgotten fridge items and produce spoilage lead to recurring food waste and financial guilt across households purchasing fresh ingredients. Supported within the target segment by 2 of 3 families with children (P01: weight 1.00, P03: weight 0.70) and 1 of 1 busy working couple (P02: weight 0.90), totaling 3 of 5 in-target households (raw: 3, weighted: 2.60). Also observed in adjacent segments: 2 of 2 irregular/travel couples (P05, P08: weight 0.50 each) and 1 of 1 flatshare (P10: weight 0.50). Total usable sample: raw 6 of 9, weighted 4.10.",
+      "interview_ids": [
+        "P01",
+        "P02",
+        "P03",
+        "P05",
+        "P08",
+        "P10"
+      ],
+      "own_words_interviews": [
+        "P01",
+        "P02",
+        "P03",
+        "P05",
+        "P08",
+        "P10"
+      ],
+      "evidence": [
+        {
+          "source_id": "P01:t4",
+          "quote": "Last week I bought a big bag of spinach for a recipe I never made. It went slimy in the drawer and I felt terrible about it.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P02:t2",
+          "quote": "We throw away so much food. Half a cucumber, wilted herbs, yoghurt that expired last week. My partner and I both shop, and we constantly end up with two packs of the same thing, or nothing for the planned recipe.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P02:t4",
+          "quote": "We bought basil twice in one week because each of us thought we were out. Both went bad.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P03:t2",
+          "quote": "The waste bothers me, both the money and the guilt. I probably lose twenty or thirty euros a week.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P05:t2",
+          "quote": "I buy vegetables with good intentions and then bin them on Sunday. It's a bit embarrassing.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P08:t2",
+          "quote": "Last summer we went on holiday for three weeks and I forgot about the fridge. I came back to a smell I will never forget and we threw out maybe two hundred euros of food. I swore it would never happen again.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P10:t2",
+          "quote": "Nobody remembers what we already have, so we buy duplicates and then one of them goes bad.",
+          "kind": "behaviour"
+        }
+      ],
+      "strength": "strong",
+      "caveats": [
+        "In-target retired couple P09 reports zero routine food waste (P09:t4: 'Once we bought too much for a family visit, but that was a one-off'), indicating that food spoilage is not an inevitable problem for all multi-person households who cook weeknights.",
+        "P08's EUR 200 loss represents an extreme outlier tied to holiday travel rather than regular weekly dinner planning (EDA F08).",
+        "P03 has an internal contradiction regarding planning burden, lowering confidence in that interview to weight 0.70, though their report of twenty to thirty euros lost to waste is concrete past behaviour.",
+        "While P01:t2 and P08:t2 share the templated sentence 'Things disappear in the back of the fridge and I find them two weeks later, usually when they're already off.', both participants provide distinct behavioural evidence in their own words."
+      ]
+    },
+    {
+      "id": "R2",
+      "kind": "problem",
+      "statement": "The daily cognitive burden of deciding what to cook every weeknight under time pressure causes frustration, resulting in fallback meals or unplanned takeout. Supported in the target segment by 2 of 3 families with children (P01: weight 1.00, P04: weight 0.70) and 1 of 1 busy working couple (P02: weight 0.90), totaling 3 of 5 in-target households (raw: 3, weighted: 2.60). Also observed in adjacent freelance couple P05 (1 of 2 irregular couples, weight 0.50). Total usable sample: raw 4 of 9, weighted 3.10.",
+      "interview_ids": [
+        "P01",
+        "P02",
+        "P04",
+        "P05"
+      ],
+      "own_words_interviews": [
+        "P01",
+        "P02",
+        "P04",
+        "P05"
+      ],
+      "evidence": [
+        {
+          "source_id": "P01:t2",
+          "quote": "It's the mental load. Every single day somebody has to decide what's for dinner, and that somebody is me.",
+          "kind": "stated_preference"
+        },
+        {
+          "source_id": "P01:t3",
+          "quote": "Last Tuesday I picked up the kids at five, we got home at six, and I realised at six that I had nothing planned. I made fish fingers and frozen peas, again.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P02:t3",
+          "quote": "Last Tuesday we got home at eight, argued for ten minutes about what to eat and ended up ordering pizza even though we had vegetables at home.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P04:t2",
+          "quote": "The worst part is the daily question of what to cook. By Wednesday I have no ideas left.",
+          "kind": "stated_preference"
+        },
+        {
+          "source_id": "P05:t2",
+          "quote": "Around four in the afternoon the 'what do we eat tonight' dread starts.",
+          "kind": "stated_preference"
+        }
+      ],
+      "strength": "moderate",
+      "caveats": [
+        "Per EDA F07, statements describing frustration (P01:t2, P04:t2, P05:t2) were prompted by interview questions and represent stated sentiment; behavioral turns (P01:t3, P02:t3) provide stronger evidence.",
+        "P03 is excluded from direct support due to a major internal contradiction: P03:t1 states 'Planning is my favourite part of the week, honestly. I would never want an app to take that away from me.' while P03:t2 states 'Deciding is exhausting. I would rather cook anything than think about what to cook.' Per EDA F06, neither statement can stand on its own.",
+        "P04 transcript exhibits an attribution inconsistency ('my wife' in P04:t2 vs 'my husband' in P04:t7), lowering confidence to weight 0.70.",
+        "In-target retired couple P09 experiences no decision fatigue (P09:t2: 'Sometimes I'd like fresh ideas, but it isn't a problem')."
+      ]
+    },
+    {
+      "id": "R3",
+      "kind": "problem",
+      "statement": "Independent shopping by multiple household members without synchronized visibility into pantry inventory leads to duplicate purchases of items already at home (reframing the pitch hypothesis from marital arguing to practical shopping coordination failure per EDA F14). Supported in the target segment by 1 of 1 busy working couple (P02: weight 0.90) and 1 of 3 families with children (P04: weight 0.70), totaling 2 of 5 in-target households (raw: 2, weighted: 1.60). Also observed in adjacent flatmates (P10: 1 of 1 flatshare, weight 0.50). Total usable sample: raw 3 of 9, weighted 2.10.",
+      "interview_ids": [
+        "P02",
+        "P04",
+        "P10"
+      ],
+      "own_words_interviews": [
+        "P02",
+        "P04",
+        "P10"
+      ],
+      "evidence": [
+        {
+          "source_id": "P02:t2",
+          "quote": "My partner and I both shop, and we constantly end up with two packs of the same thing, or nothing for the planned recipe.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P02:t4",
+          "quote": "We bought basil twice in one week because each of us thought we were out. Both went bad.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P04:t2",
+          "quote": "Sharing the shopping list is annoying. I add things, and my wife buys without checking.",
+          "kind": "stated_preference"
+        },
+        {
+          "source_id": "P04:t4",
+          "quote": "My wife bought chicken and I bought chicken, the same afternoon. We ended up with six breasts and a freezer that was already full.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P10:t2",
+          "quote": "The group chat for groceries is a mess. Somebody always forgets to read it. In the flat the shared stuff gets used up and nobody replaces it. Nobody remembers what we already have, so we buy duplicates and then one of them goes bad.",
+          "kind": "behaviour"
+        }
+      ],
+      "strength": "moderate",
+      "caveats": [
+        "Per EDA F14, the pitch hypothesis that apps should 'stop arguing' is weakly supported; only P02:t3 mentions arguing ('argued for ten minutes about what to eat'), while P04 and P10 describe grocery coordination and inventory blindness.",
+        "P04 transcript carries attribution inconsistency ('my wife' in P04:t2 vs 'my husband' in P04:t7), reducing weight to 0.70.",
+        "P10 represents an adjacent segment (shared flatmates) where four individuals cook separately, which may not generalise to nuclear families."
+      ]
+    },
+    {
+      "id": "R4",
+      "kind": "requirement",
+      "statement": "Users explicitly reject manual pantry inventory tracking and warn that typing in pantry items will cause them to abandon the app immediately; keeping inventory up to date is the venture's riskiest assumption and must be tested via low-effort input before building the planner (EDA F11). Supported across the target segment by 1 of 1 busy working couple (P02: weight 0.90) and 2 of 3 families with children (P01: weight 1.00, P03: weight 0.70), totaling 3 of 5 in-target households (raw: 3, weighted: 2.60). Also supported in adjacent segments: 2 of 2 irregular/travel couples (P05, P08: weight 0.50 each) and 1 of 1 flatshare (P10: weight 0.50). Total usable sample: raw 6 of 9, weighted 4.10.",
+      "interview_ids": [
+        "P01",
+        "P02",
+        "P03",
+        "P05",
+        "P08",
+        "P10"
+      ],
+      "own_words_interviews": [
+        "P01",
+        "P03"
+      ],
+      "evidence": [
+        {
+          "source_id": "P02:t8",
+          "quote": "Setup has to be fast. If I need to type in my whole pantry I'll quit on day two.",
+          "kind": "stated_preference"
+        },
+        {
+          "source_id": "P05:t8",
+          "quote": "Setup has to be fast. If I need to type in my whole pantry I'll quit on day two.",
+          "kind": "stated_preference"
+        },
+        {
+          "source_id": "P08:t8",
+          "quote": "Setup has to be fast. If I need to type in my whole pantry I'll quit on day two.",
+          "kind": "stated_preference"
+        },
+        {
+          "source_id": "P10:t8",
+          "quote": "Setup has to be fast. If I need to type in my whole pantry I'll quit on day two.",
+          "kind": "stated_preference"
+        },
+        {
+          "source_id": "P01:t10",
+          "quote": "Only that I'd love something that just works without being a project.",
+          "kind": "stated_preference"
+        },
+        {
+          "source_id": "P03:t10",
+          "quote": "I think the biggest thing is not making it feel like homework.",
+          "kind": "stated_preference"
+        },
+        {
+          "source_id": "P02:t5",
+          "quote": "I glance in the fridge before I leave, but only roughly. I forget half of what's in there.",
+          "kind": "behaviour"
+        }
+      ],
+      "strength": "strong",
+      "caveats": [
+        "The quote 'Setup has to be fast. If I need to type in my whole pantry I'll quit on day two.' appears word for word across P02:t8, P05:t8, P07:t8, P08:t8, and P10:t8; per EDA F05, this templated text inflates apparent interview frequency, so genuine own-words support comes from P01 and P03.",
+        "All requirements on onboarding represent stated intent rather than observed product behavior (EDA F07).",
+        "P02:t5 illustrates existing behavior: users do not maintain accurate inventory lists today, reinforcing the risk that any manual logging will lead to immediate abandonment."
+      ]
+    },
+    {
+      "id": "R5",
+      "kind": "requirement",
+      "statement": "For working households and families, meal plans must strictly adhere to 30-minute weeknight preparation times and allow customisation for children's likes, dislikes, and allergies; rigid or complex recipes are ignored. Supported in the target segment by 2 of 3 families with children (P01: weight 1.00, P04: weight 0.70) and 1 of 1 busy working couple (P02: weight 0.90), totaling 3 of 5 in-target households (raw: 3, weighted: 2.60). Total usable sample: raw 3 of 9, weighted 2.60.",
+      "interview_ids": [
+        "P01",
+        "P02",
+        "P04"
+      ],
+      "own_words_interviews": [
+        "P01",
+        "P02",
+        "P04"
+      ],
+      "evidence": [
+        {
+          "source_id": "P01:t1",
+          "quote": "Dinner is whatever I can get on the table in thirty minutes.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P01:t8",
+          "quote": "Recipes must be realistic for weeknights. Thirty minutes at most.",
+          "kind": "stated_preference"
+        },
+        {
+          "source_id": "P02:t1",
+          "quote": "We both get home late, so it's usually pasta or something quick. We would like more variety but it never happens.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P04:t3",
+          "quote": "Tuesday I made pasta for four, with one separate portion without sauce for the youngest, and a different vegetable because the middle one hates peppers.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P04:t8",
+          "quote": "It would need to understand allergies and what we actually like, otherwise it's just noise. Recipes must be realistic for weeknights. Thirty minutes at most.",
+          "kind": "stated_preference"
+        }
+      ],
+      "strength": "moderate",
+      "caveats": [
+        "Sentences 'Recipes must be realistic for weeknights. Thirty minutes at most.' (P01:t8, P04:t8) and 'It would need to understand allergies and what we actually like, otherwise it's just noise.' (P03:t8, P04:t8) are templated across multiple interviews, artificially boosting stated preference counts (EDA F05).",
+        "Actual behavioural turns from P01:t1, P02:t1, and P04:t3 provide genuine own-words validation of strict weeknight time pressure and meal customisation.",
+        "P04 has attribution inconsistency (weight 0.70)."
+      ]
+    },
+    {
+      "id": "R6",
+      "kind": "counter_evidence",
+      "statement": "Households with stable, decades-old cooking routines experience virtually no planning friction or food waste, rejecting meal planning apps entirely; fitting the demographic target does not imply having the problem (EDA F03). Supported in the target segment by 1 of 1 retired couple (P09: weight 0.90; representing 1 of 5 in-target households). Total usable sample: raw 1 of 9, weighted 0.90.",
+      "interview_ids": [
+        "P09"
+      ],
+      "own_words_interviews": [
+        "P09"
+      ],
+      "evidence": [
+        {
+          "source_id": "P09:t1",
+          "quote": "We cook every day, we've done it for forty years. I know what we like and what is in the cupboard. Our daughter says we should use an app for the shopping list, but we have never needed one. We eat at six sharp and my husband does the dishes. That has not changed in decades.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P09:t2",
+          "quote": "Not much, honestly. Sometimes I'd like fresh ideas, but it isn't a problem.",
+          "kind": "stated_preference"
+        },
+        {
+          "source_id": "P09:t4",
+          "quote": "Not really. Once we bought too much for a family visit, but that was a one-off.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P09:t9",
+          "quote": "Honestly I wouldn't pay for it. I'd want a free version.",
+          "kind": "stated_preference"
+        }
+      ],
+      "strength": "strong",
+      "caveats": [
+        "Demonstrates that demographic targeting ('households of two or more people who cook at home on most weeknights') is an assumption to test (EDA F03); target definition must screen for cognitive load and schedule volatility rather than home-cooking frequency alone.",
+        "P09 contains minor internal inconsistencies: shopping at the same stall weekly (P09:t3) vs shopping daily (P09:t5), and a decades-old fixed routine (P09:t1) vs 'Both of us, but not in a coordinated way' (P09:t7), reducing weight to 0.90."
+      ]
+    },
+    {
+      "id": "R7",
+      "kind": "behaviour_pattern",
+      "statement": "Upfront weekly dinner planning creates stress and guilt when life deviates from the plan, leading users to abandon planning apps in favour of daily improvisation (EDA F12). Supported in the target segment by 1 of 3 families with children (P01: weight 1.00) and in adjacent irregular couple P05 (1 of 2 irregular couples, weight 0.50). Total usable sample: raw 2 of 9, weighted 1.50.",
+      "interview_ids": [
+        "P01",
+        "P05"
+      ],
+      "own_words_interviews": [
+        "P01",
+        "P05"
+      ],
+      "evidence": [
+        {
+          "source_id": "P05:t1",
+          "quote": "Planning ahead stresses me out. A plan I don't follow feels like failure, so I decide on the day.",
+          "kind": "stated_preference"
+        },
+        {
+          "source_id": "P05:t4",
+          "quote": "I tried a meal-planning app once. By Thursday I hadn't followed the plan and I just stopped opening it.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P01:t3",
+          "quote": "Last Tuesday I picked up the kids at five, we got home at six, and I realised at six that I had nothing planned. I made fish fingers and frozen peas, again.",
+          "kind": "behaviour"
+        }
+      ],
+      "strength": "moderate",
+      "caveats": [
+        "P05 belongs to an adjacent segment (freelance couple with irregular schedule, partial fit, weight 0.50).",
+        "Per EDA F12, the weekly-plan format is an open question, not a validated need; PantryPal must test whether a dynamic 'what can I cook tonight' mode performs better than a fixed 7-day schedule."
+      ]
+    },
+    {
+      "id": "R8",
+      "kind": "behaviour_pattern",
+      "statement": "Households operate on distinct grocery shopping rhythms: batch shoppers conducting a consolidated weekly shop versus ad-hoc shoppers purchasing items almost daily; weekly meal plans and shopping lists align only with weekly batch shoppers (EDA F13). Supported in the target segment by 3 of 3 families with children (P01: weight 1.00, P03: weight 0.70, P04: weight 0.70) and 1 of 1 retired couple (P09: weight 0.90), totaling 4 of 5 in-target households (raw: 4, weighted: 3.30). Also observed in adjacent freelance couple P05 (1 of 2 irregular couples, weight 0.50). Total usable sample: raw 5 of 9, weighted 3.80.",
+      "interview_ids": [
+        "P01",
+        "P03",
+        "P04",
+        "P05",
+        "P09"
+      ],
+      "own_words_interviews": [
+        "P01",
+        "P03",
+        "P04",
+        "P05",
+        "P09"
+      ],
+      "evidence": [
+        {
+          "source_id": "P01:t5",
+          "quote": "I order online every week, mostly the same basket.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P03:t5",
+          "quote": "I shop once a week, usually on Saturday, plus a couple of top-up trips.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P04:t5",
+          "quote": "I shop once a week, usually on Saturday, plus a couple of top-up trips.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P05:t5",
+          "quote": "I go to the shop almost every day and buy as I go.",
+          "kind": "behaviour"
+        },
+        {
+          "source_id": "P09:t5",
+          "quote": "I go to the shop almost every day and buy as I go.",
+          "kind": "behaviour"
+        }
+      ],
+      "strength": "strong",
+      "caveats": [
+        "Phrasing 'I shop once a week, usually on Saturday, plus a couple of top-up trips.' is identical between P03:t5 and P04:t5 (EDA F05).",
+        "Phrasing 'I go to the shop almost every day and buy as I go.' is identical between P05:t5 and P09:t5 (EDA F05).",
+        "Per EDA F13, shopping rhythm segments user utility: an app outputting a weekly plan plus grocery list provides zero utility to daily shoppers."
+      ]
+    }
+  ],
+  "disagreements": [
+    {
+      "topic": "Advance weekly dinner planning versus same-day meal improvisation",
+      "positions": [
+        {
+          "stance": "Structured upfront weekly planning (e.g. on Sunday) is essential to stay within grocery budgets and organise provisioning.",
+          "interview_ids": [
+            "P01",
+            "P03"
+          ],
+          "evidence": [
+            {
+              "source_id": "P03:t1",
+              "quote": "I plan on Sunday, otherwise I overspend on the way home.",
+              "kind": "behaviour"
+            },
+            {
+              "source_id": "P01:t5",
+              "quote": "I order online every week, mostly the same basket.",
+              "kind": "behaviour"
+            }
+          ]
+        },
+        {
+          "stance": "Advance meal planning feels restrictive, creates stress when plans are broken, and is abandoned in favour of deciding on the day.",
+          "interview_ids": [
+            "P05",
+            "P08"
+          ],
+          "evidence": [
+            {
+              "source_id": "P05:t1",
+              "quote": "Planning ahead stresses me out. A plan I don't follow feels like failure, so I decide on the day.",
+              "kind": "stated_preference"
+            },
+            {
+              "source_id": "P05:t4",
+              "quote": "I tried a meal-planning app once. By Thursday I hadn't followed the plan and I just stopped opening it.",
+              "kind": "behaviour"
+            },
+            {
+              "source_id": "P08:t1",
+              "quote": "I decide around five o'clock. I open the fridge, stare into it for a while, and then improvise something.",
+              "kind": "behaviour"
+            }
+          ]
+        }
+      ],
+      "implication": "The weekly-plan format is an open question, not a validated need (EDA F12). For users with schedule variability, rigid 7-day plans induce churn. PantryPal must test a same-day 'what can I cook tonight from what I have' feature against weekly scheduling."
+    },
+    {
+      "topic": "Grocery shopping cadence: Consolidated weekly batch shopping versus frequent daily purchasing",
+      "positions": [
+        {
+          "stance": "Consolidated weekly shopping (online basket or weekly Saturday trip plus top-ups) governs household provisioning.",
+          "interview_ids": [
+            "P01",
+            "P03",
+            "P04"
+          ],
+          "evidence": [
+            {
+              "source_id": "P01:t5",
+              "quote": "I order online every week, mostly the same basket.",
+              "kind": "behaviour"
+            },
+            {
+              "source_id": "P03:t5",
+              "quote": "I shop once a week, usually on Saturday, plus a couple of top-up trips.",
+              "kind": "behaviour"
+            },
+            {
+              "source_id": "P04:t5",
+              "quote": "I shop once a week, usually on Saturday, plus a couple of top-up trips.",
+              "kind": "behaviour"
+            }
+          ]
+        },
+        {
+          "stance": "Near-daily grocery shopping based on immediate needs and walk-in purchases.",
+          "interview_ids": [
+            "P05",
+            "P09"
+          ],
+          "evidence": [
+            {
+              "source_id": "P05:t5",
+              "quote": "I go to the shop almost every day and buy as I go.",
+              "kind": "behaviour"
+            },
+            {
+              "source_id": "P09:t5",
+              "quote": "I go to the shop almost every day and buy as I go.",
+              "kind": "behaviour"
+            }
+          ]
+        }
+      ],
+      "implication": "Shopping rhythm is a primary customer segmentation dimension (EDA F13). An app that turns pantry stock into a weekly dinner plan and shopping list offers clear value to weekly batch shoppers, but fails to match the mental model and habits of daily shoppers."
+    },
+    {
+      "topic": "Need for digital dinner planning assistance: Acute cognitive burden versus self-sufficient established routine",
+      "positions": [
+        {
+          "stance": "Daily dinner decisions are an exhausting mental burden requiring external help and coordination.",
+          "interview_ids": [
+            "P01",
+            "P02",
+            "P04"
+          ],
+          "evidence": [
+            {
+              "source_id": "P01:t2",
+              "quote": "It's the mental load. Every single day somebody has to decide what's for dinner, and that somebody is me.",
+              "kind": "stated_preference"
+            },
+            {
+              "source_id": "P02:t3",
+              "quote": "Last Tuesday we got home at eight, argued for ten minutes about what to eat and ended up ordering pizza even though we had vegetables at home.",
+              "kind": "behaviour"
+            },
+            {
+              "source_id": "P04:t2",
+              "quote": "The worst part is the daily question of what to cook. By Wednesday I have no ideas left.",
+              "kind": "stated_preference"
+            }
+          ]
+        },
+        {
+          "stance": "Decades of routine make dinner planning effortless and eliminate any need for shopping or meal planning apps.",
+          "interview_ids": [
+            "P09"
+          ],
+          "evidence": [
+            {
+              "source_id": "P09:t1",
+              "quote": "We cook every day, we've done it for forty years. I know what we like and what is in the cupboard. Our daughter says we should use an app for the shopping list, but we have never needed one. We eat at six sharp and my husband does the dishes. That has not changed in decades.",
+              "kind": "behaviour"
+            },
+            {
+              "source_id": "P09:t2",
+              "quote": "Not much, honestly. Sometimes I'd like fresh ideas, but it isn't a problem.",
+              "kind": "stated_preference"
+            }
+          ]
+        }
+      ],
+      "implication": "Meeting the target customer demographic (households of 2+ people who cook at home on most weeknights) does not guarantee problem existence (EDA F03). Targeting must filter for households experiencing time pressure, coordination breakdowns, or schedule volatility."
+    }
+  ],
+  "willingness_to_pay": "Stated willingness to pay ranges from EUR 0 (free or ad-supported) to EUR 5 or 6 per month among typical respondents; this represents stated intent rather than validated market demand (EDA F08). Multiple participants across segments state they would not pay and require a free or ad-supported tier: P09 (1 of 1 retired couple) states 'Honestly I wouldn't pay for it. I'd want a free version' (P09:t9), P05 (1 of 2 irregular couples) states 'Honestly I wouldn't pay for it. I'd want a free version' (P05:t9), P07 (out-of-target single) states 'Honestly I wouldn't pay for it. I'd want a free version' (P07:t9), and P03 (1 of 3 families) states 'A free version with ads would also be fine' (P03:t9). Where positive willingness to pay is stated, it is strictly conditional: P01 (1 of 3 families), P04 (1 of 3 families), and P10 (1 of 1 flatshare) state 'A few euros a month, maybe, if it clearly saves me money on groceries' (P01:t9, P04:t9, P10:t9); P03 conditions payment on 'Only if it clearly reduced food waste' (P03:t9); and P02 (1 of 1 working couple) states 'Maybe five or six euros. More than that and I'd just keep my notes app' (P02:t9), anchoring directly against free phone tools. An extreme outlier of EUR 30 per month was stated by P08 ('For something that would stop that, I'd pay thirty euros a month, easy' in P08:t9); this figure must be excluded from typical estimates because it was an emotional reaction anchored on a one-off summer holiday disaster where EUR 200 of food spoiled over three weeks (P08:t2), rather than value from weekly dinner planning. Willingness to pay is completely unvalidated, fragile, and contingent upon demonstrating concrete grocery cost savings.",
+  "willingness_to_pay_evidence": [
+    {
+      "source_id": "P01:t9",
+      "quote": "A few euros a month, maybe, if it clearly saves me money on groceries.",
+      "kind": "stated_preference"
+    },
+    {
+      "source_id": "P02:t9",
+      "quote": "Maybe five or six euros. More than that and I'd just keep my notes app.",
+      "kind": "stated_preference"
+    },
+    {
+      "source_id": "P03:t9",
+      "quote": "Only if it clearly reduced food waste. A free version with ads would also be fine.",
+      "kind": "stated_preference"
+    },
+    {
+      "source_id": "P04:t9",
+      "quote": "A few euros a month, maybe, if it clearly saves me money on groceries.",
+      "kind": "stated_preference"
+    },
+    {
+      "source_id": "P05:t9",
+      "quote": "Honestly I wouldn't pay for it. I'd want a free version.",
+      "kind": "stated_preference"
+    },
+    {
+      "source_id": "P07:t9",
+      "quote": "Honestly I wouldn't pay for it. I'd want a free version.",
+      "kind": "stated_preference"
+    },
+    {
+      "source_id": "P08:t9",
+      "quote": "For something that would stop that, I'd pay thirty euros a month, easy.",
+      "kind": "stated_preference"
+    },
+    {
+      "source_id": "P09:t9",
+      "quote": "Honestly I wouldn't pay for it. I'd want a free version.",
+      "kind": "stated_preference"
+    },
+    {
+      "source_id": "P10:t9",
+      "quote": "A few euros a month, maybe, if it clearly saves me money on groceries.",
+      "kind": "stated_preference"
+    }
+  ],
+  "evidence_set_aside": [
+    "P06 completely excluded (weight 0.00): Interview suffered from fatal research methodology flaws including pervasive interviewer leading questions and an opening answer duplicated word for word from P01:t1. Per EDA F04 and F10, P06 is entirely excluded from customer claims and cited only as a methodology defect.",
+    "P08 EUR 30/month willingness-to-pay claim excluded: This stated figure (P08:t9) was an emotional reaction anchored on a single holiday travel incident where EUR 200 of food spoiled while away for three weeks (P08:t2), rather than on weekly dinner planning value. Excluded from typical willingness-to-pay figures per EDA F08.",
+    "P03 planning burden claims down-weighted (weight 0.70): Major internal contradiction between P03:t1 ('Planning is my favourite part of the week, honestly. I would never want an app to take that away from me.') and P03:t2 ('Deciding is exhausting. I would rather cook anything than think about what to cook.'). Per EDA F06, neither statement can stand alone, and P03 cannot serve as unreserved evidence for planning fatigue.",
+    "P04 attribution inconsistency down-weighted (weight 0.70): In P04:t2 and P04:t4 the persona refers to 'my wife', but in P04:t7 refers to 'Me, my husband and, loudly, three children.' This speaker inconsistency or mislabelled transcript reduces confidence.",
+    "P02 tool comparison inconsistency down-weighted (weight 0.90): Participant reports using a shared list app (P02:t6: 'We use a shared list app, but it's only a list.') but later anchors pricing against 'my notes app' (P02:t9: 'More than that and I'd just keep my notes app.').",
+    "P09 routine and shopping cadence down-weighted (weight 0.90): Minor internal inconsistency between shopping weekly at the same stall (P09:t3) versus shopping almost daily (P09:t5), and an unchanging 40-year routine (P09:t1) versus deciding 'Both of us, but not in a coordinated way' (P09:t7).",
+    "P07 out-of-target single student down-weighted (weight 0.25): Single-person household cooking once a week and mostly eating takeout; used solely as contrast data and never generalized to the target customer (EDA F01).",
+    "P05, P08, P10 partial-fit interviews down-weighted (weight 0.50 each): Freelancers with irregular hours (P05), frequent work travellers (P08), and flatmates cooking individually (P10) represent adjacent segments and are never generalized to core target families or couples (EDA F01).",
+    "Templated interview sentences flagged and treated as upper bounds: Verbatim sentences across interviews (e.g. 'Setup has to be fast. If I need to type in my whole pantry I'll quit on day two.' in P02, P05, P07, P08, P10; 'Recipes must be realistic for weeknights. Thirty minutes at most.' in P01, P04; 'A few euros a month, maybe, if it clearly saves me money on groceries.' in P01, P04, P10) are treated as upper bounds rather than independent confirmations per EDA F05."
+  ]
+}

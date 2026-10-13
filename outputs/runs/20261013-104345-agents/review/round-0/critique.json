@@ -1,0 +1,43 @@
+{
+  "verdict": "revise",
+  "summary": "The brief provides a strong synthesis of the customer interviews, competitor landscape, and market data, correctly following segment definitions and weighting rules. However, it cannot be approved yet due to a blocking citation error (citing the internal EDA finding ID F19, which caused the automated citation checker to fail), a factually incorrect description of market source S09, and unreferenced claim lines.",
+  "objections": [
+    {
+      "id": "O1",
+      "severity": "blocker",
+      "category": "wrong_citation",
+      "section": "7. What to test next",
+      "excerpt": "- Open research questions for discovery [F19]:",
+      "problem": "The brief cites the internal EDA finding ID F19. The ground rules explicitly state: 'Cite only these source IDs, never internal IDs such as EDA findings (F01 to F19) or the analysts' insight, assumption or experiment IDs.' This citation also caused the automated citation check to fail with 'Unknown citation IDs: F19'.",
+      "fix": "Remove '[F19]' and replace it with '[UNSUPPORTED]' or remove the citation bracket entirely from the subsection heading."
+    },
+    {
+      "id": "O2",
+      "severity": "major",
+      "category": "unsupported_claim",
+      "section": "8. Unsupported or weak claims",
+      "excerpt": "The market claim that only 4% of households meal plan is from a stale 2016 study and cannot be cited as current market fact [S09, UNSUPPORTED].",
+      "problem": "Source S09 does not report the percentage of households that meal plan. S09 reports: 'Share of grocery purchases made online: 4% (Retail Trends Review, 2016)'. Misidentifying the statistic as meal planning is factually incorrect.",
+      "fix": "Correct the excerpt to state that the stale 4% figure from S09 refers to online grocery purchases, not household meal planning."
+    },
+    {
+      "id": "O3",
+      "severity": "major",
+      "category": "unsupported_claim",
+      "section": "5. Competitors and market",
+      "excerpt": "- Competitor landscape and verified status: Competitor analysis demonstrates that dinner planning and inventory tracking are served separately:",
+      "problem": "This claim line asserts that dinner planning and inventory tracking are served separately across the competitor landscape, but it lacks any citations, failing automated verification for unreferenced claim lines.",
+      "fix": "Add the supporting competitor source IDs directly to this line: [C:FridgeChef, C:MealLoop, C:PantryGenie, C:SupperSync]."
+    },
+    {
+      "id": "O4",
+      "severity": "minor",
+      "category": "unsupported_claim",
+      "section": "7. What to test next",
+      "excerpt": "3. Value proposition and pricing landing page smoke test (Tests Assumptions 4 and 5):",
+      "problem": "This line was flagged by the automated citation checker as a claim line without a citation or [UNSUPPORTED] marker.",
+      "fix": "Append '[UNSUPPORTED]' to the test heading or format it consistently with the other test item headers."
+    }
+  ],
+  "resolved_from_previous": []
+}

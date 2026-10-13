@@ -1,0 +1,50 @@
+{
+  "run_id": "20261013-104246-baseline-naive",
+  "mode": "baseline-naive",
+  "started_at": "2026-10-13T10:42:46.141130+00:00",
+  "config": {
+    "model": "gemini-3.8-flash",
+    "effort": "medium",
+    "max_tokens": 32000,
+    "max_tool_rounds": 12,
+    "variant": "naive",
+    "code_fingerprint": "cc37932e263b"
+  },
+  "recommendation": "test_further",
+  "final_citation_check": {
+    "citations": 95,
+    "distinct_sources": 76,
+    "unknown_ids": [],
+    "excluded_citations": [],
+    "weak_snippet_citations": [
+      "S06: - The claim that the meal-planning and meal-kit market grows at 25% annually lacks a verified source"
+    ],
+    "misquotes": [],
+    "verified_quotes": 4,
+    "unverified_numbers": [],
+    "wrong_dates": [],
+    "uncited_claims": [
+      "Three problems are strongly supported by observed behavior across multiple unprompted interviews:",
+      "Evidence across 9 usable interviews reveals critical behavioral patterns alongside sharp contrasts between user actions ",
+      "The market offers established single-purpose solutions across meal planning, inventory, and recipe generation:"
+    ],
+    "claim_lines": 26,
+    "unsupported_flags": 9,
+    "missing_sections": [],
+    "coverage": 0.885,
+    "blocking": 0,
+    "passed": true
+  },
+  "totals": {
+    "calls": 1,
+    "input_tokens": 1987,
+    "output_tokens": 2610,
+    "cache_read_tokens": 6840,
+    "thinking_tokens": 470,
+    "tool_calls": 0,
+    "cost_usd": 0.011791,
+    "model_time_s": 21.06,
+    "wall_clock_s": 21.16,
+    "cost_incomplete": false
+  }
+}

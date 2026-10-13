@@ -1,0 +1,165 @@
+{
+  "competitors": [
+    {
+      "competitor": "FridgeChef",
+      "overlap_with_pantrypal": [
+        "knows_inventory"
+      ],
+      "pricing_summary": "Free with ads; Premium EUR 4.99/month",
+      "data_quality": "current",
+      "threat": "medium",
+      "rationale": "Offers ingredient awareness through fridge photo recognition and recipe suggestions, verified on 2026-08-12 (C:FridgeChef). However, it focuses on individuals improvising single meals rather than household weekly planning or grocery lists."
+    },
+    {
+      "competitor": "MealLoop",
+      "overlap_with_pantrypal": [
+        "weekly_plan",
+        "shopping_list",
+        "household_sharing"
+      ],
+      "pricing_summary": "EUR 6.99/month or EUR 49.99/year (converted to approximately EUR 4.17/month)",
+      "data_quality": "current",
+      "threat": "high",
+      "rationale": "Directly targets families with weekly meal planning, automatic grocery lists, and family sharing, verified on 2026-07-30 (C:MealLoop). It lacks pantry inventory tracking, but dominates the structured planning space."
+    },
+    {
+      "competitor": "PlanPlate",
+      "overlap_with_pantrypal": [
+        "weekly_plan",
+        "household_sharing"
+      ],
+      "pricing_summary": "EUR 2.99/month",
+      "data_quality": "stale",
+      "threat": "low",
+      "rationale": "Offers shared meal planning calendars for couples and flatmates, but data is stale having been last verified on 2024-11-05 (C:PlanPlate). It does not offer inventory tracking or automated waste reduction."
+    },
+    {
+      "competitor": "PantryGenie",
+      "overlap_with_pantrypal": [
+        "knows_inventory",
+        "shopping_list",
+        "waste_reduction"
+      ],
+      "pricing_summary": "EUR 3.99/month",
+      "data_quality": "current",
+      "threat": "medium",
+      "rationale": "Strong pantry inventory tracking with barcode scanning and expiry alerts, verified on 2026-06-18 (C:PantryGenie). It generates shopping lists but does not build multi-day weekly dinner plans."
+    },
+    {
+      "competitor": "WeekWise",
+      "overlap_with_pantrypal": [
+        "weekly_plan",
+        "budget_focus"
+      ],
+      "pricing_summary": "Free; EUR 29.99 one-off for full recipe pack",
+      "data_quality": "unsourced",
+      "threat": "low",
+      "rationale": "Focuses on budget meal plans and store price comparisons, last checked 2026-05-02 (C:WeekWise). However, its details are unsourced with no URL provided, and it does not track home inventory."
+    },
+    {
+      "competitor": "ZeroWaste Kitchen",
+      "overlap_with_pantrypal": [
+        "knows_inventory",
+        "waste_reduction"
+      ],
+      "pricing_summary": "Free (donation supported)",
+      "data_quality": "stale",
+      "threat": "low",
+      "rationale": "Provides use-it-up recipes for leftover ingredients, but data is stale from 2025-01-20 and sourced only from a home page (C:ZeroWaste Kitchen). It lacks systematic inventory tracking and weekly scheduling."
+    },
+    {
+      "competitor": "SupperSync",
+      "overlap_with_pantrypal": [
+        "weekly_plan",
+        "shopping_list",
+        "household_sharing"
+      ],
+      "pricing_summary": "EUR 4.49/month per household",
+      "data_quality": "current",
+      "threat": "medium",
+      "rationale": "Competes directly on shared household coordination, dinner planning, shared lists, and cooking rotas, verified on 2026-08-25 (C:SupperSync). It does not integrate pantry inventory awareness."
+    }
+  ],
+  "white_space": [
+    "No existing competitor combines dynamic household inventory tracking with automated weekly dinner planning and shopping list generation. Competitors either do inventory/leftovers without weekly plans (C:FridgeChef, C:PantryGenie, C:ZeroWaste Kitchen) or weekly planning without inventory tracking (C:MealLoop, C:PlanPlate, C:SupperSync, C:WeekWise)."
+  ],
+  "pricing_anchors": "Monthly list prices across active competitors range from EUR 2.99/month (C:PlanPlate) to EUR 6.99/month (C:MealLoop, which also offers an annual plan of EUR 49.99/year, equivalent to approximately EUR 4.17/month), with mid-tier options at EUR 3.99/month (C:PantryGenie), EUR 4.49/month per household (C:SupperSync), and EUR 4.99/month (C:FridgeChef). S05 indicates a median stated willingness to pay for a cooking app of EUR 3.50/month. Pricing hypotheses must stay within the EUR 2.99 to EUR 6.99 monthly band anchored near S05's EUR 3.50; any higher price point is untested.",
+  "market_figures": [
+    {
+      "snippet_id": "S01",
+      "figure": "19%",
+      "usable_as_evidence": true,
+      "how_to_use": "Use as primary evidence that households discard roughly a fifth of the food they buy to validate the waste reduction problem (S01)."
+    },
+    {
+      "snippet_id": "S02",
+      "figure": "EUR 118",
+      "usable_as_evidence": true,
+      "how_to_use": "Use to establish baseline weekly grocery spend for a two-person household when assessing budget impact (S02)."
+    },
+    {
+      "snippet_id": "S03",
+      "figure": "11%",
+      "usable_as_evidence": true,
+      "how_to_use": "Use to benchmark existing adoption of meal-planning apps among households, showing market penetration room (S03)."
+    },
+    {
+      "snippet_id": "S04",
+      "figure": "22 minutes",
+      "usable_as_evidence": true,
+      "how_to_use": "Use with an explicit age caveat (dated 2023) to indicate daily time adults spend deciding what to cook (S04)."
+    },
+    {
+      "snippet_id": "S05",
+      "figure": "EUR 3.50 per month",
+      "usable_as_evidence": true,
+      "how_to_use": "Use as an empirical anchor for median stated consumer willingness to pay for cooking apps to guide pricing structure (S05)."
+    },
+    {
+      "snippet_id": "S06",
+      "figure": "25% annual growth",
+      "usable_as_evidence": false,
+      "how_to_use": "Do not use. It lacks source and year, and conflates meal-kit services with meal-planning software (S06)."
+    },
+    {
+      "snippet_id": "S07",
+      "figure": "73%",
+      "usable_as_evidence": false,
+      "how_to_use": "Do not use. It lacks source citation and year and cannot be verified as fact (S07)."
+    },
+    {
+      "snippet_id": "S08",
+      "figure": "97%",
+      "usable_as_evidence": false,
+      "how_to_use": "Do not use. Sourced from an unreliable blog and implausible compared to actual app adoption of 11% (S03) and willingness to pay (S05) (S08)."
+    },
+    {
+      "snippet_id": "S09",
+      "figure": "4%",
+      "usable_as_evidence": false,
+      "how_to_use": "Do not use. Data is 10 years old (2016) and stale for current e-grocery and app behavior (S09)."
+    }
+  ],
+  "idea_claim_checks": [
+    {
+      "claim": "Existing recipe apps give ideas but do not know what you already own.",
+      "verdict": "contradicted",
+      "source_ids": [
+        "C:FridgeChef",
+        "C:PantryGenie",
+        "C:ZeroWaste Kitchen"
+      ],
+      "explanation": "This claim is contradicted by competitor data showing existing apps that recognize or track owned items: C:FridgeChef provides recipes from fridge photos, C:PantryGenie tracks pantry inventory with barcode scanning, and C:ZeroWaste Kitchen suggests recipes for leftover ingredients. The true differentiation lies in uniting inventory tracking with weekly planning, not inventory awareness alone."
+    },
+    {
+      "claim": "Dinner planning is a daily chore, groceries are expensive, and a lot of food gets thrown away.",
+      "verdict": "supported",
+      "source_ids": [
+        "S01",
+        "S02",
+        "S04"
+      ],
+      "explanation": "S01 proves households discard 19% of purchased food, S02 establishes two-person weekly grocery spend at EUR 118, and S04 shows adults spend 22 minutes daily deciding what to cook (noting S04 is from 2023)."
+    }
+  ]
+}

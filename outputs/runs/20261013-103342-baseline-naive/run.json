@@ -1,0 +1,54 @@
+{
+  "run_id": "20261013-103342-baseline-naive",
+  "mode": "baseline-naive",
+  "started_at": "2026-10-13T10:33:42.233123+00:00",
+  "config": {
+    "model": "gemini-3.8-flash",
+    "effort": "medium",
+    "max_tokens": 32000,
+    "max_tool_rounds": 12,
+    "variant": "naive",
+    "code_fingerprint": "cc37932e263b"
+  },
+  "recommendation": "test_further",
+  "final_citation_check": {
+    "citations": 118,
+    "distinct_sources": 78,
+    "unknown_ids": [],
+    "excluded_citations": [
+      "P06: - Busy families with children: Working parents managing dense schedules, childcare, and diverse food"
+    ],
+    "weak_snippet_citations": [
+      "S06: - The claim from an unsourced document that the meal-planning and meal-kit market is growing at 25% ",
+      "S07: - The claim that 73% of families struggle with dinner decisions is unsourced and has no year [S07]."
+    ],
+    "misquotes": [],
+    "verified_quotes": 2,
+    "unverified_numbers": [],
+    "wrong_dates": [],
+    "uncited_claims": [
+      "Across the research sample, users fall into distinct segments based on household makeup and cooking behaviour:",
+      "1. Low-friction inventory capture test: Test whether photo capture or receipt scanning successfully captures existing ki",
+      "2. Plan flexibility and adherence concierge test: Deliver a 5-day dinner plan using existing ingredients via WhatsApp, a",
+      "3. Willingness-to-pay landing page test: Test smoke test landing pages offering a weekly pantry-based meal planner at EU"
+    ],
+    "claim_lines": 37,
+    "unsupported_flags": 6,
+    "missing_sections": [],
+    "coverage": 0.892,
+    "blocking": 1,
+    "passed": false
+  },
+  "totals": {
+    "calls": 1,
+    "input_tokens": 8827,
+    "output_tokens": 3038,
+    "cache_read_tokens": 0,
+    "thinking_tokens": 620,
+    "tool_calls": 0,
+    "cost_usd": 0.018013,
+    "model_time_s": 24.642,
+    "wall_clock_s": 24.694,
+    "cost_incomplete": false
+  }
+}

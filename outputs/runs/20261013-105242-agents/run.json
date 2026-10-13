@@ -1,0 +1,103 @@
+{
+  "run_id": "20261013-105242-agents",
+  "mode": "agents",
+  "started_at": "2026-10-13T10:52:42.456312+00:00",
+  "config": {
+    "model": "gemini-3.8-flash",
+    "effort": "medium",
+    "max_tokens": 32000,
+    "max_tool_rounds": 12,
+    "max_revisions": 2,
+    "code_fingerprint": "cc37932e263b"
+  },
+  "recommendation": "test_further",
+  "loop_outcome": "approved",
+  "rounds": [
+    {
+      "round": 0,
+      "recommendation": "test_further",
+      "verdict": "revise",
+      "blockers": 1,
+      "majors": 4,
+      "minors": 3,
+      "citation_check": {
+        "citations": 176,
+        "distinct_sources": 67,
+        "unknown_ids": [],
+        "excluded_citations": [],
+        "weak_snippet_citations": [],
+        "misquotes": [],
+        "verified_quotes": 0,
+        "unverified_numbers": [],
+        "wrong_dates": [],
+        "uncited_claims": [
+          "Research identifies distinct segments across 9 usable interviews (P06 is excluded due to methodological defects):"
+        ],
+        "claim_lines": 48,
+        "unsupported_flags": 12,
+        "missing_sections": [],
+        "coverage": 0.979,
+        "blocking": 0,
+        "passed": true
+      },
+      "serious": 5
+    },
+    {
+      "round": 1,
+      "recommendation": "test_further",
+      "verdict": "approve",
+      "blockers": 0,
+      "majors": 0,
+      "minors": 0,
+      "citation_check": {
+        "citations": 200,
+        "distinct_sources": 71,
+        "unknown_ids": [],
+        "excluded_citations": [],
+        "weak_snippet_citations": [],
+        "misquotes": [],
+        "verified_quotes": 4,
+        "unverified_numbers": [],
+        "wrong_dates": [],
+        "uncited_claims": [],
+        "claim_lines": 49,
+        "unsupported_flags": 8,
+        "missing_sections": [],
+        "coverage": 1.0,
+        "blocking": 0,
+        "passed": true
+      },
+      "serious": 0
+    }
+  ],
+  "final_citation_check": {
+    "citations": 200,
+    "distinct_sources": 71,
+    "unknown_ids": [],
+    "excluded_citations": [],
+    "weak_snippet_citations": [],
+    "misquotes": [],
+    "verified_quotes": 4,
+    "unverified_numbers": [],
+    "wrong_dates": [],
+    "uncited_claims": [],
+    "claim_lines": 49,
+    "unsupported_flags": 8,
+    "missing_sections": [],
+    "coverage": 1.0,
+    "blocking": 0,
+    "passed": true
+  },
+  "totals": {
+    "calls": 23,
+    "input_tokens": 293683,
+    "output_tokens": 89083,
+    "cache_read_tokens": 88069,
+    "thinking_tokens": 61664,
+    "tool_calls": 23,
+    "cost_usd": 0.560929,
+    "model_time_s": 572.332,
+    "wall_clock_s": 549.051,
+    "cost_incomplete": false
+  }
+}

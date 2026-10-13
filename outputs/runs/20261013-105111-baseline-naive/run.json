@@ -1,0 +1,54 @@
+{
+  "run_id": "20261013-105111-baseline-naive",
+  "mode": "baseline-naive",
+  "started_at": "2026-10-13T10:51:11.673447+00:00",
+  "config": {
+    "model": "gemini-3.8-flash",
+    "effort": "medium",
+    "max_tokens": 32000,
+    "max_tool_rounds": 12,
+    "variant": "naive",
+    "code_fingerprint": "cc37932e263b"
+  },
+  "recommendation": "test_further",
+  "final_citation_check": {
+    "citations": 138,
+    "distinct_sources": 76,
+    "unknown_ids": [],
+    "excluded_citations": [
+      "P06: Evidence strength is assessed across nine unbiased participant transcripts, one compromised transcri"
+    ],
+    "weak_snippet_citations": [
+      "S06: Evidence strength is assessed across nine unbiased participant transcripts, one compromised transcri",
+      "S07: Evidence strength is assessed across nine unbiased participant transcripts, one compromised transcri",
+      "S08: Evidence strength is assessed across nine unbiased participant transcripts, one compromised transcri",
+      "S09: Evidence strength is assessed across nine unbiased participant transcripts, one compromised transcri",
+      "S06: - The claim of 25% annual growth in the meal-planning market lacks an identified research source or "
+    ],
+    "misquotes": [],
+    "verified_quotes": 3,
+    "unverified_numbers": [],
+    "wrong_dates": [],
+    "uncited_claims": [
+      "Three customer problems are strongly grounded in observable behaviour across usable interviews:"
+    ],
+    "claim_lines": 36,
+    "unsupported_flags": 12,
+    "missing_sections": [],
+    "coverage": 0.972,
+    "blocking": 1,
+    "passed": false
+  },
+  "totals": {
+    "calls": 1,
+    "input_tokens": 1987,
+    "output_tokens": 3695,
+    "cache_read_tokens": 6840,
+    "thinking_tokens": 1273,
+    "tool_calls": 0,
+    "cost_usd": 0.015859,
+    "model_time_s": 30.335,
+    "wall_clock_s": 30.381,
+    "cost_incomplete": false
+  }
+}

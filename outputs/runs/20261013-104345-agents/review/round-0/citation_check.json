@@ -1,0 +1,23 @@
+{
+  "citations": 248,
+  "distinct_sources": 71,
+  "unknown_ids": [
+    "F19"
+  ],
+  "excluded_citations": [],
+  "weak_snippet_citations": [],
+  "misquotes": [],
+  "verified_quotes": 29,
+  "unverified_numbers": [],
+  "wrong_dates": [],
+  "uncited_claims": [
+    "- Competitor landscape and verified status: Competitor analysis demonstrates that dinner planning and inventory tracking",
+    "3. Value proposition and pricing landing page smoke test (Tests Assumptions 4 and 5):"
+  ],
+  "claim_lines": 50,
+  "unsupported_flags": 29,
+  "missing_sections": [],
+  "coverage": 0.96,
+  "blocking": 1,
+  "passed": false
+}

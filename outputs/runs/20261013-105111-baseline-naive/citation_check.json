@@ -1,0 +1,28 @@
+{
+  "citations": 138,
+  "distinct_sources": 76,
+  "unknown_ids": [],
+  "excluded_citations": [
+    "P06: Evidence strength is assessed across nine unbiased participant transcripts, one compromised transcri"
+  ],
+  "weak_snippet_citations": [
+    "S06: Evidence strength is assessed across nine unbiased participant transcripts, one compromised transcri",
+    "S07: Evidence strength is assessed across nine unbiased participant transcripts, one compromised transcri",
+    "S08: Evidence strength is assessed across nine unbiased participant transcripts, one compromised transcri",
+    "S09: Evidence strength is assessed across nine unbiased participant transcripts, one compromised transcri",
+    "S06: - The claim of 25% annual growth in the meal-planning market lacks an identified research source or "
+  ],
+  "misquotes": [],
+  "verified_quotes": 3,
+  "unverified_numbers": [],
+  "wrong_dates": [],
+  "uncited_claims": [
+    "Three customer problems are strongly grounded in observable behaviour across usable interviews:"
+  ],
+  "claim_lines": 36,
+  "unsupported_flags": 12,
+  "missing_sections": [],
+  "coverage": 0.972,
+  "blocking": 1,
+  "passed": false
+}

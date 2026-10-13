@@ -7,6 +7,7 @@ Outputs
     objections.csv     every critic objection in every multi-agent run
     loops.csv          each multi-agent run's critic loop: outcome and objections per round
     agreement.csv      judge versus human scores (when blind/human_scores.csv is filled in)
+    judgements.json    per brief: the judge's weaknesses, verified misrepresentations, reasons
     eval_report.md     all of the above as readable tables
     figures/quality_vs_cost.png
     blind/             briefs under neutral IDs for hand-scoring, plus a scoring template
@@ -25,7 +26,7 @@ import pandas as pd
 from discovery_chef.citations import check_brief
 from discovery_chef.context import DiscoveryContext
 from discovery_chef.eval.collect import CONDITION_LABELS, CONDITIONS, BriefRecord, Skipped
-from discovery_chef.eval.judge import Judgement, judge
+from discovery_chef.eval.judge import Judgement, judge, source_pack
 from discovery_chef.eval.rubric import CRITERIA, TRAPS, quality_index
 
 HUMAN_SCORES = "human_scores.csv"
@@ -46,10 +47,12 @@ def evaluate(records: list[BriefRecord], ctx: DiscoveryContext, runs_dir: Path, 
              *, judge_llm, judge_model: str, cache_dir: Path, skipped: list[Skipped],
              setup: dict) -> EvalResult:
     rows, judgements = [], {}
+    sources = source_pack(ctx)
     for record in records:
         report = check_brief(record.markdown, ctx)
-        judgement = judge(judge_llm, record, report, cache_dir, model=judge_model)
-        judgements[record.brief_id] = judgement
+        judgement = judge(judge_llm, record, report, cache_dir, model=judge_model,
+                          sources=sources)
+        judgements[record.brief_id] = (record.condition, judgement)
         rows.append(_score_row(record, report, judgement))
     scores = pd.DataFrame(rows)
     if not scores.empty:
@@ -74,6 +77,15 @@ def evaluate(records: list[BriefRecord], ctx: DiscoveryContext, runs_dir: Path, 
         path = out_dir / f"{name}.csv"
         df.to_csv(path, index=False, lineterminator="\n")
         written.append(path)
+    details_path = out_dir / "judgements.json"
+    details_path.write_text(json.dumps({
+        brief_id: {"condition": condition, "weaknesses": j.weaknesses,
+                   "misrepresentations": j.misrepresentations,
+                   "criteria_reasons": j.justifications,
+                   "traps_missed": [t for t, ok in j.traps.items() if not ok]}
+        for brief_id, (condition, j) in sorted(judgements.items()) if j is not None
+    }, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    written.append(details_path)
     report_path = out_dir / "eval_report.md"
     report_path.write_text(_markdown(scores, summary, traps, objections, loops, agreement,
                                      skipped, setup), encoding="utf-8")
@@ -113,12 +125,17 @@ def _score_row(record: BriefRecord, report, judgement: Judgement | None) -> dict
         row[criterion.id] = judgement.criteria[criterion.id] if judgement else None
     row["trap_rate"] = judgement.trap_rate if judgement else None
     row["mean_criteria"] = judgement.mean_criteria if judgement else None
-    row["quality_index"] = (quality_index(judgement.trap_rate, judgement.mean_criteria)
-                            if judgement and judgement.mean_criteria is not None else None)
+    row["misrepresentations"] = len(judgement.misrepresentations) if judgement else None
+    row["faithfulness"] = judgement.faithfulness if judgement else None
+    row["unverified_judge_claims"] = judgement.unverified_claims if judgement else None
+    row["quality_index"] = (
+        quality_index(judgement.trap_rate, judgement.mean_criteria, judgement.faithfulness)
+        if judgement and judgement.mean_criteria is not None else None)
     return row
 
 
-SUMMARY_COLUMNS = ("quality_index", "trap_rate", "mean_criteria", *(c.id for c in CRITERIA),
+SUMMARY_COLUMNS = ("quality_index", "trap_rate", "misrepresentations", "faithfulness",
+                   "mean_criteria", *(c.id for c in CRITERIA),
                    "blocking_issues", "coverage", "verified_quotes", "unverified_numbers",
                    "cost_usd", "wall_clock_s", "calls")
 
@@ -295,6 +312,8 @@ def _markdown(scores, summary, traps, objections, loops, agreement, skipped, set
          ["Runs failed", *(_failures(failed, c) for c in present)],
          ["Quality index (0-1)", *(_with_range(by.loc[c], "quality_index") for c in present)],
          ["Traps handled", *(_fmt(by.loc[c, "trap_rate"], "pct") for c in present)],
+         ["Sources misrepresented (per brief)",
+          *(_fmt(by.loc[c, "misrepresentations"]) for c in present)],
          ["Mean criterion score (1-5)", *(_fmt(by.loc[c, "mean_criteria"]) for c in present)],
          ["Blocking citation issues", *(_fmt(by.loc[c, "blocking_issues"]) for c in present)],
          ["Claim lines cited", *(_fmt(by.loc[c, "coverage"], "pct") for c in present)],
@@ -303,8 +322,9 @@ def _markdown(scores, summary, traps, objections, loops, agreement, skipped, set
          ["Wall clock", *(_fmt(by.loc[c, "wall_clock_s"], "s") for c in present)],
          ["API calls", *(_fmt(by.loc[c, "calls"]) for c in present)],
          ["Recommendations", *(str(by.loc[c, "recommendations"]) for c in present)]])
-    out += ["", "Quality index = half the share of traps handled, half the mean criterion "
-            "score rescaled to 0-1. Values are means; ranges in brackets.", ""]
+    out += ["", "Quality index = the mean of three 0-1 scores: traps handled, faithfulness "
+            "(1 minus 0.25 per verified misrepresentation) and the mean criterion score "
+            "rescaled from 1-5. Values are means; ranges in brackets.", ""]
 
     steps = [("informed", "naive", "Adding the EDA's rules (one call)"),
              ("agents_draft", "informed", "Splitting the work across agents"),
@@ -316,13 +336,16 @@ def _markdown(scores, summary, traps, objections, loops, agreement, skipped, set
                 label,
                 _signed(by.loc[after, "quality_index"], by.loc[before, "quality_index"]),
                 _signed(by.loc[after, "trap_rate"], by.loc[before, "trap_rate"], pct=True),
+                _signed(by.loc[after, "misrepresentations"],
+                        by.loc[before, "misrepresentations"]),
                 _signed(by.loc[after, "mean_criteria"], by.loc[before, "mean_criteria"]),
                 _signed(by.loc[after, "cost_usd"], by.loc[before, "cost_usd"], usd=True),
                 _signed(by.loc[after, "wall_clock_s"], by.loc[before, "wall_clock_s"], sec=True),
             ])
     if step_rows:
         out += ["## What each step adds", ""]
-        out += _table(["Step", "Quality index", "Traps", "Criteria", "Cost", "Time"], step_rows)
+        out += _table(["Step", "Quality index", "Traps", "Misrepresentations", "Criteria",
+                       "Cost", "Time"], step_rows)
         out += [""]
 
     out += ["## Criteria (mean, 1-5)", ""]
@@ -357,8 +380,11 @@ def _markdown(scores, summary, traps, objections, loops, agreement, skipped, set
     out += ["", "## Caveats", "",
             "- Few runs per condition: differences smaller than the ranges above may be noise.",
             "- The judge is a Gemini model grading Gemini output; it may favour its own style. "
-            "Trap verdicts are grounded in verified excerpts; criterion scores are not, so "
-            "check them against the human scores.",
+            "Trap and misrepresentation verdicts are grounded in verified excerpts (the "
+            "judge's claim is dropped when its excerpt is not in the brief); criterion scores "
+            "are not, so check them against the human scores.",
+            "- A misrepresentation the judge misses is not counted; faithfulness is an upper "
+            "bound.",
             "- The data is synthetic and fixed; results describe this case, not discovery work "
             "in general.", ""]
     return "\n".join(out)

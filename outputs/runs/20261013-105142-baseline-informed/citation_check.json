@@ -1,0 +1,23 @@
+{
+  "citations": 151,
+  "distinct_sources": 75,
+  "unknown_ids": [
+    "F11",
+    "F12"
+  ],
+  "excluded_citations": [],
+  "weak_snippet_citations": [],
+  "misquotes": [],
+  "verified_quotes": 25,
+  "unverified_numbers": [
+    "EUR 22.42: - Market context: Two-person households spend an average of EUR 118 weekly on groceries [S02]. Disca"
+  ],
+  "wrong_dates": [],
+  "uncited_claims": [],
+  "claim_lines": 33,
+  "unsupported_flags": 10,
+  "missing_sections": [],
+  "coverage": 1.0,
+  "blocking": 2,
+  "passed": false
+}

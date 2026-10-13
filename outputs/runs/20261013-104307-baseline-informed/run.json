@@ -1,0 +1,44 @@
+{
+  "run_id": "20261013-104307-baseline-informed",
+  "mode": "baseline-informed",
+  "started_at": "2026-10-13T10:43:07.224214+00:00",
+  "config": {
+    "model": "gemini-3.8-flash",
+    "effort": "medium",
+    "max_tokens": 32000,
+    "max_tool_rounds": 12,
+    "variant": "informed",
+    "code_fingerprint": "cc37932e263b"
+  },
+  "recommendation": "test_further",
+  "final_citation_check": {
+    "citations": 196,
+    "distinct_sources": 82,
+    "unknown_ids": [],
+    "excluded_citations": [],
+    "weak_snippet_citations": [],
+    "misquotes": [],
+    "verified_quotes": 9,
+    "unverified_numbers": [],
+    "wrong_dates": [],
+    "uncited_claims": [],
+    "claim_lines": 31,
+    "unsupported_flags": 8,
+    "missing_sections": [],
+    "coverage": 1.0,
+    "blocking": 0,
+    "passed": true
+  },
+  "totals": {
+    "calls": 1,
+    "input_tokens": 2012,
+    "output_tokens": 5168,
+    "cache_read_tokens": 12833,
+    "thinking_tokens": 1127,
+    "tool_calls": 0,
+    "cost_usd": 0.021851,
+    "model_time_s": 38.275,
+    "wall_clock_s": 38.284,
+    "cost_incomplete": false
+  }
+}

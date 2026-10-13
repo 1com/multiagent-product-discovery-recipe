@@ -229,15 +229,24 @@ its cost and time are computed from the calls made before the critic started.
    interview, templated answers, the €30 outlier, stale competitor rows, and the 97% blog
    statistic. A brief handles a trap only if the judge quotes the brief to prove it *and*
    that quote is found word for word. The citation check can also overrule the judge.
-3. **Criteria:** completeness, evidence grounding, calibration, actionability and clarity,
-   each scored 1-5 against written anchors.
+3. **Faithfulness:** the judge reads the same research data and lists every claim that
+   misrepresents the source it cites (for example "S07: 73% abandon planning apps" when
+   S07 says "most families struggle with dinner decisions"). Each listed error must quote
+   the brief exactly, and that quote is verified. Neither citation IDs nor quote checks
+   can catch this kind of error; in testing, only the critic agent did.
+4. **Criteria:** completeness, evidence grounding, calibration, actionability and clarity,
+   each scored 1-5 against demanding anchors, after the judge has listed the brief's
+   weaknesses.
 
 The judge is `gemini-3.1-pro-preview` (a stronger model than the one under test). It never
 learns which system wrote a brief. Verdicts are cached by brief text, so re-running the
 evaluation is free and reproducible.
 
-**Quality index** = half the share of traps handled + half the mean criterion score
-(rescaled to 0-1). It is only used to order the systems; the parts are always reported too.
+**Quality index** = the mean of three 0-1 scores: traps handled, faithfulness (1 minus
+0.25 per verified misrepresentation) and the mean criterion score rescaled from 1-5. It is
+only used to order the systems; the parts are always reported too. `judgements.json`
+records, for every brief, the judge's weaknesses, the misrepresentations it found and the
+reasons behind each score.
 
 ### Comparability
 

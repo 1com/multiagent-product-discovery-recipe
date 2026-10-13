@@ -1,0 +1,113 @@
+{
+  "brief_id": "20261013-105142-baseline-informed",
+  "judge_model": "gemini-3.1-pro-preview",
+  "verdict": {
+    "weaknesses": [
+      "Hallucinated citations: The brief cites non-existent sources [F11] and [F12] in the risks and open assumptions section.",
+      "Clutter from '[UNSUPPORTED]' tags: The brief tags its own synthesized recommendations and testing steps as unsupported, which is visually distracting and unnecessary since these sections do not require direct evidence citations.",
+      "Excessive quantitative weighting: The use of complex mathematical confidence formulas (e.g., 'raw count 2, weighted support 1.70') is overly analytical and clutters the synthesis of qualitative insights from a small 9-person sample.",
+      "Missing test decisions: While the proposed tests outline what to do and how to measure success, they lack explicit statements of the specific product decision each test will ultimately inform."
+    ],
+    "misrepresentations": [
+      {
+        "excerpt": "Riskiest assumption: Households will keep a pantry and fridge inventory up to date in an app [F11].",
+        "source_id": "F11",
+        "problem": "The cited source [F11] does not exist in the provided research data."
+      },
+      {
+        "excerpt": "Open assumption on product format: A rigid weekly dinner plan may not match household habits [F12].",
+        "source_id": "F12",
+        "problem": "The cited source [F12] does not exist in the provided research data."
+      }
+    ],
+    "traps": [
+      {
+        "trap_id": "T01",
+        "handled": true,
+        "excerpt": "only 9 are usable because interview P06 is excluded due to severe leading questions and copied phrasing"
+      },
+      {
+        "trap_id": "T02",
+        "handled": true,
+        "excerpt": "participants warned against onboarding effort using templated phrasing: \"Setup has to be fast. If I need to type in my whole pantry I'll quit on day two.\""
+      },
+      {
+        "trap_id": "T03",
+        "handled": true,
+        "excerpt": "(Out of target / contrast only; 1 interview: P07 weight 0.25)"
+      },
+      {
+        "trap_id": "T04",
+        "handled": true,
+        "excerpt": "Conversely, P09 represents retired couples who cook every day and experience no planning friction, noting \"it isn't a problem\""
+      },
+      {
+        "trap_id": "T05",
+        "handled": true,
+        "excerpt": "P08 claimed a willingness to pay \"thirty euros a month, easy\", but this figure is a severe outlier anchored to an isolated vacation spoiled-food incident and must be excluded from typical subscription expectations"
+      },
+      {
+        "trap_id": "T06",
+        "handled": true,
+        "excerpt": "Riskiest assumption: Households will keep a pantry and fridge inventory up to date in an app"
+      },
+      {
+        "trap_id": "T07",
+        "handled": true,
+        "excerpt": "P03 claims \"Planning is my favourite part of the week, honestly. I would never want an app to take that away from me.\""
+      },
+      {
+        "trap_id": "T08",
+        "handled": true,
+        "excerpt": "The claim that households will stop arguing about dinner is weakly supported, as only 1 interview mentions arguing over dinner options"
+      },
+      {
+        "trap_id": "T09",
+        "handled": true,
+        "excerpt": "The claim in the idea brief that existing recipe apps do not know what you already own is contradicted by competitors offering fridge photo recognition and pantry inventory tracking"
+      },
+      {
+        "trap_id": "T10",
+        "handled": true,
+        "excerpt": "ZeroWaste Kitchen (verified 2025-01-20, caveat: verification is over 18 months old and may be outdated)"
+      },
+      {
+        "trap_id": "T11",
+        "handled": true,
+        "excerpt": "The claim that the meal-planning and meal-kit market is growing by 25% annually is unsupported because S06 lacks a date and source citation"
+      },
+      {
+        "trap_id": "T12",
+        "handled": true,
+        "excerpt": "willingness to use automated weekly meal planners is purely stated intent"
+      }
+    ],
+    "criteria": [
+      {
+        "criterion_id": "C1",
+        "score": 5,
+        "justification": "The brief comprehensively answers all six required questions with excellent depth, successfully identifying distinct user segments, valid problems, clear competitor gaps, and structured assumptions and next tests."
+      },
+      {
+        "criterion_id": "C2",
+        "score": 3,
+        "justification": "Claims are meticulously tied to specific sources and evidence strength is discussed well (e.g., stated vs. observed intent). However, the inclusion of hallucinated citations ([F11] and [F12]) misrepresents the sources, capping this score at 3."
+      },
+      {
+        "criterion_id": "C3",
+        "score": 5,
+        "justification": "Confidence perfectly matches the evidence. The brief brilliantly discounts emotional outliers (P08's WTP), flags unverified market claims, and treats self-reported planning willingness with appropriate skepticism."
+      },
+      {
+        "criterion_id": "C4",
+        "score": 4,
+        "justification": "The recommendation is clear and justified. The tests outline the specific audience, metrics, and methodology in detail, but they lack explicit statements of the exact product decision each test will inform."
+      },
+      {
+        "criterion_id": "C5",
+        "score": 4,
+        "justification": "The brief is highly structured and actionable, but its readability is slightly hampered by overly heavy quantitative weighting formulas and the repetitive, unnecessary use of '[UNSUPPORTED]' tags."
+      }
+    ]
+  }
+}

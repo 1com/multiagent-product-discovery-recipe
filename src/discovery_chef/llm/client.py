@@ -55,6 +55,9 @@ class QuotaExhaustedError(LLMError):
 MAX_RATE_LIMIT_WAIT_S = 90
 MAX_RATE_LIMIT_RETRIES = 5
 
+BUDGET_SPENT = ("You have used all {budget} rounds of tool calls. Do not call any more tools: "
+                "give your final answer now, based on what you have already checked.")
+
 
 @dataclass(frozen=True)
 class LLMConfig:
@@ -141,19 +144,29 @@ class LLMClient:
         continues the same thread (used for revisions).
         """
         tool_map = {tool.name: tool for tool in tools}
-        for round_number in range(self.config.max_tool_rounds + 1):
-            label = step if round_number == 0 else f"{step}/tool-round-{round_number}"
-            response = self._call(agent, label, conversation, output_type, tools)
+        budget = self.config.max_tool_rounds
+        for round_number in range(budget + 1):
+            # After `budget` rounds of tool calls the model must answer: it is told so with
+            # the last tool results, and the final request forbids further tool calls.
+            forced = round_number == budget
+            label = (step if round_number == 0 else
+                     f"{step}/forced-answer" if forced else f"{step}/tool-round-{round_number}")
+            response = self._call(agent, label, conversation, output_type, tools,
+                                  allow_tools=not forced)
             conversation.messages.append(response.candidates[0].content)
             calls = response.function_calls or []
-            if calls:
+            if calls and not forced:
                 parts = [self._run_tool(agent, tool_map, call) for call in calls]
+                if round_number == budget - 1:
+                    parts.append(types.Part(text=BUDGET_SPENT.format(budget=budget)))
                 conversation.messages.append(types.Content(role="user", parts=parts))
                 continue
+            if calls:
+                raise LLMError(f"{agent}: kept calling tools after its {budget}-round budget")
             return self._parse(agent, response, output_type)
-        raise LLMError(f"{agent}: still calling tools after {self.config.max_tool_rounds} rounds")
+        raise AssertionError("unreachable")
 
-    def _call(self, agent, step, conversation, output_type, tools):
+    def _call(self, agent, step, conversation, output_type, tools, allow_tools=True):
         config = types.GenerateContentConfig(
             system_instruction=conversation.system,
             response_mime_type="application/json",
@@ -163,6 +176,10 @@ class LLMClient:
             max_output_tokens=self.config.max_tokens,
             tools=[types.Tool(function_declarations=[t.declaration() for t in tools])]
             if tools else None,
+            # Tools stay declared (the history contains their calls) but may not be called.
+            tool_config=None if allow_tools or not tools else types.ToolConfig(
+                function_calling_config=types.FunctionCallingConfig(
+                    mode=types.FunctionCallingConfigMode.NONE)),
             automatic_function_calling=types.AutomaticFunctionCallingConfig(disable=True),
         )
         started = time.perf_counter()

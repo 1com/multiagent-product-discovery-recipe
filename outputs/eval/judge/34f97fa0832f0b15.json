@@ -1,0 +1,102 @@
+{
+  "brief_id": "20261013-104307-baseline-informed",
+  "judge_model": "gemini-3.1-pro-preview",
+  "verdict": {
+    "weaknesses": [
+      "The tests outlined in Section 7 are missing the specific decision each test is meant to inform, making them less actionable.",
+      "The brief introduces an unexplained 'evidence-weighted count' metric throughout, which causes confusion and clutters the data.",
+      "While it correctly flags templated responses for setup effort, it misses that the willingness-to-pay answers (P01, P04, P10) and recipe time requirements (P01, P04) are also identically templated, treating them as independent verification.",
+      "The brief fails to explicitly state the overall limits of the research evidence, such as the small qualitative sample size."
+    ],
+    "misrepresentations": [],
+    "traps": [
+      {
+        "trap_id": "T01",
+        "handled": true,
+        "excerpt": "P06 was excluded from all customer findings due to severe interviewer bias and leading questions"
+      },
+      {
+        "trap_id": "T02",
+        "handled": true,
+        "excerpt": "Identical templated concerns emerged across interviews: P02, P05, P07, P08, and P10 each warned: \"Setup has to be fast. If I need to type in my whole pantry I'll quit on day two.\""
+      },
+      {
+        "trap_id": "T03",
+        "handled": true,
+        "excerpt": "Out-of-target: Single student living alone (P07; raw count 1, evidence-weighted count 0.25)."
+      },
+      {
+        "trap_id": "T04",
+        "handled": true,
+        "excerpt": "The assumption that all multi-person households who cook weeknights need dinner planning is unvalidated, as shown by retired couple P09 who cook daily without friction"
+      },
+      {
+        "trap_id": "T05",
+        "handled": true,
+        "excerpt": "An outlier was P08, who stated an intent to pay thirty euros a month, but this was anchored entirely to a single holiday spoilage incident rather than routine meal planning"
+      },
+      {
+        "trap_id": "T06",
+        "handled": true,
+        "excerpt": "Riskiest assumption: Households will keep a pantry and fridge inventory up to date in an app"
+      },
+      {
+        "trap_id": "T07",
+        "handled": true,
+        "excerpt": "A rigid weekly dinner plan may not match household cooking realities [P05:t1, P05:t4, P08:t1]. P05 previously abandoned a meal planning app because an unfollowed plan felt like failure"
+      },
+      {
+        "trap_id": "T08",
+        "handled": true,
+        "excerpt": "The claim that the app will stop household arguments is weakly supported, being reported as dinner friction by only 1 couple (P02), and is better reframed as a shared list and purchasing coordination problem"
+      },
+      {
+        "trap_id": "T09",
+        "handled": true,
+        "excerpt": "The market contains established tools addressing either inventory tracking or weekly meal planning, contradicting the idea brief claim that existing recipe apps do not know what you own"
+      },
+      {
+        "trap_id": "T10",
+        "handled": true,
+        "excerpt": "PlanPlate (EUR 2.99/month, last verified 2024-11-05) offers meal planning calendars, though its data may be outdated [C:PlanPlate]. ZeroWaste Kitchen (Free/donations, last verified 2025-01-20) offers leftover recipes, though its data may also be outdated [C:ZeroWaste Kitchen]. WeekWise offers budget plans for a EUR 29.99 one-off fee (verified 2026-05-02), but its details are unsourced in the market registry"
+      },
+      {
+        "trap_id": "T11",
+        "handled": true,
+        "excerpt": "Market snippet S06 claiming 25% annual market growth is unsupported due to missing source and date [S06]. Market snippet S07 claiming 73% of families struggle with dinner decisions is unsupported due to missing source and date [S07]. Market snippet S08 claiming 97% of households would pay for automated meal planning comes from an unreliable blog source and is unsupported [S08]. Market snippet S09 citing 4% online grocery share is stale data from 2016"
+      },
+      {
+        "trap_id": "T12",
+        "handled": false,
+        "excerpt": ""
+      }
+    ],
+    "criteria": [
+      {
+        "criterion_id": "C1",
+        "score": 5,
+        "justification": "The brief covers all six required areas comprehensively and with significant detail and substance."
+      },
+      {
+        "criterion_id": "C2",
+        "score": 4,
+        "justification": "Claims are thoroughly cited and mostly well-grounded, though it misses that some answers (willingness-to-pay and recipe time) were templated, and the 'evidence-weighted count' is confusing."
+      },
+      {
+        "criterion_id": "C3",
+        "score": 5,
+        "justification": "The brief correctly weighs the evidence, expertly discounts bad data (like P06 and S06-S09), explicitly notes contradictory statements, and properly frames WTP outliers."
+      },
+      {
+        "criterion_id": "C4",
+        "score": 3,
+        "justification": "The recommendation is clear and tests include who, what, how many, and a success metric, but they completely omit the decision each test informs."
+      },
+      {
+        "criterion_id": "C5",
+        "score": 4,
+        "justification": "The brief is well-structured and concise, but the repetitive inclusion of raw counts alongside an unexplained 'evidence-weighted count' creates slight reading friction."
+      }
+    ]
+  }
+}

@@ -15,26 +15,26 @@ Does the brief answer all six questions: who the users are, which problems are r
 Are claims tied to specific sources, with the strength of the evidence made clear (how many usable interviews, behaviour versus stated preference, contradictions)?
 
 - 1: Claims are mostly asserted; strength never discussed.
-- 3: Claims are cited, but strength is stated only sometimes.
-- 5: Claims are cited and their strength and caveats are explicit throughout.
+- 3: Claims are cited, but strength is stated only sometimes, or a citation misrepresents its source.
+- 5: Every claim is cited, no citation misrepresents its source, and strength and caveats are explicit throughout.
 
 ## C3 Calibration
 Does the confidence of each conclusion match the evidence, without overclaiming or burying real signals?
 
 - 1: Overclaims (e.g. 'validated demand') or dismisses strong evidence.
-- 3: Mostly calibrated, with a few overstatements.
-- 5: Confidence consistently matches the evidence; uncertainty is explicit.
+- 3: Mostly calibrated, with a few overstatements or a confident claim resting on weak evidence.
+- 5: Confidence matches the evidence in every section; uncertainty is explicit and nothing is overstated.
 
 ## C4 Actionability
 Is the recommendation clear and justified, and are the next tests concrete (who, what, how many, success metric, the decision it informs) and prioritised by risk?
 
 - 1: Vague recommendation; tests are generic ('do more research').
-- 3: Clear recommendation; tests named but loosely specified.
-- 5: Clear, justified recommendation; tests are specific, prioritised and tied to the riskiest assumptions.
+- 3: Clear recommendation; tests named but missing a sample, a success metric or the decision they inform.
+- 5: Clear, justified recommendation; every test states who, how many, the success metric and the decision it informs, ordered by risk.
 
 ## C5 Clarity
 Is the brief concise, well organised and easy for a product manager, designer and engineering lead to act on?
 
 - 1: Hard to follow; padded or disorganised.
-- 3: Readable, with some padding or repetition.
-- 5: Tight, well structured and quick to act on.
+- 3: Readable, with some padding, repetition or citation clutter.
+- 5: Tight, well structured and quick to act on; nothing could be cut.

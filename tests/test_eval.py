@@ -14,7 +14,9 @@ from discovery_chef.eval.rubric import (
     TRAPS,
     CriterionScore,
     JudgeVerdict,
+    Misrepresentation,
     TrapAssessment,
+    faithfulness,
     quality_index,
 )
 
@@ -97,7 +99,14 @@ class FakeJudge:
         criteria = [CriterionScore(criterion_id=c.id, score=4, justification="ok")
                     for c in CRITERIA]
         criteria[0] = CriterionScore(criterion_id="C1", score=9, justification="too high")
-        return JudgeVerdict(traps=traps, criteria=criteria)
+        misrepresentations = [
+            Misrepresentation(excerpt="EUR 3.50 per month according to the pricing study",
+                              source_id="S05", problem="real excerpt, counted"),
+            Misrepresentation(excerpt="an excerpt the brief never contains",
+                              source_id="S01", problem="invented, must be dropped")]
+        return JudgeVerdict(weaknesses=["thin on pricing"],
+                            misrepresentations=misrepresentations, traps=traps,
+                            criteria=criteria)
 
 
 def test_collect_selects_comparable_finished_runs(runs):
@@ -130,11 +139,15 @@ def test_judge_claims_are_verified_and_cached(runs, ctx, tmp_path):
     record = records[0]
     fake = FakeJudge(record.markdown)
     report = check_brief(record.markdown, ctx)
-    first = judge(fake, record, report, tmp_path / "cache", model="judge-model")
+    first = judge(fake, record, report, tmp_path / "cache", model="judge-model",
+                  sources="SOURCES")
     assert first.traps["T01"] is True
     assert first.traps["T02"] is False  # invented excerpt rejected
     assert first.criteria["C1"] == 5  # clamped to the scale
-    again = judge(None, record, report, tmp_path / "cache", model="judge-model")
+    assert len(first.misrepresentations) == 1 and first.faithfulness == 0.75
+    assert first.unverified_claims == 2  # one trap excerpt, one misrepresentation
+    again = judge(None, record, report, tmp_path / "cache", model="judge-model",
+                  sources="SOURCES")
     assert again.traps == first.traps and fake.calls == 1
 
 
@@ -146,7 +159,7 @@ def test_citation_check_vetoes_the_judge(runs, ctx, tmp_path, passing_brief):
     records, _ = collect(runs, model=MODEL, fingerprint=PRINT)
     record = records[0].__class__(**{**records[0].__dict__, "markdown": bad})
     verdict = judge(FakeJudge(bad), record, check_brief(bad, ctx), tmp_path / "cache",
-                    model="judge-model")
+                    model="judge-model", sources="SOURCES")
     assert verdict.traps["T01"] is False
 
 
@@ -171,6 +184,9 @@ def test_full_evaluation_writes_report_and_blind_kit(runs, ctx, tmp_path):
     assert "What each step adds" in report and "The critic loop" in report
     assert "Runs that failed" in report and "r6-failed" in report
     assert (out / "figures" / "quality_vs_cost.png").exists()
+    details = json.loads((out / "judgements.json").read_text())
+    assert all(d["weaknesses"] == ["thin on pricing"] for d in details.values())
+    assert "Sources misrepresented" in report
     blind = json.loads((out / "blind" / "key.json").read_text())
     assert len(blind) == 4 and all(b.startswith("B") for b in blind)
     assert blind[blind_id("r3-agents")] == "r3-agents"
@@ -191,7 +207,8 @@ def test_human_scores_are_compared_with_the_judge(runs, ctx, tmp_path):
     assert agreement.loc["C3", "exact_agreement"] == 1
 
 
-def test_quality_index():
-    assert quality_index(1.0, 5.0) == 1.0
-    assert quality_index(0.0, 1.0) == 0.0
-    assert quality_index(0.5, 3.0) == 0.5
+def test_quality_index_and_faithfulness():
+    assert quality_index(1.0, 5.0, 1.0) == 1.0
+    assert quality_index(0.0, 1.0, 0.0) == 0.0
+    assert quality_index(0.5, 3.0, 0.5) == 0.5
+    assert [faithfulness(n) for n in (0, 1, 4, 9)] == [1.0, 0.75, 0.0, 0.0]

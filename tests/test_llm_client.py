@@ -211,3 +211,29 @@ def test_daily_quota_fails_fast(monkeypatch):
         llm.run(agent="a", step="s", conversation=Conversation("sys").say("go"),
                 output_type=Answer)
     assert slept == [] and len(fake.requests) == 1 and tracker.calls == []
+
+
+def test_tool_budget_forces_a_final_answer():
+    endless = [response([call_part("echo", {"word": str(i)}, call_id=f"c{i}")])
+               for i in range(2)]
+    final = response([types.Part(text='{"text": "verdict"}')], parsed=Answer(text="verdict"))
+    llm, fake, tracker = make_client([*endless, final], max_tool_rounds=2)
+    result = llm.run(agent="critic", step="review-0", conversation=Conversation("s").say("go"),
+                     output_type=Answer, tools=[echo_tool()])
+    assert result == Answer(text="verdict")
+    # the last tool results carry the notice; the final request forbids tool calls
+    notice = fake.requests[2]["contents"][-1].parts[-1].text
+    assert "Do not call any more tools" in notice
+    assert fake.requests[0]["config"].tool_config is None
+    mode = fake.requests[2]["config"].tool_config.function_calling_config.mode
+    assert mode == types.FunctionCallingConfigMode.NONE
+    assert [c.step for c in tracker.calls][-1] == "review-0/forced-answer"
+
+
+def test_tool_calls_after_the_budget_still_fail():
+    endless = [response([call_part("echo", {"word": str(i)}, call_id=f"c{i}")])
+               for i in range(3)]
+    llm, _, _ = make_client(endless, max_tool_rounds=2)
+    with pytest.raises(LLMError, match="kept calling tools"):
+        llm.run(agent="critic", step="r", conversation=Conversation("s").say("go"),
+                output_type=Answer, tools=[echo_tool()])

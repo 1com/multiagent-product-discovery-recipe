@@ -1,8 +1,11 @@
 """LLM judge for the trap checklist and the 1-5 criteria, with its claims verified.
 
 - Blind: the judge sees only the brief, never which system wrote it.
-- Grounded: a trap counts as handled only if the judge's excerpt is found word for word in
-  the brief. An LLM judge can claim things a brief never says; this catches it.
+- Grounded: a trap counts as handled, and a misrepresentation counts against the brief,
+  only if the judge's excerpt is found word for word in the brief. An LLM judge can claim
+  things a brief never says; this catches it.
+- Informed: the judge reads the same research data the systems read (without the EDA's
+  labels), so it can check whether cited claims match their sources.
 - Vetoed: where the deterministic citation check can see a trap (P06 cited as evidence,
   unusable snippets cited without a caveat), a failed check overrides the judge.
 - Cached: verdicts are stored by a hash of the judge prompt, judge model and brief text,
@@ -18,8 +21,15 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from discovery_chef.citations import CitationReport, normalise
+from discovery_chef.context import IDEA_BRIEF, DiscoveryContext
 from discovery_chef.eval.collect import BriefRecord
-from discovery_chef.eval.rubric import CRITERIA, TRAPS, JudgeVerdict, judge_prompt
+from discovery_chef.eval.rubric import (
+    CRITERIA,
+    TRAPS,
+    JudgeVerdict,
+    faithfulness,
+    judge_prompt,
+)
 from discovery_chef.llm import Conversation, LLMClient
 
 JUDGE_MODEL = "gemini-3.1-pro-preview"
@@ -30,8 +40,15 @@ class Judgement:
     brief_id: str
     traps: dict[str, bool]  # final verdict per trap
     criteria: dict[str, int | None]
+    misrepresentations: list[dict] = field(default_factory=list)  # verified only
+    weaknesses: list[str] = field(default_factory=list)
     trap_notes: list[dict] = field(default_factory=list)
     justifications: dict[str, str] = field(default_factory=dict)
+    unverified_claims: int = 0  # judge claims whose excerpt is not in the brief
+
+    @property
+    def faithfulness(self) -> float:
+        return faithfulness(len(self.misrepresentations))
 
     @property
     def trap_rate(self) -> float:
@@ -43,25 +60,40 @@ class Judgement:
         return round(sum(scores) / len(scores), 3) if scores else None
 
 
-def cache_key(markdown: str, model: str) -> str:
-    return hashlib.sha256(f"{judge_prompt()}\n{model}\n{markdown}".encode()).hexdigest()[:16]
+def source_pack(ctx: DiscoveryContext) -> str:
+    """All research data as plain <source> blocks, without the EDA's tiers or labels."""
+    blocks = [ctx.source_text(IDEA_BRIEF)]
+    for interview in ctx.dataset.interviews.values():
+        for turn in interview.turns:
+            blocks.append(f'<source id="{interview.id}:t{turn.number}">\n'
+                          f"Interviewer: {turn.question}\nParticipant: {turn.answer}\n</source>")
+    blocks += [ctx.source_text(f"C:{name}") for name in ctx.dataset.competitors]
+    blocks += [f'<source id="{s.id}">\nClaim: {s.claim}\nStat: {s.stat}\nSource: '
+               f"{s.source_name or 'none'} ({s.year or 'no year'})\n</source>"
+               for s in ctx.dataset.snippets.values()]
+    return "\n".join(blocks)
+
+
+def cache_key(markdown: str, model: str, sources: str) -> str:
+    text = f"{judge_prompt(sources)}\n{model}\n{markdown}"
+    return hashlib.sha256(text.encode()).hexdigest()[:16]
 
 
 def judge(llm: LLMClient | None, record: BriefRecord, report: CitationReport,
-          cache_dir: Path, *, model: str) -> Judgement | None:
+          cache_dir: Path, *, model: str, sources: str) -> Judgement | None:
     """Judge a brief with `model`, from the cache when possible.
 
     Without `llm`, only cached verdicts by that same judge model are used.
     """
     if llm is not None and llm.config.model != model:
         raise ValueError(f"judge client uses {llm.config.model}, expected {model}")
-    path = cache_dir / f"{cache_key(record.markdown, model)}.json"
+    path = cache_dir / f"{cache_key(record.markdown, model, sources)}.json"
     if path.exists():
         verdict = JudgeVerdict.model_validate(json.loads(path.read_text())["verdict"])
     elif llm is None:
         return None
     else:
-        conversation = Conversation(system=judge_prompt()).say(
+        conversation = Conversation(system=judge_prompt(sources)).say(
             f"<brief>\n{record.markdown}\n</brief>\n\nGrade this brief.")
         verdict = llm.run(agent="judge", step=record.brief_id, conversation=conversation,
                           output_type=JudgeVerdict)
@@ -98,11 +130,21 @@ def assess(brief_id: str, verdict: JudgeVerdict, markdown: str,
                       "excerpt_verified": verified, "veto": veto,
                       "excerpt": assessment.excerpt if assessment else ""})
 
+    misrepresentations, unverified = [], sum(n["judge_says_handled"]
+                                             and not n["excerpt_verified"] for n in notes)
+    for item in verdict.misrepresentations:
+        if excerpt_in_brief(item.excerpt, markdown):
+            misrepresentations.append(item.model_dump())
+        else:
+            unverified += 1
+
     scores = {c.criterion_id: c for c in verdict.criteria}
     criteria, justifications = {}, {}
     for criterion in CRITERIA:
         score = scores.get(criterion.id)
         criteria[criterion.id] = min(5, max(1, score.score)) if score else None
         justifications[criterion.id] = score.justification if score else ""
-    return Judgement(brief_id=brief_id, traps=traps, criteria=criteria, trap_notes=notes,
-                     justifications=justifications)
+    return Judgement(brief_id=brief_id, traps=traps, criteria=criteria,
+                     misrepresentations=misrepresentations, weaknesses=verdict.weaknesses,
+                     trap_notes=notes, justifications=justifications,
+                     unverified_claims=unverified)

@@ -13,6 +13,7 @@ from discovery_chef.agents.contracts import (
     RiskAnalysis,
 )
 from discovery_chef.baseline import build_conversation
+from discovery_chef.llm import LLMConfig
 from discovery_chef.orchestrator import review_markdown, run_pipeline
 from discovery_chef.runs import RunRecorder
 
@@ -31,6 +32,8 @@ def objection(severity):
 
 
 class FakeLLM:
+    config = LLMConfig()
+
     def __init__(self, brief_markdown, critiques):
         self.brief = brief_markdown
         self.critiques = list(critiques)

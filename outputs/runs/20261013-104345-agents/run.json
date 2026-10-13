@@ -1,0 +1,106 @@
+{
+  "run_id": "20261013-104345-agents",
+  "mode": "agents",
+  "started_at": "2026-10-13T10:43:45.513494+00:00",
+  "config": {
+    "model": "gemini-3.8-flash",
+    "effort": "medium",
+    "max_tokens": 32000,
+    "max_tool_rounds": 12,
+    "max_revisions": 2,
+    "code_fingerprint": "cc37932e263b"
+  },
+  "recommendation": "test_further",
+  "loop_outcome": "approved",
+  "rounds": [
+    {
+      "round": 0,
+      "recommendation": "test_further",
+      "verdict": "revise",
+      "blockers": 1,
+      "majors": 2,
+      "minors": 1,
+      "citation_check": {
+        "citations": 248,
+        "distinct_sources": 71,
+        "unknown_ids": [
+          "F19"
+        ],
+        "excluded_citations": [],
+        "weak_snippet_citations": [],
+        "misquotes": [],
+        "verified_quotes": 29,
+        "unverified_numbers": [],
+        "wrong_dates": [],
+        "uncited_claims": [
+          "- Competitor landscape and verified status: Competitor analysis demonstrates that dinner planning and inventory tracking",
+          "3. Value proposition and pricing landing page smoke test (Tests Assumptions 4 and 5):"
+        ],
+        "claim_lines": 50,
+        "unsupported_flags": 29,
+        "missing_sections": [],
+        "coverage": 0.96,
+        "blocking": 1,
+        "passed": false
+      },
+      "serious": 3
+    },
+    {
+      "round": 1,
+      "recommendation": "test_further",
+      "verdict": "approve",
+      "blockers": 0,
+      "majors": 0,
+      "minors": 0,
+      "citation_check": {
+        "citations": 251,
+        "distinct_sources": 70,
+        "unknown_ids": [],
+        "excluded_citations": [],
+        "weak_snippet_citations": [],
+        "misquotes": [],
+        "verified_quotes": 29,
+        "unverified_numbers": [],
+        "wrong_dates": [],
+        "uncited_claims": [],
+        "claim_lines": 51,
+        "unsupported_flags": 34,
+        "missing_sections": [],
+        "coverage": 1.0,
+        "blocking": 0,
+        "passed": true
+      },
+      "serious": 0
+    }
+  ],
+  "final_citation_check": {
+    "citations": 251,
+    "distinct_sources": 70,
+    "unknown_ids": [],
+    "excluded_citations": [],
+    "weak_snippet_citations": [],
+    "misquotes": [],
+    "verified_quotes": 29,
+    "unverified_numbers": [],
+    "wrong_dates": [],
+    "uncited_claims": [],
+    "claim_lines": 51,
+    "unsupported_flags": 34,
+    "missing_sections": [],
+    "coverage": 1.0,
+    "blocking": 0,
+    "passed": true
+  },
+  "totals": {
+    "calls": 15,
+    "input_tokens": 192791,
+    "output_tokens": 66126,
+    "cache_read_tokens": 33851,
+    "thinking_tokens": 39271,
+    "tool_calls": 14,
+    "cost_usd": 0.395105,
+    "model_time_s": 470.624,
+    "wall_clock_s": 446.139,
+    "cost_incomplete": false
+  }
+}

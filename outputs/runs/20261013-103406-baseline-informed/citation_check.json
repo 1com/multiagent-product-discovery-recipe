@@ -1,0 +1,22 @@
+{
+  "citations": 157,
+  "distinct_sources": 71,
+  "unknown_ids": [],
+  "excluded_citations": [],
+  "weak_snippet_citations": [],
+  "misquotes": [],
+  "verified_quotes": 18,
+  "unverified_numbers": [],
+  "wrong_dates": [],
+  "uncited_claims": [
+    "- Experiment 2: Weekly plan vs. same-day suggestion test (Address Format Fit).",
+    "- Experiment 3: Household sync and shared list utility test (Address Coordination).",
+    "- Experiment 4: Landing page pricing and value proposition test (Address WTP)."
+  ],
+  "claim_lines": 44,
+  "unsupported_flags": 8,
+  "missing_sections": [],
+  "coverage": 0.932,
+  "blocking": 0,
+  "passed": true
+}

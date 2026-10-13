@@ -23,6 +23,10 @@ counter-evidence the brief ignores.
 preferences or a single interview are not presented as strong.
 - the recommendation follows from the evidence, and all required sections are present.
 
+Look sources up in batches: put every ID you want to check into one get_sources call (up \
+to 20), and make several calls in one turn if needed. You have at most {budget} rounds of \
+tool calls per review; then you must give your verdict with what you have checked.
+
 An automated citation check has already run and its report is attached. Confirm or extend \
 it; don't just repeat it.
 
@@ -39,8 +43,8 @@ class Critic:
     def __init__(self, llm: LLMClient, ctx: DiscoveryContext):
         self.llm = llm
         self.ctx = ctx
-        self.conversation = Conversation(system=role_prompt("critic", JOB, ctx,
-                                                            eda_questions=()))
+        self.conversation = Conversation(system=role_prompt(
+            "critic", JOB.format(budget=llm.config.max_tool_rounds), ctx, eda_questions=()))
 
     def review(self, brief: DiscoveryBrief, report: CitationReport, round_number: int
                ) -> Critique:

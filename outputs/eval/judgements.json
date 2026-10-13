@@ -1,0 +1,319 @@
+{
+  "20261013-103342-baseline-naive": {
+    "condition": "naive",
+    "weaknesses": [
+      "The brief falsely categorises participant P09 as a non-target user because they lack planning friction, failing to realise that P09 perfectly matches the idea brief's target definition. It misses that 'fit' does not equal 'pain'.",
+      "It notices that multiple participants gave identically worded answers ('type in my whole pantry I'll quit on day two') but treats this as strong validation rather than discounting it as suspicious, templated responses.",
+      "The brief fails to connect competitor capabilities to the idea brief's core assumption, missing that existing competitors like FridgeChef and PantryGenie already know what users have in their kitchens.",
+      "Despite correctly identifying interview P06 as heavily compromised by leading questions, it still relies on P06 as evidence to define the 'Busy families with children' user segment.",
+      "The proposed tests are incomplete; while they include samples and success metrics, none of them state the specific product or business decision they are meant to inform."
+    ],
+    "misrepresentations": [
+      {
+        "excerpt": "Non-target profiles: Solo students who cook infrequently and rely on takeaways, and established retirees with rigid, longstanding cooking routines who do not experience planning friction [P07, P09].",
+        "source_id": "idea_brief",
+        "problem": "The idea brief defines the target customer as 'households of two or more people who cook at home on most weeknights'. Participant P09 is a married couple who cooks every day, perfectly matching this target definition. The brief misrepresents the definition by categorising them as 'Non-target' simply because they do not experience the problem."
+      }
+    ],
+    "criteria_reasons": {
+      "C1": "The brief comprehensively covers all six required areas with dedicated sections and provides substantial detail for each question.",
+      "C2": "Claims are extensively cited and evidence strength is discussed. However, it misrepresents the idea brief's target definition by wrongly excluding P09, which caps the score at 3.",
+      "C3": "The brief is mostly well-calibrated and correctly dismisses unreliable market stats. However, it fails to recognize identical verbatim answers as suspicious, treating them as strong validation, and confidently miscategorizes a target user as non-target.",
+      "C4": "Recommendations are clear and the proposed tests are concrete, specifying samples and success metrics. However, none of the tests explicitly state the business or product decision they will inform.",
+      "C5": "The brief is exceptionally well-structured, concise, and easy to read. It uses clear headings and bullet points without unnecessary padding."
+    },
+    "traps_missed": [
+      "T01",
+      "T02",
+      "T04",
+      "T08",
+      "T09",
+      "T10",
+      "T11",
+      "T12"
+    ]
+  },
+  "20261013-103406-baseline-informed": {
+    "condition": "informed",
+    "weaknesses": [
+      "The brief includes a bizarre and overly precise numerical weighting system (e.g., 'primary weight 1.00', 'weighted count: 3.10 of 5.40') that clutters the qualitative analysis without adding real value.",
+      "The author tags the proposed experiment setups and success metrics with '[UNSUPPORTED]', misunderstanding that future tests are hypotheses meant to generate new data, not facts that require citations from past research.",
+      "The brief calls a 2023 study 'older' (S04), which is inaccurate and somewhat poorly calibrated given the context dates provided extend up to 2026."
+    ],
+    "misrepresentations": [],
+    "criteria_reasons": {
+      "C1": "The brief exhaustively answers every requested question, segmenting the users accurately, extracting actual problems, evaluating the market context, and proposing detailed next steps.",
+      "C2": "Every claim is meticulously cited, no sources are misrepresented, and the strength of the evidence (such as noticing conflicting statements within interviews) is explicitly analyzed.",
+      "C3": "The calibration is excellent. The brief correctly challenges overstated claims from the idea brief, treats stated willingness to pay with appropriate skepticism, and highlights unreliable statistics perfectly.",
+      "C4": "The tests are well ordered by risk and contain clear samples and metrics. However, appending '[UNSUPPORTED]' to test parameters is a confusing artifact that slightly degrades the readability and actionability of the recommendations.",
+      "C5": "While the brief is incredibly thorough and well-structured, the inclusion of a mathematical weighting system (e.g., 'weighted count: 3.10 of 5.40') introduces unnecessary repetition and citation clutter."
+    },
+    "traps_missed": []
+  },
+  "20261013-103456-agents": {
+    "condition": "agents",
+    "weaknesses": [
+      "The brief repetitively applies `[UNSUPPORTED]` citation tags to proposed hypotheses, methods, and metrics in the 'What to test next' section, mistaking standard experimental design for unsupported factual claims.",
+      "The brief misquotes source S08 in Section 8, changing a statistic about households that 'would pay for automated meal planning' into those who 'want automated grocery lists'.",
+      "The brief over-quantifies qualitative insights by calculating decimal 'evidence-weighted support' scores (e.g., 4.10) for a small sample of 10 interviews, which offers a false sense of statistical precision.",
+      "The brief exhibits citation clutter by redundantly appending `[idea_brief]` to the end of many general sentences that are not direct claims from the idea brief."
+    ],
+    "misrepresentations": [
+      {
+        "excerpt": "The claim that 97% of home cooks want automated grocery lists is unsupported because S08 comes from an unverified blog post and contradicts measured app adoption of 11% [S03, S08].",
+        "source_id": "S08",
+        "problem": "S08 states that 97% is the share of households that 'would pay for automated meal planning', not the share of home cooks who 'want automated grocery lists'."
+      }
+    ],
+    "criteria_reasons": {
+      "C1": "The brief answers every required question with substantial depth, outlining users, real problems, robust evidence, competitors, clear risks, and concrete testing.",
+      "C2": "Claims are heavily cited and the strength of evidence is rigorously discussed (even identifying templated answers and contradiction errors within the source text), but the misrepresentation of S08 caps this score at 3.",
+      "C3": "The brief is exceptionally well calibrated. It expertly separates stated preference from behavior, correctly dismisses outliers, and challenges idea brief assumptions rigorously based on evidence.",
+      "C4": "The recommendations are clear, and every proposed test is extremely concrete—detailing hypotheses, methods, target audiences, numerical success metrics, and the decision they inform, perfectly ordered by risk.",
+      "C5": "Tight and exceptionally well organized, though readability is slightly dragged down by citation clutter such as repeatedly appending `[UNSUPPORTED]` tags to all proposed experiment details."
+    },
+    "traps_missed": []
+  },
+  "20261013-103456-agents#draft": {
+    "condition": "agents_draft",
+    "weaknesses": [
+      "The brief repetitively applies `[UNSUPPORTED]` citation tags to proposed hypotheses, methods, and metrics in the 'What to test next' section, mistaking standard experimental design for unsupported factual claims.",
+      "The brief misquotes source S08 in Section 8, changing a statistic about households that 'would pay for automated meal planning' into those who 'want automated grocery lists'.",
+      "The brief over-quantifies qualitative insights by calculating decimal 'evidence-weighted support' scores (e.g., 4.10) for a small sample of 10 interviews, which offers a false sense of statistical precision.",
+      "The brief exhibits citation clutter by redundantly appending `[idea_brief]` to the end of many general sentences that are not direct claims from the idea brief."
+    ],
+    "misrepresentations": [
+      {
+        "excerpt": "The claim that 97% of home cooks want automated grocery lists is unsupported because S08 comes from an unverified blog post and contradicts measured app adoption of 11% [S03, S08].",
+        "source_id": "S08",
+        "problem": "S08 states that 97% is the share of households that 'would pay for automated meal planning', not the share of home cooks who 'want automated grocery lists'."
+      }
+    ],
+    "criteria_reasons": {
+      "C1": "The brief answers every required question with substantial depth, outlining users, real problems, robust evidence, competitors, clear risks, and concrete testing.",
+      "C2": "Claims are heavily cited and the strength of evidence is rigorously discussed (even identifying templated answers and contradiction errors within the source text), but the misrepresentation of S08 caps this score at 3.",
+      "C3": "The brief is exceptionally well calibrated. It expertly separates stated preference from behavior, correctly dismisses outliers, and challenges idea brief assumptions rigorously based on evidence.",
+      "C4": "The recommendations are clear, and every proposed test is extremely concrete—detailing hypotheses, methods, target audiences, numerical success metrics, and the decision they inform, perfectly ordered by risk.",
+      "C5": "Tight and exceptionally well organized, though readability is slightly dragged down by citation clutter such as repeatedly appending `[UNSUPPORTED]` tags to all proposed experiment details."
+    },
+    "traps_missed": []
+  },
+  "20261013-104246-baseline-naive": {
+    "condition": "naive",
+    "weaknesses": [
+      "Fails to recognize that several participants gave identical, templated responses (e.g., \"Setup has to be fast...\", \"I want to edit the plan easily...\"), erroneously treating these copy-pasted answers as independent evidence.",
+      "Misses the fact that competitors like FridgeChef and PantryGenie already track what users own, which directly contradicts the idea brief's claim that existing apps lack this capability.",
+      "Incorrectly classifies participants P03 and P09 as \"outside the core target\" when they actually fit the idea brief's target definition (households of 2+ people cooking on weeknights), missing the crucial insight that demographic fit does not guarantee experiencing the problem.",
+      "Completely ignores the idea brief's goal to \"stop arguing about what's for dinner\", failing to evaluate whether the evidence supports this promised outcome.",
+      "Does not caveat that some of the competitor data is outdated (PlanPlate, ZeroWaste Kitchen) or entirely unsourced (WeekWise)."
+    ],
+    "misrepresentations": [],
+    "criteria_reasons": {
+      "C1": "The brief answers all six core questions with substantial detail, systematically covering target users, validated problems, market landscape, critical risks, and concrete next tests.",
+      "C2": "Claims are consistently tied to specific sources and the compromised interview (P06) is properly isolated. However, it fails to recognize templated answers across multiple participants, missing a critical flaw in the evidence.",
+      "C3": "Conclusions generally match the evidence, but the brief incorrectly flags P03 as contradicting themselves and misclassifies P03 and P09 as out-of-target instead of recognizing that target fit does not mean experiencing the pain.",
+      "C4": "The recommendation is clear and justified, and the proposed tests are highly concrete, specifying the target sample, success metrics, and the precise assumptions they aim to validate, ordered effectively by risk.",
+      "C5": "The brief is concise, exceptionally well-organized, and uses formatting and bullet points effectively, making it very easy for a product team to read and act upon without any padding."
+    },
+    "traps_missed": [
+      "T02",
+      "T04",
+      "T08",
+      "T09",
+      "T10",
+      "T11",
+      "T12"
+    ]
+  },
+  "20261013-104307-baseline-informed": {
+    "condition": "informed",
+    "weaknesses": [
+      "The tests outlined in Section 7 are missing the specific decision each test is meant to inform, making them less actionable.",
+      "The brief introduces an unexplained 'evidence-weighted count' metric throughout, which causes confusion and clutters the data.",
+      "While it correctly flags templated responses for setup effort, it misses that the willingness-to-pay answers (P01, P04, P10) and recipe time requirements (P01, P04) are also identically templated, treating them as independent verification.",
+      "The brief fails to explicitly state the overall limits of the research evidence, such as the small qualitative sample size."
+    ],
+    "misrepresentations": [],
+    "criteria_reasons": {
+      "C1": "The brief covers all six required areas comprehensively and with significant detail and substance.",
+      "C2": "Claims are thoroughly cited and mostly well-grounded, though it misses that some answers (willingness-to-pay and recipe time) were templated, and the 'evidence-weighted count' is confusing.",
+      "C3": "The brief correctly weighs the evidence, expertly discounts bad data (like P06 and S06-S09), explicitly notes contradictory statements, and properly frames WTP outliers.",
+      "C4": "The recommendation is clear and tests include who, what, how many, and a success metric, but they completely omit the decision each test informs.",
+      "C5": "The brief is well-structured and concise, but the repetitive inclusion of raw counts alongside an unexplained 'evidence-weighted count' creates slight reading friction."
+    },
+    "traps_missed": [
+      "T10",
+      "T11",
+      "T12"
+    ]
+  },
+  "20261013-104345-agents": {
+    "condition": "agents",
+    "weaknesses": [
+      "The brief introduces an unexplained 'weighted support' metric (e.g., 'weighted support: 2.90'), which attempts to artificially quantify qualitative data from a very small sample size.",
+      "The brief misrepresents source S08 by stating the 97% figure applies to users wanting an 'integrated inventory tool', when the source specifically says 'automated meal planning'.",
+      "The document suffers from severe citation clutter and formatting noise, particularly the aggressive and repetitive insertion of '[UNSUPPORTED]' tags throughout the text, which harms readability.",
+      "Despite acknowledging the extremely small sample sizes (e.g., '1 of 1 in-target couples'), the brief proposes next-step tests with precise percentage success metrics that are unlikely to be statistically significant with the suggested sample numbers."
+    ],
+    "misrepresentations": [
+      {
+        "excerpt": "The market claim that 97% of households want an integrated inventory tool originates from an unverified blog post and directly contradicts real adoption figures of 11% and modest willingness to pay [S03, S05, S08, UNSUPPORTED].",
+        "source_id": "S08",
+        "problem": "The source S08 states that 97% of households would pay for 'automated meal planning', not that they want an 'integrated inventory tool'."
+      }
+    ],
+    "criteria_reasons": {
+      "C1": "The brief answers all six requested questions comprehensively, providing detailed segmentation, well-defined problem areas, strong evidence integration, and clear risk assessments.",
+      "C2": "While claims are rigorously cited and evidence strength is heavily discussed, the brief misrepresents S08 by conflating 'automated meal planning' with an 'integrated inventory tool', which automatically caps this score at 3.",
+      "C3": "The brief is highly calibrated in its language and actively tempers confident claims, but the use of arbitrary 'weighted support' decimals to quantify a tiny qualitative sample is mathematically unsound and detracts from the otherwise excellent calibration.",
+      "C4": "The recommendation is clear and well-justified. The proposed next tests are concrete, risk-prioritized, and explicitly detail the target audience, methodology, sample size, and success metrics mapped to product decisions.",
+      "C5": "The brief is readable and logically organized, but suffers from significant citation clutter and the repetitive, distracting use of '[UNSUPPORTED]' tags inserted throughout the text."
+    },
+    "traps_missed": [
+      "T10"
+    ]
+  },
+  "20261013-104345-agents#draft": {
+    "condition": "agents_draft",
+    "weaknesses": [
+      "Misrepresents source S08 by asserting it claims 97% of households want an inventory tool, when the source actually measures willingness to pay for automated meal planning.",
+      "Misrepresents source S09 by stating it tracks the share of households that meal plan, when the source actually measures online grocery purchases.",
+      "Suffers from significant citation clutter, particularly the excessive and repetitive use of `[UNSUPPORTED]` tags in the testing section, which impedes readability.",
+      "Relies on repetitive phrasing and heavy formatting (e.g., repeatedly spelling out '1 of 1 target retired couples' or constantly tallying weighted support numbers), making the text dense and overly academic."
+    ],
+    "misrepresentations": [
+      {
+        "excerpt": "The market claim that 97% of households want an integrated inventory tool originates from an unverified blog post and directly contradicts real adoption figures of 11% and modest willingness to pay [S03, S05, S08, UNSUPPORTED].",
+        "source_id": "S08",
+        "problem": "Source S08 states that 97% is the share of households that would pay for automated meal planning, not the share that want an integrated inventory tool."
+      },
+      {
+        "excerpt": "The market claim that only 4% of households meal plan is from a stale 2016 study and cannot be cited as current market fact [S09, UNSUPPORTED].",
+        "source_id": "S09",
+        "problem": "Source S09 measures the share of grocery purchases made online (4%), not the percentage of households that meal plan."
+      }
+    ],
+    "criteria_reasons": {
+      "C1": "The brief is highly comprehensive and answers all six questions with exceptional detail, properly segmenting the users and breaking down market mechanics and risks.",
+      "C2": "Claims are carefully tied to specific sources, and the brief aggressively parses behavior versus stated preferences, but the score is capped at 3 due to the misrepresentation of S08 and S09.",
+      "C3": "Calibration is superb; the brief notes templated phrasing, caveats stated willingness to pay, highlights contradictions within interviews, and treats missing proof as high-risk assumptions.",
+      "C4": "The recommendation is clear and justified, with a prioritized list of tests that perfectly detail the methodology, target segment, concrete success metrics, and exactly what decision each metric informs.",
+      "C5": "The document is very well structured but suffers from tedious repetition (e.g., repeatedly spelling out precise segment counts) and heavy citation clutter such as repeated `[UNSUPPORTED]` tags."
+    },
+    "traps_missed": []
+  },
+  "20261013-105111-baseline-naive": {
+    "condition": "naive",
+    "weaknesses": [
+      "Fails to recognise that multiple participants provided identical, templated answers regarding setup friction, incorrectly treating them as independent verification.",
+      "Contradicts its own exclusion of P07 (a non-viable segment) by later generalising their feedback to substantiate claims about setup friction across the target market.",
+      "Excludes P09 as a 'non-viable' demographic (settled retirees) rather than recognising they perfectly match the target criteria but simply lack the problem, missing a critical flaw in the target definition.",
+      "Misses an opportunity to explicitly challenge the idea brief's premise that competitors 'do not know what you already own' by failing to highlight that FridgeChef and PantryGenie already solve this via photos and barcodes.",
+      "Evaluates competitors like PlanPlate, WeekWise, and ZeroWaste Kitchen without noting that their pricing and market data are stale or unsourced."
+    ],
+    "misrepresentations": [],
+    "criteria_reasons": {
+      "C1": "The brief answers all six requested questions comprehensively. Each section is substantive, with clearly defined user segments, validated problems, and thorough market analysis.",
+      "C2": "Claims are meticulously tied to specific sources and weak evidence is robustly challenged. However, it fails to spot the templated responses, treating them as independent verification, which slightly overestimates the actual strength of the behavioural evidence.",
+      "C3": "Overall calibration is strong, as it correctly identifies outliers and dismisses the biased interview. It falls short of a 5 only because its confidence in the user aversion to 'dictating' and manual entry relies on unrecognised identical verbatim quotes.",
+      "C4": "The recommendations are crisp and highly actionable. Each of the four proposed tests explicitly states the target audience, sample size, concrete success metric, and the specific risk it mitigates.",
+      "C5": "The brief is exceptionally well-structured and concise. Headings, bullet points, and inline citations make it effortless for a product team to read, understand, and act upon without wading through fluff."
+    },
+    "traps_missed": [
+      "T01",
+      "T02",
+      "T03",
+      "T04",
+      "T09",
+      "T10",
+      "T11",
+      "T12"
+    ]
+  },
+  "20261013-105142-baseline-informed": {
+    "condition": "informed",
+    "weaknesses": [
+      "Hallucinated citations: The brief cites non-existent sources [F11] and [F12] in the risks and open assumptions section.",
+      "Clutter from '[UNSUPPORTED]' tags: The brief tags its own synthesized recommendations and testing steps as unsupported, which is visually distracting and unnecessary since these sections do not require direct evidence citations.",
+      "Excessive quantitative weighting: The use of complex mathematical confidence formulas (e.g., 'raw count 2, weighted support 1.70') is overly analytical and clutters the synthesis of qualitative insights from a small 9-person sample.",
+      "Missing test decisions: While the proposed tests outline what to do and how to measure success, they lack explicit statements of the specific product decision each test will ultimately inform."
+    ],
+    "misrepresentations": [
+      {
+        "excerpt": "Riskiest assumption: Households will keep a pantry and fridge inventory up to date in an app [F11].",
+        "source_id": "F11",
+        "problem": "The cited source [F11] does not exist in the provided research data."
+      },
+      {
+        "excerpt": "Open assumption on product format: A rigid weekly dinner plan may not match household habits [F12].",
+        "source_id": "F12",
+        "problem": "The cited source [F12] does not exist in the provided research data."
+      }
+    ],
+    "criteria_reasons": {
+      "C1": "The brief comprehensively answers all six required questions with excellent depth, successfully identifying distinct user segments, valid problems, clear competitor gaps, and structured assumptions and next tests.",
+      "C2": "Claims are meticulously tied to specific sources and evidence strength is discussed well (e.g., stated vs. observed intent). However, the inclusion of hallucinated citations ([F11] and [F12]) misrepresents the sources, capping this score at 3.",
+      "C3": "Confidence perfectly matches the evidence. The brief brilliantly discounts emotional outliers (P08's WTP), flags unverified market claims, and treats self-reported planning willingness with appropriate skepticism.",
+      "C4": "The recommendation is clear and justified. The tests outline the specific audience, metrics, and methodology in detail, but they lack explicit statements of the exact product decision each test will inform.",
+      "C5": "The brief is highly structured and actionable, but its readability is slightly hampered by overly heavy quantitative weighting formulas and the repetitive, unnecessary use of '[UNSUPPORTED]' tags."
+    },
+    "traps_missed": []
+  },
+  "20261013-105242-agents": {
+    "condition": "agents",
+    "weaknesses": [
+      "The brief applies a bizarre and unexplained 'weighted count' methodology (e.g., 'weighted count: 1.70') to qualitative data, creating a false illusion of quantitative precision for a 10-person sample.",
+      "While the brief correctly flags the templated 'whole pantry' responses across users, it entirely misses two other templated sets: identical phrasing for willingness to pay among P01, P04, and P10, and identical phrasing for wanting a free version among P05, P07, and P09.",
+      "The proposed experiments outline the who, what, and metric, but omit the explicit 'decision they inform', leaving the concrete 'so what?' of the results slightly implicit.",
+      "The brief subtly paraphrases S08 ('97% of home cooks want a smart pantry app' instead of 'would pay for automated meal planning') before dismissing it, unnecessarily altering its original meaning."
+    ],
+    "misrepresentations": [],
+    "criteria_reasons": {
+      "C1": "Every required section is present, thoroughly answered, and substantiated. The segmentation is especially robust, and the distinction between real problems and validated assumptions is crystal clear.",
+      "C2": "Evidence grounding is excellent. It diligently cites claims, correctly filters out templated responses as upper-bounds, excludes methodological defects, and highlights contradictions within participants without misrepresenting the raw data.",
+      "C3": "Calibration is superb. The author systematically tempers overstatements, treats outliers as what they are, identifies out-of-target signals, and correctly scopes confidence limits across the entire document.",
+      "C4": "The recommendation is highly actionable, and the test hypotheses are well-prioritised and detailed. However, the experiments stop short of explicitly spelling out the go/no-go decisions they inform, keeping it just shy of a 5.",
+      "C5": "The brief is highly readable, well-organized, and structurally tight. It loses one point for introducing visual and cognitive clutter through its weird, unsupported use of decimal 'weighted counts'."
+    },
+    "traps_missed": [
+      "T03",
+      "T04",
+      "T06",
+      "T07",
+      "T10",
+      "T11"
+    ]
+  },
+  "20261013-105242-agents#draft": {
+    "condition": "agents_draft",
+    "weaknesses": [
+      "The brief fails to recognize that several participants (P02, P05, P07, P08, P10) gave identical, templated answers regarding app setup, inappropriately treating these as independent qualitative validation.",
+      "Misrepresents market statistics S08 and S09 by fundamentally altering their meaning (e.g., changing 'grocery purchases made online' to 'updated digital pantry').",
+      "Introduces hallucinated and undefined quantitative metrics (e.g., 'weighted count: 2.60') that are meaningless for a qualitative sample of 10 and distract from real insights.",
+      "Inaccurately cites P02 as requiring a strict 30-minute weeknight limit, when the participant only stated a desire for 'something quick'.",
+      "Lacks professionalism in its formatting of the recommendations, appending bizarre '[UNSUPPORTED]' tags to the end of every experimental method and success metric."
+    ],
+    "misrepresentations": [
+      {
+        "excerpt": "Supported in 3 of 5 target households (P01, P02, P04; raw count: 3, weighted count: 2.60) [P01:t1, P02:t1, P04:t3].",
+        "source_id": "P02:t1",
+        "problem": "P02:t1 states they eat 'pasta or something quick' but does not mention the strict 30-minute weeknight constraint claimed in the text."
+      }
+    ],
+    "criteria_reasons": {
+      "C1": "The brief thoroughly addresses every question, from user segmentation and validated problems to competitive landscape, key assumptions, and concrete next steps.",
+      "C2": "Claims are consistently cited, but the score is capped at 3 due to misrepresenting multiple market statistics and incorrectly citing P02 for a strict time limit.",
+      "C3": "Generally well-calibrated in its conclusions, but it overstates the strength of evidence by blindly counting templated responses as independent validation.",
+      "C4": "The recommended tests are highly actionable, clearly identifying the target audience, sample size, and success metrics, though the random insertion of unsupported tags creates slight confusion.",
+      "C5": "The brief is very well structured and concise. However, readability is marginally impacted by the hallucinated weighted counts and bizarre citation tags appended to experiments."
+    },
+    "traps_missed": [
+      "T02",
+      "T03",
+      "T04",
+      "T06",
+      "T07",
+      "T11"
+    ]
+  }
+}

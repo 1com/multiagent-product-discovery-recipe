@@ -1,0 +1,108 @@
+{
+  "brief_id": "20261013-103456-agents#draft",
+  "judge_model": "gemini-3.1-pro-preview",
+  "verdict": {
+    "weaknesses": [
+      "The brief repetitively applies `[UNSUPPORTED]` citation tags to proposed hypotheses, methods, and metrics in the 'What to test next' section, mistaking standard experimental design for unsupported factual claims.",
+      "The brief misquotes source S08 in Section 8, changing a statistic about households that 'would pay for automated meal planning' into those who 'want automated grocery lists'.",
+      "The brief over-quantifies qualitative insights by calculating decimal 'evidence-weighted support' scores (e.g., 4.10) for a small sample of 10 interviews, which offers a false sense of statistical precision.",
+      "The brief exhibits citation clutter by redundantly appending `[idea_brief]` to the end of many general sentences that are not direct claims from the idea brief."
+    ],
+    "misrepresentations": [
+      {
+        "excerpt": "The claim that 97% of home cooks want automated grocery lists is unsupported because S08 comes from an unverified blog post and contradicts measured app adoption of 11% [S03, S08].",
+        "source_id": "S08",
+        "problem": "S08 states that 97% is the share of households that 'would pay for automated meal planning', not the share of home cooks who 'want automated grocery lists'."
+      }
+    ],
+    "traps": [
+      {
+        "trap_id": "T01",
+        "handled": true,
+        "excerpt": "Interview P06 was assigned zero weight and excluded from findings due to severe research methodology flaws, including leading questions and verbatim copied text"
+      },
+      {
+        "trap_id": "T02",
+        "handled": true,
+        "excerpt": "Multiple transcripts contain templated interview guide artefacts that inflate raw theme agreement, requiring counts to be treated as upper bounds"
+      },
+      {
+        "trap_id": "T03",
+        "handled": true,
+        "excerpt": "Solo living individuals (out-of-target contrast, 1 household: P07): A single university student who cooks rarely, relies on takeout, and lacks household coordination needs"
+      },
+      {
+        "trap_id": "T04",
+        "handled": true,
+        "excerpt": "This demonstrates that falling into the idea brief's demographic criteria does not mean experiencing the problem"
+      },
+      {
+        "trap_id": "T05",
+        "handled": true,
+        "excerpt": "A stated willingness to pay of 30 euros per month from P08 was anchored to a non-routine holiday spoilage disaster and is excluded as an outlier"
+      },
+      {
+        "trap_id": "T06",
+        "handled": true,
+        "excerpt": "Assumption 1 (Usability / Feasibility - Riskiest assumption): Households will keep fridge and pantry inventory up to date with acceptable effort"
+      },
+      {
+        "trap_id": "T07",
+        "handled": true,
+        "excerpt": "While weekly shoppers follow plans [P01:t5, P03:t1], daily shoppers abandon advance plans because an unfulfilled plan induces stress and guilt"
+      },
+      {
+        "trap_id": "T08",
+        "handled": true,
+        "excerpt": "The claim that households regularly argue about what is for dinner is supported by only 1 in-target household (P02; 1 of 5 in-target households) and is weakly supported as a primary value proposition"
+      },
+      {
+        "trap_id": "T09",
+        "handled": true,
+        "excerpt": "The claim that existing recipe apps do not know what you already own is contradicted by C:FridgeChef and C:PantryGenie, which already offer fridge photo recognition and barcode inventory tracking"
+      },
+      {
+        "trap_id": "T10",
+        "handled": true,
+        "excerpt": "data is nearly two years old and possibly outdated"
+      },
+      {
+        "trap_id": "T11",
+        "handled": true,
+        "excerpt": "The claim that 25% annual market growth is occurring is unsupported because S06 lacks a source or year and conflates meal-planning apps with the meal-kit industry"
+      },
+      {
+        "trap_id": "T12",
+        "handled": true,
+        "excerpt": "Willingness to pay is strictly unvalidated stated intent"
+      }
+    ],
+    "criteria": [
+      {
+        "criterion_id": "C1",
+        "score": 5,
+        "justification": "The brief answers every required question with substantial depth, outlining users, real problems, robust evidence, competitors, clear risks, and concrete testing."
+      },
+      {
+        "criterion_id": "C2",
+        "score": 3,
+        "justification": "Claims are heavily cited and the strength of evidence is rigorously discussed (even identifying templated answers and contradiction errors within the source text), but the misrepresentation of S08 caps this score at 3."
+      },
+      {
+        "criterion_id": "C3",
+        "score": 5,
+        "justification": "The brief is exceptionally well calibrated. It expertly separates stated preference from behavior, correctly dismisses outliers, and challenges idea brief assumptions rigorously based on evidence."
+      },
+      {
+        "criterion_id": "C4",
+        "score": 5,
+        "justification": "The recommendations are clear, and every proposed test is extremely concrete—detailing hypotheses, methods, target audiences, numerical success metrics, and the decision they inform, perfectly ordered by risk."
+      },
+      {
+        "criterion_id": "C5",
+        "score": 4,
+        "justification": "Tight and exceptionally well organized, though readability is slightly dragged down by citation clutter such as repeatedly appending `[UNSUPPORTED]` tags to all proposed experiment details."
+      }
+    ]
+  }
+}

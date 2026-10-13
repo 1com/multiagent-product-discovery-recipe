@@ -1,0 +1,49 @@
+{
+  "run_id": "20261013-105142-baseline-informed",
+  "mode": "baseline-informed",
+  "started_at": "2026-10-13T10:51:42.027312+00:00",
+  "config": {
+    "model": "gemini-3.8-flash",
+    "effort": "medium",
+    "max_tokens": 32000,
+    "max_tool_rounds": 12,
+    "variant": "informed",
+    "code_fingerprint": "cc37932e263b"
+  },
+  "recommendation": "test_further",
+  "final_citation_check": {
+    "citations": 151,
+    "distinct_sources": 75,
+    "unknown_ids": [
+      "F11",
+      "F12"
+    ],
+    "excluded_citations": [],
+    "weak_snippet_citations": [],
+    "misquotes": [],
+    "verified_quotes": 25,
+    "unverified_numbers": [
+      "EUR 22.42: - Market context: Two-person households spend an average of EUR 118 weekly on groceries [S02]. Disca"
+    ],
+    "wrong_dates": [],
+    "uncited_claims": [],
+    "claim_lines": 33,
+    "unsupported_flags": 10,
+    "missing_sections": [],
+    "coverage": 1.0,
+    "blocking": 2,
+    "passed": false
+  },
+  "totals": {
+    "calls": 1,
+    "input_tokens": 2012,
+    "output_tokens": 9439,
+    "cache_read_tokens": 12833,
+    "thinking_tokens": 4988,
+    "tool_calls": 0,
+    "cost_usd": 0.037868,
+    "model_time_s": 60.404,
+    "wall_clock_s": 60.414,
+    "cost_incomplete": false
+  }
+}

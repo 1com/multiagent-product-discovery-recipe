@@ -1,0 +1,42 @@
+{
+  "totals": {
+    "calls": 1,
+    "input_tokens": 8827,
+    "output_tokens": 3038,
+    "cache_read_tokens": 0,
+    "thinking_tokens": 620,
+    "tool_calls": 0,
+    "cost_usd": 0.018013,
+    "model_time_s": 24.642,
+    "wall_clock_s": 24.694,
+    "cost_incomplete": false
+  },
+  "per_agent": {
+    "single_prompt_naive": {
+      "calls": 1,
+      "input_tokens": 8827,
+      "output_tokens": 3038,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 620,
+      "cost_usd": 0.018013,
+      "latency_s": 24.642,
+      "tool_calls": 0
+    }
+  },
+  "calls": [
+    {
+      "agent": "single_prompt_naive",
+      "step": "brief",
+      "model": "gemini-3.8-flash",
+      "input_tokens": 8827,
+      "output_tokens": 3038,
+      "cache_read_tokens": 0,
+      "thinking_tokens": 620,
+      "cost_usd": 0.018013,
+      "latency_s": 24.642,
+      "finish_reason": "STOP",
+      "model_version": "gemini-3.8-flash"
+    }
+  ],
+  "tool_calls": []
+}

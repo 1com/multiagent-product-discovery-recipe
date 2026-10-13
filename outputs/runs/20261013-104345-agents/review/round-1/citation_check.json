@@ -1,0 +1,18 @@
+{
+  "citations": 251,
+  "distinct_sources": 70,
+  "unknown_ids": [],
+  "excluded_citations": [],
+  "weak_snippet_citations": [],
+  "misquotes": [],
+  "verified_quotes": 29,
+  "unverified_numbers": [],
+  "wrong_dates": [],
+  "uncited_claims": [],
+  "claim_lines": 51,
+  "unsupported_flags": 34,
+  "missing_sections": [],
+  "coverage": 1.0,
+  "blocking": 0,
+  "passed": true
+}

@@ -1,0 +1,190 @@
+{
+  "assumptions": [
+    {
+      "id": "A1",
+      "statement": "Households will regularly log and keep a pantry and fridge inventory current within the app.",
+      "category": "usability",
+      "evidence_for": [],
+      "evidence_against": [
+        "P01:t10",
+        "P02:t8",
+        "P03:t10",
+        "P05:t8"
+      ],
+      "confidence": "low",
+      "impact_if_wrong": "high",
+      "rationale": "In-target working couples (1 of 1, P02:t8) state \"Setup has to be fast. If I need to type in my whole pantry I'll quit on day two.\" Target families (2 of 3, P01:t10, P03:t10) insist it must work \"without being a project\" and \"not making it feel like homework\". Adjacent freelance couples (1 of 2, P05:t8) express the identical drop-off threat. If keeping an accurate inventory requires tedious manual data entry, users abandon tracking immediately and the core dinner planner fails completely."
+    },
+    {
+      "id": "A2",
+      "statement": "Target households want and will follow a structured weekly dinner plan and consolidated weekly shopping list.",
+      "category": "desirability",
+      "evidence_for": [
+        "P01:t5",
+        "P03:t1",
+        "P03:t5",
+        "P04:t5"
+      ],
+      "evidence_against": [
+        "P05:t1",
+        "P05:t4",
+        "P05:t5",
+        "P08:t1",
+        "P08:t3",
+        "P09:t5"
+      ],
+      "confidence": "low",
+      "impact_if_wrong": "high",
+      "rationale": "A weekly plan fits weekly consolidated grocery shoppers such as target families (3 of 3, P01:t5, P03:t5, P04:t5). However, adjacent freelance and mobile couples (2 of 2, P05, P08) reject upfront weekly planning because dynamic schedules cause missed plans; P05:t1 notes \"Planning ahead stresses me out. A plan I don't follow feels like failure, so I decide on the day\" and P05:t4 abandoned a past app by Thursday. Daily shoppers (P05:t5, P09:t5) gain no utility from weekly lists. Sticking rigidly to a weekly calendar risks alienating households needing flexible same-day suggestions."
+    },
+    {
+      "id": "A3",
+      "statement": "All households of two or more people cooking at home on weeknights suffer from dinner planning friction and food waste.",
+      "category": "desirability",
+      "evidence_for": [
+        "idea_brief",
+        "P01:t2",
+        "P02:t2",
+        "P04:t2",
+        "S01",
+        "S04"
+      ],
+      "evidence_against": [
+        "P03:t1",
+        "P09:t1",
+        "P09:t2"
+      ],
+      "confidence": "low",
+      "impact_if_wrong": "high",
+      "rationale": "The idea_brief assumes all multi-person households cooking weeknights share this struggle. While target families (2 of 3, P01:t2, P04:t2) and couples (1 of 1, P02:t2) report decision fatigue, target retired couples (1 of 1, P09:t1) report forty years of effortless daily routines with no planning burden (\"Not much, honestly. Sometimes I'd like fresh ideas, but it isn't a problem\", P09:t2). Even in target families, P03:t1 states \"Planning is my favourite part of the week, honestly.\" Being in the demographic target does not mean having the problem."
+    },
+    {
+      "id": "A4",
+      "statement": "Households will pay a monthly subscription for an inventory-integrated dinner planning app, and existing recipe apps do not solve this.",
+      "category": "viability",
+      "evidence_for": [
+        "C:MealLoop",
+        "C:SupperSync",
+        "P01:t9",
+        "P02:t9",
+        "P04:t9",
+        "S02",
+        "S05"
+      ],
+      "evidence_against": [
+        "C:FridgeChef",
+        "C:PantryGenie",
+        "C:PlanPlate",
+        "C:ZeroWaste Kitchen",
+        "idea_brief",
+        "P02:t9",
+        "P03:t9",
+        "P05:t9",
+        "P09:t9",
+        "S03"
+      ],
+      "confidence": "low",
+      "impact_if_wrong": "high",
+      "rationale": "The idea_brief claims existing apps do not know what you own, but this is contradicted by C:FridgeChef (fridge photo recognition), C:PantryGenie (barcode pantry tracking), and C:ZeroWaste Kitchen (leftover recipe matching). Median willingness to pay for cooking apps is EUR 3.50 per month (S05) and adoption is modest at 11% (S03). Target households state willingness to pay EUR 3 to EUR 6 only conditionally if grocery savings or waste reduction are proven (P01:t9, P04:t9), otherwise preferring free notes apps (P02:t9) or free versions (P03:t9, P05:t9, P09:t9)."
+    },
+    {
+      "id": "A5",
+      "statement": "Households experience dinner-table arguments and will adopt the app primarily to stop arguing about what is for dinner.",
+      "category": "desirability",
+      "evidence_for": [
+        "idea_brief",
+        "P02:t3"
+      ],
+      "evidence_against": [
+        "P02:t4",
+        "P04:t2",
+        "P04:t4",
+        "P10:t2"
+      ],
+      "confidence": "low",
+      "impact_if_wrong": "medium",
+      "rationale": "The idea_brief pitches stopping dinner arguments. However, across all interviews, only 1 of 1 target couples mentions an argument (P02:t3: \"argued for ten minutes about what to eat\"). The primary recurring pain across target couples (1 of 1, P02:t4), target families (1 of 3, P04:t4), and adjacent flatmates (1 of 1, P10:t2) is multi-shopper coordination failure resulting in accidental duplicate purchases (buying chicken or basil twice) rather than emotional relationship conflict."
+    },
+    {
+      "id": "A6",
+      "statement": "An automated planner can generate weeknight-realistic recipes under 30 minutes that utilize on-hand ingredients while respecting selective family preferences and allergies.",
+      "category": "feasibility",
+      "evidence_for": [
+        "C:FridgeChef",
+        "C:ZeroWaste Kitchen"
+      ],
+      "evidence_against": [
+        "P01:t8",
+        "P04:t3",
+        "P04:t8"
+      ],
+      "confidence": "medium",
+      "impact_if_wrong": "high",
+      "rationale": "Target families (2 of 3, P01:t8, P04:t8) explicitly require meals taking \"Thirty minutes at most\" and warn that the app must accommodate allergies and picky eaters: P04:t3 details cooking separate portions because children dislike sauces or peppers. If recommendations suggest complex recipes or fail dietary constraints, users will reject algorithmic suggestions as unusable noise."
+    }
+  ],
+  "riskiest_assumptions": [
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A6",
+    "A5"
+  ],
+  "experiments": [
+    {
+      "id": "E1",
+      "tests_assumptions": [
+        "A1"
+      ],
+      "hypothesis": "At least 60% of busy target households will maintain a digital inventory across 7 days if given low-friction capture options (photo, barcode, or receipt import) rather than manual text entry.",
+      "method": "Run a 7-day concierge test with 20 target households (10 busy families with school-age children, 10 dual-income working couples). Test four low-effort input methods (fridge shelf photo upload, receipt photo scanning, barcode scanning, and forward-forwarded online delivery order emails) without building the planner algorithm. Measure daily active item logging and self-reported friction.",
+      "success_metric": "At least 12 of 20 households (60%) keep their inventory updated through day 7. If fewer than 50% persist past day 3, pivot away from full pantry tracking to perishable-only tracking or receipt-only imports.",
+      "cost": "low"
+    },
+    {
+      "id": "E2",
+      "tests_assumptions": [
+        "A2"
+      ],
+      "hypothesis": "Households with frequent or daily shopping habits achieve higher dinner-completion rates with same-day 'what can I cook tonight' suggestions than with upfront weekly plans.",
+      "method": "Recruit 30 weeknight-cooking households segmented by shopping rhythm (15 consolidated weekly shoppers, 15 daily or irregular shoppers). Run a two-week Wizard of Oz split test: Week 1 gives both cohorts a rigid Sunday weekly meal calendar and grocery list; Week 2 gives both cohorts a 5 PM daily suggestion based on fridge ingredients. Track recipe completion, missed meals, and reported stress.",
+      "success_metric": "If daily shoppers complete at least 40% more meals under same-day suggestions than under weekly plans, build same-day dynamic suggestions as a first-class feature rather than forcing a weekly schedule.",
+      "cost": "medium"
+    },
+    {
+      "id": "E3",
+      "tests_assumptions": [
+        "A4",
+        "A5"
+      ],
+      "hypothesis": "A value proposition centered on shopping coordination and waste savings achieves higher paid conversion at EUR 3.99 to EUR 4.99 per month than one pitched on stopping dinner arguments.",
+      "method": "Run a multi-variant landing page smoke test targeting 600 qualifying household cooks. Variant A: 'Stop arguing about what is for dinner'; Variant B: 'Shared pantry and shopping list to prevent duplicate purchases'; Variant C: 'Cook what you already have and cut food waste'. Test call-to-action pre-orders at EUR 3.99/month and EUR 4.99/month (reflecting competitor anchors C:PantryGenie and C:SupperSync).",
+      "success_metric": "A pre-order click conversion rate above 3% on Variant B or C at EUR 3.99/month, with Variant A underperforming by at least 30%. If conversion across all variants falls below 1.5%, reconsider subscription pricing in favor of freemium ad-supported models.",
+      "cost": "low"
+    },
+    {
+      "id": "E4",
+      "tests_assumptions": [
+        "A3"
+      ],
+      "hypothesis": "Screening for schedule variability and shared grocery friction identifies active problem sufferers with over 80% accuracy, whereas screening purely for multi-person households yields false positives.",
+      "method": "Screen 40 weeknight-cooking households across three segments: 15 busy parents, 15 dual-income couples, and 10 retired couples. Administer a structured friction diagnostic measuring weekly food discarded, duplicate grocery occurrences, and late-afternoon decision fatigue.",
+      "success_metric": "Over 75% of dual-income couples and busy parents report weekly waste or coordination failures, while retired couples report negligible friction (under 20%). Validates narrowing the target customer definition to exclude fixed-routine households.",
+      "cost": "low"
+    }
+  ],
+  "open_questions": [
+    "What are the geographic markets, household income levels, and recruitment channels of target households?",
+    "What is actual user retention and inventory update adherence beyond week one (longitudinal behavior)?",
+    "What are objectively measured household food waste quantities compared to self-reported estimates?",
+    "Which specific low-effort inventory input mechanism (fridge shelf photos, barcode scans, paper receipt OCR, or digital supermarket basket integration) delivers the highest completion rate and accuracy?",
+    "Do households sustain structured weekly dinner planning over time, or do they inevitably drift toward same-day improvisation?",
+    "What are the real market traction metrics (active subscriber counts, app store ratings, churn rates) of direct competitors such as C:MealLoop, C:SupperSync, C:FridgeChef, and C:PantryGenie?",
+    "What is the total addressable market size specifically for multi-person households experiencing weeknight dinner friction?",
+    "Within multi-person households, who holds the primary purchasing decision and who manages the daily cooking labor?",
+    "Can recipe generation algorithms reliably handle complex child allergies and selective eating under 30 minutes using only available pantry staples?"
+  ],
+  "suggested_recommendation": "test_further",
+  "recommendation_reason": "While genuine customer problems exist around late-afternoon decision fatigue (P01:t2, P04:t2, S04), perishable food spoilage (P01:t4, P02:t2, S01), and multi-shopper duplicate purchases (P02:t4, P04:t4), proceeding directly to build is blocked by severe unvalidated assumptions. Most critically, keeping an inventory up to date is the riskiest operational hurdle: participants explicitly warn that manual entry will make them quit on day two (P02:t8, P05:t8) and that the tool must not feel like homework (P03:t10). Furthermore, the core premise that existing apps do not know pantry inventory is contradicted by competitors (C:FridgeChef, C:PantryGenie), willingness to pay is low and strictly conditional (S05, P01:t9, P02:t9), and fixed weekly meal planning fails users with dynamic schedules (P05:t1, P05:t4). The team must test low-effort inventory input methods and compare weekly planning with same-day cooking suggestions before building the software."
+}

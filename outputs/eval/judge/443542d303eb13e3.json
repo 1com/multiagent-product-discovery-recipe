@@ -1,0 +1,113 @@
+{
+  "brief_id": "20261013-104345-agents#draft",
+  "judge_model": "gemini-3.1-pro-preview",
+  "verdict": {
+    "weaknesses": [
+      "Misrepresents source S08 by asserting it claims 97% of households want an inventory tool, when the source actually measures willingness to pay for automated meal planning.",
+      "Misrepresents source S09 by stating it tracks the share of households that meal plan, when the source actually measures online grocery purchases.",
+      "Suffers from significant citation clutter, particularly the excessive and repetitive use of `[UNSUPPORTED]` tags in the testing section, which impedes readability.",
+      "Relies on repetitive phrasing and heavy formatting (e.g., repeatedly spelling out '1 of 1 target retired couples' or constantly tallying weighted support numbers), making the text dense and overly academic."
+    ],
+    "misrepresentations": [
+      {
+        "excerpt": "The market claim that 97% of households want an integrated inventory tool originates from an unverified blog post and directly contradicts real adoption figures of 11% and modest willingness to pay [S03, S05, S08, UNSUPPORTED].",
+        "source_id": "S08",
+        "problem": "Source S08 states that 97% is the share of households that would pay for automated meal planning, not the share that want an integrated inventory tool."
+      },
+      {
+        "excerpt": "The market claim that only 4% of households meal plan is from a stale 2016 study and cannot be cited as current market fact [S09, UNSUPPORTED].",
+        "source_id": "S09",
+        "problem": "Source S09 measures the share of grocery purchases made online (4%), not the percentage of households that meal plan."
+      }
+    ],
+    "traps": [
+      {
+        "trap_id": "T01",
+        "handled": true,
+        "excerpt": "note that interview P06 is excluded entirely from evidence due to research-method flaws"
+      },
+      {
+        "trap_id": "T02",
+        "handled": true,
+        "excerpt": "Note that four interviews (P02, P05, P08, P10) contain identical boilerplate phrasing, meaning raw interview counts serve as an upper bound rather than independent confirmations"
+      },
+      {
+        "trap_id": "T03",
+        "handled": true,
+        "excerpt": "Contrast segment (out of target) cooking infrequently, relying on takeaway, and displaying no demand for meal planning tools (sample size: 1 out-of-target individual: P07)"
+      },
+      {
+        "trap_id": "T04",
+        "handled": true,
+        "excerpt": "Demographic target qualification does not equal problem presence: Being a multi-person household cooking weeknights does not mean experiencing planning friction"
+      },
+      {
+        "trap_id": "T05",
+        "handled": true,
+        "excerpt": "A single stated outlier of EUR 30 per month was expressed by P08"
+      },
+      {
+        "trap_id": "T06",
+        "handled": true,
+        "excerpt": "Assumption 1 (Usability - Riskiest): Households will regularly log and maintain a pantry and fridge inventory within the app"
+      },
+      {
+        "trap_id": "T07",
+        "handled": true,
+        "excerpt": "The format of weekly meal planning is an unvalidated open hypothesis rather than an established universal need"
+      },
+      {
+        "trap_id": "T08",
+        "handled": true,
+        "excerpt": "The claim that households will adopt the app to stop arguing about what is for dinner is weakly supported; only 1 of 1 target couples mentioned arguments"
+      },
+      {
+        "trap_id": "T09",
+        "handled": true,
+        "excerpt": "This claim is contradicted by C:FridgeChef (photo recognition of fridge contents), C:PantryGenie (barcode pantry tracking)"
+      },
+      {
+        "trap_id": "T10",
+        "handled": true,
+        "excerpt": "The WeekWise competitor data is marked unsourced because no URL documentation was provided"
+      },
+      {
+        "trap_id": "T11",
+        "handled": true,
+        "excerpt": "The market claim that meal-planning software is growing at 25% annually is unsourced, undated, and conflates meal kits with planning software"
+      },
+      {
+        "trap_id": "T12",
+        "handled": true,
+        "excerpt": "These represent hypothetical stated preferences rather than tested adoption"
+      }
+    ],
+    "criteria": [
+      {
+        "criterion_id": "C1",
+        "score": 5,
+        "justification": "The brief is highly comprehensive and answers all six questions with exceptional detail, properly segmenting the users and breaking down market mechanics and risks."
+      },
+      {
+        "criterion_id": "C2",
+        "score": 3,
+        "justification": "Claims are carefully tied to specific sources, and the brief aggressively parses behavior versus stated preferences, but the score is capped at 3 due to the misrepresentation of S08 and S09."
+      },
+      {
+        "criterion_id": "C3",
+        "score": 5,
+        "justification": "Calibration is superb; the brief notes templated phrasing, caveats stated willingness to pay, highlights contradictions within interviews, and treats missing proof as high-risk assumptions."
+      },
+      {
+        "criterion_id": "C4",
+        "score": 5,
+        "justification": "The recommendation is clear and justified, with a prioritized list of tests that perfectly detail the methodology, target segment, concrete success metrics, and exactly what decision each metric informs."
+      },
+      {
+        "criterion_id": "C5",
+        "score": 3,
+        "justification": "The document is very well structured but suffers from tedious repetition (e.g., repeatedly spelling out precise segment counts) and heavy citation clutter such as repeated `[UNSUPPORTED]` tags."
+      }
+    ]
+  }
+}

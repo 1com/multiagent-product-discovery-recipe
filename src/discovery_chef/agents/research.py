@@ -20,7 +20,9 @@ market, so leave those out.
 
 You have two tools. search_interviews returns ranked passages for a query. read_interview \
 returns every turn of one interview. Each passage shows its citation ID, evidence tier and \
-weight, target fit, and any sentences that also appear word for word in other interviews.
+weight, target fit, and any sentences that also appear word for word in other interviews. \
+You can make several tool calls in one turn (for example, read three interviews at once); \
+do so, because you have at most {budget} rounds of tool calls.
 
 How to work:
 - Find the themes yourself. Search for problems, current workarounds, requirements on a \
@@ -35,7 +37,8 @@ that rests only on templated sentences is weak.
 
 def run(llm: LLMClient, ctx: DiscoveryContext) -> ResearchSynthesis:
     conversation = Conversation(
-        system=role_prompt("research synthesiser", JOB, ctx, eda_questions=("Q1", "Q2", "Q3")),
+        system=role_prompt("research synthesiser", JOB.format(budget=llm.config.max_tool_rounds),
+                           ctx, eda_questions=("Q1", "Q2", "Q3")),
     ).say(
         f"Target customer from the idea brief: {ctx.dataset.idea.target_customer}\n\n"
         f"Interview roster from the EDA:\n{roster(ctx)}\n\n"

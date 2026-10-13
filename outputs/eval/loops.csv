@@ -1,5 +1,6 @@
 run_id,round,verdict,blockers,majors,minors,check_blocking,loop_outcome
-20261013-095110-agents,0,revise,2,2,3,0,approved
-20261013-095110-agents,1,approve,0,0,0,0,approved
-20261013-100033-agents,0,revise,3,1,2,0,approved
-20261013-100033-agents,1,approve,0,0,0,0,approved
+20261013-103456-agents,0,approve,0,0,4,0,approved
+20261013-104345-agents,0,revise,1,2,1,1,approved
+20261013-104345-agents,1,approve,0,0,0,0,approved
+20261013-105242-agents,0,revise,1,4,3,0,approved
+20261013-105242-agents,1,approve,0,0,0,0,approved
