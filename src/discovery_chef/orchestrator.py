@@ -22,6 +22,7 @@ from __future__ import annotations
 
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, field
+from typing import Protocol
 
 from discovery_chef.agents import market, research, risk
 from discovery_chef.agents.contracts import (
@@ -52,6 +53,22 @@ class ReviewRound:
     @property
     def serious(self) -> int:
         return self.blockers + self.majors
+
+
+class Reviser(Protocol):
+    """Whoever wrote the draft and now revises it: the brief writer, or the single prompt."""
+
+    def revise(self, critique: Critique, report: CitationReport, round_number: int
+               ) -> DiscoveryBrief: ...
+
+
+@dataclass
+class ReviewResult:
+    brief: DiscoveryBrief
+    final_check: CitationReport
+    loop_outcome: str
+    rounds: list[ReviewRound]
+    critiques: list[Critique]
 
 
 @dataclass
@@ -86,8 +103,25 @@ def run_pipeline(llm: LLM, ctx: DiscoveryContext, recorder: RunRecorder | None =
     risk_out = risk.run(llm, ctx, research_out, market_out)
     save("agents/risk_analysis.json", risk_out)
 
-    writer, critic = BriefWriter(llm, ctx), Critic(llm, ctx)
+    writer = BriefWriter(llm, ctx)
     brief = writer.draft(research_out, market_out, risk_out)
+    review = review_loop(llm, ctx, brief, writer, recorder, max_revisions=max_revisions)
+    return PipelineResult(
+        research=research_out, market=market_out, risk=risk_out, brief=review.brief,
+        final_check=review.final_check, loop_outcome=review.loop_outcome,
+        rounds=review.rounds, critiques=review.critiques,
+    )
+
+
+def review_loop(llm: LLM, ctx: DiscoveryContext, brief: DiscoveryBrief, reviser: Reviser,
+                recorder: RunRecorder | None = None, *, max_revisions: int = 2
+                ) -> ReviewResult:
+    """The critic reviews each draft until it approves, the cap is reached or it stalls.
+
+    Shared by the multi-agent pipeline and the single prompt with a critic, so the two
+    systems differ only in how the first draft was written.
+    """
+    critic = Critic(llm, ctx)
     rounds: list[ReviewRound] = []
     critiques: list[Critique] = []
     outcome = "revision_limit"
@@ -115,16 +149,13 @@ def run_pipeline(llm: LLM, ctx: DiscoveryContext, recorder: RunRecorder | None =
         if number > 0 and rounds[-1].serious >= rounds[-2].serious:
             outcome = "stalled"
             break
-        brief = writer.revise(critique, report, number + 1)
+        brief = reviser.revise(critique, report, number + 1)
 
-    return PipelineResult(
-        research=research_out, market=market_out, risk=risk_out, brief=brief,
-        final_check=check_brief(brief.markdown, ctx), loop_outcome=outcome,
-        rounds=rounds, critiques=critiques,
-    )
+    return ReviewResult(brief=brief, final_check=check_brief(brief.markdown, ctx),
+                        loop_outcome=outcome, rounds=rounds, critiques=critiques)
 
 
-def review_markdown(result: PipelineResult) -> str:
+def review_markdown(result: PipelineResult | ReviewResult) -> str:
     """The critic's objections round by round, for the demo and the presentation."""
     lines = ["# Review log", "", f"Loop outcome: **{result.loop_outcome}** after "
              f"{len(result.rounds)} review round(s).", ""]

@@ -12,7 +12,7 @@ from discovery_chef.agents.contracts import (
     ResearchSynthesis,
     RiskAnalysis,
 )
-from discovery_chef.baseline import build_conversation
+from discovery_chef.baseline import build_conversation, run_reviewed_baseline
 from discovery_chef.llm import LLMConfig
 from discovery_chef.orchestrator import review_markdown, run_pipeline
 from discovery_chef.runs import RunRecorder
@@ -39,9 +39,11 @@ class FakeLLM:
         self.critiques = list(critiques)
         self.calls = []
         self.threads = {}
+        self.conversations = {}
 
     def run(self, *, agent, step, conversation, output_type, tools=()):
         self.calls.append((agent, step))
+        self.conversations[(agent, step)] = conversation
         self.threads[agent] = threading.current_thread().name
         if output_type is ResearchSynthesis:
             return RESEARCH
@@ -112,3 +114,18 @@ def test_baseline_prompt_variants(ctx, variant):
     assert 'id="P02:t4"' in prompt and "C:MealLoop" in prompt and 'id="S08"' in prompt
     has_eda = "exploratory data analysis" in prompt and 'tier="excluded"' in prompt
     assert has_eda == (variant == "informed")
+
+
+def test_single_prompt_with_critic_revises_its_own_conversation(ctx, passing_brief, tmp_path):
+    llm = FakeLLM(passing_brief, [critique("revise", "major"), critique("approve")])
+    recorder = RunRecorder("baseline-informed-critic", root=tmp_path, run_id="r1")
+    result = run_reviewed_baseline(llm, ctx, "informed", recorder)
+    assert result.loop_outcome == "approved"
+    assert llm.calls == [("single_prompt_informed", "brief"), ("critic", "review-0"),
+                         ("single_prompt_informed", "revision-1"), ("critic", "review-1")]
+    # the revision continues the draft's conversation: all the raw data is still in it
+    draft = llm.conversations[("single_prompt_informed", "brief")]
+    assert llm.conversations[("single_prompt_informed", "revision-1")] is draft
+    assert "Objections:" in draft.messages[-1].text and 'tier="excluded"' in draft.messages[0].text
+    for name in ("review/round-0/brief.md", "review/round-1/critique.json"):
+        assert (tmp_path / "r1" / name).exists(), name

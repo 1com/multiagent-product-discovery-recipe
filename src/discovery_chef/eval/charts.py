@@ -1,8 +1,9 @@
 """Evaluation figure: quality against cost, one dot per brief.
 
 Scatter plots can carry at most three hues before some pairs become hard to tell apart,
-so the four conditions use two hues (single prompt vs agents), two fills (hollow = without
-the improvement, filled = with it) and two shapes (circle vs square), plus direct labels.
+so the five conditions use two hues (blue = single prompt, orange = agents), two fills
+(hollow = without the improvement, filled = with it) and three shapes (circle = no critic,
+diamond = single prompt with the critic, square = agents), plus direct labels.
 """
 
 from __future__ import annotations
@@ -26,6 +27,7 @@ BLUE, ORANGE = "#2a78d6", "#eb6834"  # categorical slots 1 and 2 of the validate
 CONDITION_STYLE = {  # condition: (hue, marker, filled)
     "naive": (BLUE, "o", False),
     "informed": (BLUE, "o", True),
+    "informed_critic": (BLUE, "D", True),
     "agents_draft": (ORANGE, "s", False),
     "agents": (ORANGE, "s", True),
 }

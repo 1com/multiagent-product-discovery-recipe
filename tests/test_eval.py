@@ -34,14 +34,20 @@ def make_run(runs_dir, run_id, mode, brief, *, model=MODEL, fingerprint=PRINT, e
     (run_dir / "brief.md").write_text(brief)
     calls = [call("single_prompt", "brief", 0.02, 30.0)]
     config = {"model": model, "code_fingerprint": fingerprint}
-    config |= {"max_revisions": 2} if mode == "agents" else {"variant": mode.split("-")[-1]}
+    config |= {"max_revisions": 2} if mode == "agents" else {
+        "variant": mode.split("-")[1], "critic": mode.endswith("-critic")}
     run = {"run_id": run_id, "mode": mode, "recommendation": "test_further", "config": config}
-    if mode == "agents":
+    if mode == "agents" or mode.endswith("-critic"):
         calls = [call("research_synthesiser", "synthesis", 0.10, 100.0),
                  call("brief_writer", "draft", 0.05, 50.0),
                  call("critic", "review-0", 0.04, 20.0),
                  call("brief_writer", "revision-1", 0.05, 40.0),
                  call("critic", "review-1", 0.03, 10.0)]
+        if mode.endswith("-critic"):
+            calls = [call("single_prompt_informed", "brief", 0.03, 40.0),
+                     call("critic", "review-0", 0.04, 20.0),
+                     call("single_prompt_informed", "revision-1", 0.03, 30.0),
+                     call("critic", "review-1", 0.03, 10.0)]
         (run_dir / "review" / "round-0" / "brief.md").write_text(brief + "\nDraft only.")
         (run_dir / "review" / "round-1").mkdir()
         critique = {"verdict": "revise", "objections": [
@@ -75,6 +81,7 @@ def runs(tmp_path, passing_brief):
     make_run(runs_dir, "r1-baseline-naive", "baseline-naive", passing_brief)
     make_run(runs_dir, "r2-baseline-informed", "baseline-informed", passing_brief)
     make_run(runs_dir, "r3-agents", "agents", passing_brief)
+    make_run(runs_dir, "r7-baseline-informed-critic", "baseline-informed-critic", passing_brief)
     make_run(runs_dir, "r4-old", "baseline-naive", passing_brief, fingerprint="old")
     make_run(runs_dir, "r5-lite", "baseline-naive", passing_brief, model="gemini-3.5-flash-lite")
     make_run(runs_dir, "r6-failed", "agents", passing_brief, error=True)
@@ -112,14 +119,14 @@ class FakeJudge:
 def test_collect_selects_comparable_finished_runs(runs):
     records, skipped = collect(runs, model=MODEL, fingerprint=PRINT)
     assert sorted(r.condition for r in records) == ["agents", "agents_draft", "informed",
-                                                    "naive"]
+                                                    "informed", "informed_critic", "naive"]
     reasons = {s.run_id: s.reason for s in skipped}
     assert reasons["r4-old"] == "made with different code or prompts"
     assert reasons["r5-lite"].startswith("model")
     failed = next(s for s in skipped if s.run_id == "r6-failed")
     assert failed.failed and failed.system == "agents" and failed.cost_usd > 0
     assert reasons["r6-failed"].startswith("failed: LLMError")
-    assert len(collect(runs, model=MODEL, fingerprint=None)[0]) == 5  # old code accepted
+    assert len(collect(runs, model=MODEL, fingerprint=None)[0]) == 7  # old code accepted
 
 
 def test_draft_is_costed_as_if_the_run_stopped_before_the_critic(runs):
@@ -129,6 +136,15 @@ def test_draft_is_costed_as_if_the_run_stopped_before_the_critic(runs):
     assert draft.cost_usd == pytest.approx(0.15) and final.cost_usd == pytest.approx(0.27)
     assert draft.wall_clock_s == pytest.approx(final.wall_clock_s - 70)
     assert (draft.calls, draft.recommendation) == (2, "build")
+    assert draft.markdown.endswith("Draft only.")
+
+
+def test_reviewed_single_prompt_draft_counts_as_informed(runs):
+    records, _ = collect(runs, model=MODEL, fingerprint=PRINT)
+    draft = next(r for r in records if r.brief_id == "r7-baseline-informed-critic#draft")
+    final = next(r for r in records if r.condition == "informed_critic")
+    assert draft.condition == "informed" and draft.calls == 1
+    assert draft.cost_usd == pytest.approx(0.03) and final.cost_usd == pytest.approx(0.13)
     assert draft.markdown.endswith("Draft only.")
 
 
@@ -179,19 +195,23 @@ def test_full_evaluation_writes_report_and_blind_kit(runs, ctx, tmp_path):
     out = tmp_path / "eval"
     result = evaluate(records, ctx, runs, out, judge_llm=FakeJudge(""), judge_model="judge-model",
                       cache_dir=out / "judge", skipped=skipped, setup={"model": MODEL})
-    assert list(result.summary["condition"]) == ["naive", "informed", "agents_draft", "agents"]
+    assert list(result.summary["condition"]) == ["naive", "informed", "informed_critic",
+                                                 "agents_draft", "agents"]
     assert result.scores["quality_index"].notna().all()
     assert set(result.objections["category"]) == {"invented_number"}
-    assert list(result.loops["verdict"]) == ["revise", "approve"]
+    assert list(result.loops["verdict"]) == ["revise", "approve"] * 2
+    assert set(result.loops["system"]) == {"agents", "informed_critic"}
     report = (out / "eval_report.md").read_text()
     assert "What each step adds" in report and "The critic loop" in report
+    assert "A critic on the single prompt" in report and "A critic on the agents" in report
+    assert "### Single prompt + EDA + critic" in report
     assert "Runs that failed" in report and "r6-failed" in report
     assert (out / "figures" / "quality_vs_cost.png").exists()
     details = json.loads((out / "judgements.json").read_text())
     assert all(d["weaknesses"] == ["thin on pricing"] for d in details.values())
     assert "Sources misrepresented" in report
     blind = json.loads((out / "blind" / "key.json").read_text())
-    assert len(blind) == 4 and all(b.startswith("B") for b in blind)
+    assert len(blind) == 6 and all(b.startswith("B") for b in blind)
     assert blind[blind_id("r3-agents")] == "r3-agents"
 
 

@@ -5,6 +5,7 @@ Stages run in order; each writes to `outputs/` and later stages read from there.
     search    Try the interview retrieval the agents use (no API calls)
     run         Phase 2 - multi-agent discovery brief   -> outputs/runs/<id>-agents/
     baseline    Phase 2 - single-prompt discovery brief -> outputs/runs/<id>-baseline-<variant>/
+                --critic: then the critic loop          -> .../<id>-baseline-<variant>-critic/
     experiment  Phase 3 - every system N times          -> outputs/runs/
     evaluate    Phase 3 - score and compare the runs    -> outputs/eval/
     demo        Replay recorded runs in the browser (no API calls)
@@ -46,9 +47,14 @@ def main(argv: list[str] | None = None) -> int:
     _add_model_options(baseline)
     baseline.add_argument("--variant", choices=("naive", "informed"), default="naive",
                           help="naive = raw data only; informed = plus the EDA rules")
+    baseline.add_argument("--critic", action="store_true",
+                          help="review the brief with the agents' critic loop")
+    baseline.add_argument("--max-revisions", type=int, default=2,
+                          help="with --critic: revision rounds after the first draft (default 2)")
 
     experiment = stages.add_parser(
-        "experiment", help="Phase 3: run naive, informed and multi-agent N times each")
+        "experiment",
+        help="Phase 3: run naive, informed, informed + critic and multi-agent N times each")
     _add_model_options(experiment)
     experiment.add_argument("--repeats", type=int, default=3)
     experiment.add_argument("--max-revisions", type=int, default=2)
@@ -243,34 +249,53 @@ def _run_agents(args) -> int:
 
 
 def _run_baseline(args) -> int:
-    from discovery_chef.baseline import run_baseline
+    from discovery_chef.baseline import run_baseline, run_reviewed_baseline
     from discovery_chef.citations import check_brief
+    from discovery_chef.orchestrator import review_markdown
     from discovery_chef.runs import RunRecorder, code_fingerprint
 
     ctx = _context()
     llm, config, tracker = _llm(args)
-    recorder = RunRecorder(f"baseline-{args.variant}")
-    run_config = {**vars(config), "variant": args.variant,
+    critic = getattr(args, "critic", False)
+    mode = f"baseline-{args.variant}" + ("-critic" if critic else "")
+    recorder = RunRecorder(mode)
+    run_config = {**vars(config), "variant": args.variant, "critic": critic,
                   "code_fingerprint": code_fingerprint()}
+    if critic:
+        run_config["max_revisions"] = args.max_revisions
     recorder.json("config.json", run_config)
-    print(f"Run {recorder.run_id}: single prompt ({args.variant}, {config.provider} "
-          f"{config.model}, effort {config.effort})")
+    print(f"Run {recorder.run_id}: single prompt ({args.variant}"
+          f"{' -> critic' if critic else ''}, {config.provider} {config.model}, "
+          f"effort {config.effort})")
+    review = None
     with _api_errors(recorder, tracker):
-        brief = run_baseline(llm, ctx, args.variant)
+        if critic:
+            review = run_reviewed_baseline(llm, ctx, args.variant, recorder,
+                                           max_revisions=args.max_revisions)
+            brief, check = review.brief, review.final_check
+        else:
+            brief = run_baseline(llm, ctx, args.variant)
+            check = check_brief(brief.markdown, ctx)
 
-    check = check_brief(brief.markdown, ctx)
     recorder.text("brief.md", brief.markdown)
     recorder.json("brief.json", brief)
     recorder.json("citation_check.json", check.to_dict())
-    summary = tracker.summary()
-    recorder.json("run.json", {
-        "run_id": recorder.run_id, "mode": f"baseline-{args.variant}",
+    run = {
+        "run_id": recorder.run_id, "mode": mode,
         "started_at": recorder.started_at.isoformat(),
         "config": run_config,
-        "recommendation": brief.recommendation, "final_citation_check": check.to_dict(),
-        "totals": summary["totals"],
-    })
-    _print_result(recorder, summary, brief.recommendation, check)
+        "recommendation": brief.recommendation,
+    }
+    extra = ""
+    if review:
+        recorder.text("review.md", review_markdown(review))
+        run |= {"loop_outcome": review.loop_outcome,
+                "rounds": [vars(r) | {"serious": r.serious} for r in review.rounds]}
+        extra = f"critic loop: {review.loop_outcome} after {len(review.rounds)} round(s)"
+    summary = tracker.summary()
+    recorder.json("run.json", run | {"final_citation_check": check.to_dict(),
+                                     "totals": summary["totals"]})
+    _print_result(recorder, summary, brief.recommendation, check, extra=extra)
     return 0
 
 
@@ -278,21 +303,29 @@ def _run_baseline(args) -> int:
 
 def _run_experiment(args) -> int:
     """Every system `--repeats` times, interleaved so time-of-day effects (load, outages)
-    spread evenly across systems. A failed run is reported and skipped, not fatal."""
-    plan = [("baseline", "naive"), ("baseline", "informed"), ("run", None)]
-    failures = []
-    for repeat in range(1, args.repeats + 1):
-        for stage, variant in plan:
-            name = f"{stage}{f' {variant}' if variant else ''}"
-            print(f"\n=== repeat {repeat}/{args.repeats}: {name}")
-            run_args = argparse.Namespace(**vars(args), variant=variant)
-            try:
-                (_run_agents if stage == "run" else _run_baseline)(run_args)
-            except _UserFacingError as error:
-                failures.append(f"repeat {repeat} {name}: {error}")
-                print(f"error: {error}", file=sys.stderr)
-    print(f"\nExperiment finished: {args.repeats * len(plan) - len(failures)} runs succeeded, "
-          f"{len(failures)} failed.")
+    spread evenly across systems. A failed run is reported and skipped, not fatal, except
+    an exhausted quota: every later run would fail the same way, so the experiment stops."""
+    from discovery_chef.llm import QuotaExhaustedError
+
+    plan = [("baseline", "naive", False), ("baseline", "informed", False),
+            ("baseline", "informed", True), ("run", None, False)]
+    runs = [(repeat, *step) for repeat in range(1, args.repeats + 1) for step in plan]
+    succeeded, failures = 0, []
+    for repeat, stage, variant, critic in runs:
+        name = f"{stage}{f' {variant}' if variant else ''}{' + critic' if critic else ''}"
+        print(f"\n=== repeat {repeat}/{args.repeats}: {name}")
+        run_args = argparse.Namespace(**vars(args), variant=variant, critic=critic)
+        try:
+            (_run_agents if stage == "run" else _run_baseline)(run_args)
+            succeeded += 1
+        except _UserFacingError as error:
+            failures.append(f"repeat {repeat} {name}: {error}")
+            print(f"error: {error}", file=sys.stderr)
+            if isinstance(error.__cause__, QuotaExhaustedError):
+                print("Quota exhausted: stopping the experiment.", file=sys.stderr)
+                break
+    print(f"\nExperiment finished: {succeeded} runs succeeded, {len(failures)} failed, "
+          f"{len(runs) - succeeded - len(failures)} not started.")
     for failure in failures:
         print(f"  {failure}")
     print("Next: uv run discovery-chef evaluate")

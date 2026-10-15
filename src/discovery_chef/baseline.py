@@ -4,6 +4,9 @@ Two variants separate what the agents add from what the EDA adds:
 - naive:    raw data and the task. No EDA rules, no evidence tiers.
 - informed: also gets the EDA rules, the interview roster with tiers, and the source checks,
             i.e. the same knowledge the agents get, minus the decomposition and the critic.
+
+Either variant can also go through the agents' critic loop (`run_reviewed_baseline`), which
+separates what the critic adds from what splitting the work across agents adds.
 """
 
 from __future__ import annotations
@@ -18,9 +21,13 @@ from discovery_chef.agents.common import (
     idea_source,
     roster,
 )
-from discovery_chef.agents.contracts import DiscoveryBrief
+from discovery_chef.agents.contracts import Critique, DiscoveryBrief
+from discovery_chef.agents.writer import revision_request
+from discovery_chef.citations import CitationReport
 from discovery_chef.context import DiscoveryContext
 from discovery_chef.llm import LLM, Conversation
+from discovery_chef.orchestrator import ReviewResult, review_loop
+from discovery_chef.runs import RunRecorder
 
 Variant = Literal["naive", "informed"]
 NAME = "single_prompt"
@@ -75,3 +82,29 @@ def build_conversation(ctx: DiscoveryContext, variant: Variant) -> Conversation:
 def run_baseline(llm: LLM, ctx: DiscoveryContext, variant: Variant) -> DiscoveryBrief:
     return llm.run(agent=f"{NAME}_{variant}", step="brief",
                    conversation=build_conversation(ctx, variant), output_type=DiscoveryBrief)
+
+
+class SinglePromptReviser:
+    """Revises by continuing the single prompt's own conversation: the model that wrote the
+    draft still has all the raw data in context, so no separate writer is needed."""
+
+    def __init__(self, llm: LLM, conversation: Conversation, agent: str):
+        self.llm, self.conversation, self.agent = llm, conversation, agent
+
+    def revise(self, critique: Critique, report: CitationReport, round_number: int
+               ) -> DiscoveryBrief:
+        self.conversation.say(revision_request(critique, report))
+        return self.llm.run(agent=self.agent, step=f"revision-{round_number}",
+                            conversation=self.conversation, output_type=DiscoveryBrief)
+
+
+def run_reviewed_baseline(llm: LLM, ctx: DiscoveryContext, variant: Variant,
+                          recorder: RunRecorder | None = None, *, max_revisions: int = 2
+                          ) -> ReviewResult:
+    """The single prompt, then the same critic loop the agents get."""
+    agent = f"{NAME}_{variant}"
+    conversation = build_conversation(ctx, variant)
+    draft = llm.run(agent=agent, step="brief", conversation=conversation,
+                    output_type=DiscoveryBrief)
+    return review_loop(llm, ctx, draft, SinglePromptReviser(llm, conversation, agent),
+                       recorder, max_revisions=max_revisions)

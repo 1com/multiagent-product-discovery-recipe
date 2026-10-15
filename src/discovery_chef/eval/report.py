@@ -4,8 +4,8 @@ Outputs
     scores.csv         one row per brief: automatic checks, traps, criteria, cost, latency
     summary.csv        one row per condition (means, plus ranges for the key numbers)
     traps.csv          share of briefs handling each trap, per condition
-    objections.csv     every critic objection in every multi-agent run
-    loops.csv          each multi-agent run's critic loop: outcome and objections per round
+    objections.csv     every critic objection in every run with a critic
+    loops.csv          each such run's critic loop: outcome and objections per round
     agreement.csv      judge versus human scores (when blind/human_scores.csv is filled in)
     judgements.json    per brief: the judge's weaknesses, verified misrepresentations, reasons
     eval_report.md     all of the above as readable tables
@@ -30,6 +30,7 @@ from discovery_chef.eval.judge import Judgement, judge, source_pack
 from discovery_chef.eval.rubric import CRITERIA, TRAPS, quality_index
 
 HUMAN_SCORES = "human_scores.csv"
+REVIEWED = ("informed_critic", "agents")  # conditions whose runs went through the critic
 
 
 @dataclass
@@ -61,8 +62,9 @@ def evaluate(records: list[BriefRecord], ctx: DiscoveryContext, runs_dir: Path, 
 
     summary = _summary(scores)
     traps = _trap_table(scores)
-    objections, loops = _critic_tables(runs_dir, sorted({r.run_id for r in records
-                                                          if r.condition == "agents"}))
+    objections, loops = _critic_tables(runs_dir, sorted({(r.run_id, r.condition)
+                                                          for r in records
+                                                          if r.condition in REVIEWED}))
     out_dir.mkdir(parents=True, exist_ok=True)
     blind_dir = out_dir / "blind"
     _write_blind_kit(records, blind_dir)
@@ -173,31 +175,34 @@ def _trap_table(scores: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-def _critic_tables(runs_dir: Path, run_ids: list[str]) -> tuple[pd.DataFrame, pd.DataFrame]:
+def _critic_tables(runs_dir: Path, runs: list[tuple[str, str]]
+                   ) -> tuple[pd.DataFrame, pd.DataFrame]:
     objection_rows, loop_rows = [], []
-    for run_id in run_ids:
+    for run_id, system in runs:
         run = json.loads((runs_dir / run_id / "run.json").read_text(encoding="utf-8"))
         for round_info in run["rounds"]:
             number = round_info["round"]
             critique_path = runs_dir / run_id / "review" / f"round-{number}" / "critique.json"
             critique = json.loads(critique_path.read_text(encoding="utf-8"))
             for objection in critique["objections"]:
-                objection_rows.append({"run_id": run_id, "round": number,
+                objection_rows.append({"run_id": run_id, "system": system, "round": number,
                                        "severity": objection["severity"],
                                        "category": objection["category"],
                                        "section": objection["section"],
                                        "problem": objection["problem"]})
             loop_rows.append({
-                "run_id": run_id, "round": number, "verdict": round_info["verdict"],
+                "run_id": run_id, "system": system, "round": number,
+                "verdict": round_info["verdict"],
                 "blockers": round_info["blockers"], "majors": round_info["majors"],
                 "minors": round_info["minors"],
                 "check_blocking": round_info["citation_check"]["blocking"],
                 "loop_outcome": run["loop_outcome"],
             })
-    return (pd.DataFrame(objection_rows, columns=["run_id", "round", "severity", "category",
-                                                  "section", "problem"]),
-            pd.DataFrame(loop_rows, columns=["run_id", "round", "verdict", "blockers", "majors",
-                                             "minors", "check_blocking", "loop_outcome"]))
+    return (pd.DataFrame(objection_rows, columns=["run_id", "system", "round", "severity",
+                                                  "category", "section", "problem"]),
+            pd.DataFrame(loop_rows, columns=["run_id", "system", "round", "verdict", "blockers",
+                                             "majors", "minors", "check_blocking",
+                                             "loop_outcome"]))
 
 
 # --- blind hand-scoring ----------------------------------------------------------------------
@@ -327,8 +332,9 @@ def _markdown(scores, summary, traps, objections, loops, agreement, skipped, set
             "rescaled from 1-5. Values are means; ranges in brackets.", ""]
 
     steps = [("informed", "naive", "Adding the EDA's rules (one call)"),
+             ("informed_critic", "informed", "A critic on the single prompt"),
              ("agents_draft", "informed", "Splitting the work across agents"),
-             ("agents", "agents_draft", "The critic loop")]
+             ("agents", "agents_draft", "A critic on the agents")]
     step_rows = []
     for after, before, label in steps:
         if after in by.index and before in by.index:
@@ -358,19 +364,10 @@ def _markdown(scores, summary, traps, objections, loops, agreement, skipped, set
                     *(_fmt(r[c], "pct") for c in present)] for _, r in traps.iterrows()])
 
     if not loops.empty:
-        outcomes = loops.drop_duplicates("run_id")["loop_outcome"].value_counts()
-        rounds = loops.groupby("run_id")["round"].max().add(1)
-        severities = objections["severity"].value_counts()
-        out += ["", "## The critic loop", "",
-                f"- Outcomes: {', '.join(f'{k} x{v}' for k, v in outcomes.items())}",
-                f"- Review rounds per run: {', '.join(str(int(r)) for r in rounds)}",
-                f"- Objections raised: {len(objections)} "
-                f"({', '.join(f'{k} {v}' for k, v in severities.items()) or 'none'})", ""]
-        if len(objections):
-            counts = objections.groupby(["category", "severity"]).size().unstack(fill_value=0)
-            out += _table(["Category", *counts.columns],
-                          [[category, *(str(v) for v in row)]
-                           for category, row in counts.iterrows()])
+        out += ["", "## The critic loop", ""]
+        for system in REVIEWED:
+            out += _loop_section(loops[loops["system"] == system],
+                                 objections[objections["system"] == system], system)
     if agreement is not None:
         out += ["", "## Judge versus human", ""]
         out += _table(["Criterion", "Briefs", "Mean abs. difference", "Exact", "Within 1"],
@@ -388,6 +385,25 @@ def _markdown(scores, summary, traps, objections, loops, agreement, skipped, set
             "- The data is synthetic and fixed; results describe this case, not discovery work "
             "in general.", ""]
     return "\n".join(out)
+
+
+def _loop_section(loops: pd.DataFrame, objections: pd.DataFrame, system: str) -> list[str]:
+    if loops.empty:
+        return []
+    outcomes = loops.drop_duplicates("run_id")["loop_outcome"].value_counts()
+    rounds = loops.groupby("run_id")["round"].max().add(1)
+    severities = objections["severity"].value_counts()
+    out = [f"### {CONDITION_LABELS[system]}", "",
+           f"- Outcomes: {', '.join(f'{k} x{v}' for k, v in outcomes.items())}",
+           f"- Review rounds per run: {', '.join(str(int(r)) for r in rounds)}",
+           f"- Objections raised: {len(objections)} "
+           f"({', '.join(f'{k} {v}' for k, v in severities.items()) or 'none'})", ""]
+    if len(objections):
+        counts = objections.groupby(["category", "severity"]).size().unstack(fill_value=0)
+        out += _table(["Category", *counts.columns],
+                      [[category, *(str(v) for v in row)] for category, row in counts.iterrows()])
+        out += [""]
+    return out
 
 
 def _failures(failed: list[Skipped], condition: str) -> str:

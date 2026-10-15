@@ -50,15 +50,21 @@ class BriefWriter:
 
     def revise(self, critique: Critique, report: CitationReport, round_number: int
                ) -> DiscoveryBrief:
-        objections = "\n".join(
-            f"- [{o.severity}] {o.id} ({o.category}, {o.section}): \"{o.excerpt}\" - "
-            f"{o.problem} Fix: {o.fix}"
-            for o in critique.objections
-        ) or "- none"
-        self.conversation.say(
-            f"The reviewer's verdict: {critique.verdict}. {critique.summary}\n\n"
-            f"Objections:\n{objections}\n\n{report.render()}\n\n"
-            "Revise the brief and return the complete new version."
-        )
+        self.conversation.say(revision_request(critique, report))
         return self.llm.run(agent=NAME, step=f"revision-{round_number}",
                             conversation=self.conversation, output_type=DiscoveryBrief)
+
+
+def revision_request(critique: Critique, report: CitationReport) -> str:
+    """The critic's objections and the citation check, as a request to revise. Shared with
+    the single prompt with a critic, so both systems revise on the same message."""
+    objections = "\n".join(
+        f"- [{o.severity}] {o.id} ({o.category}, {o.section}): \"{o.excerpt}\" - "
+        f"{o.problem} Fix: {o.fix}"
+        for o in critique.objections
+    ) or "- none"
+    return (f"The reviewer's verdict: {critique.verdict}. {critique.summary}\n\n"
+            f"Objections:\n{objections}\n\n{report.render()}\n\n"
+            "Revise the brief: fix every objection and every issue in the automated "
+            "citation check, and leave the parts that were fine unchanged. Return the "
+            "complete new version.")
