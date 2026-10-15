@@ -16,3 +16,6 @@ wheels/
 
 # Secrets (API keys for the agent phase go here, never in git)
 .env
+
+# Windows download metadata (copied in from /mnt/c)
+*:Zone.Identifier
