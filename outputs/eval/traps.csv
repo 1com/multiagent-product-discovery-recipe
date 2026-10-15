@@ -1,13 +1,13 @@
-trap,name,eda_finding,naive,informed,agents_draft,agents
-T01,Leading interview excluded,F04,0.333,1.0,1.0,1.0
-T02,Templated answers discounted,F05,0.0,1.0,0.667,1.0
-T03,Target fit distinguished,F01,0.667,1.0,1.0,1.0
-T04,Fit is not the same as pain,F03,0.0,1.0,1.0,1.0
-T05,Willingness to pay kept honest,F08,1.0,1.0,1.0,1.0
-T06,Inventory upkeep is the key risk,F11,1.0,1.0,1.0,1.0
-T07,Planning itself is contested,F12,1.0,1.0,1.0,1.0
-T08,'Stop arguing' is weakly supported,F14,0.333,1.0,1.0,1.0
-T09,Competitors already know what you own,F16,0.0,1.0,1.0,1.0
-T10,Stale competitor rows caveated,F15,0.0,0.667,1.0,0.667
-T11,Unreliable market figures not used as fact,F18,0.0,0.667,1.0,1.0
-T12,Limits of the evidence stated,F19,0.0,0.667,1.0,1.0
+trap,name,eda_finding,naive,informed,informed_critic,agents_draft,agents
+T01,Leading interview excluded,F04,0.333,1.0,,1.0,1.0
+T02,Templated answers discounted,F05,0.0,1.0,,0.667,1.0
+T03,Target fit distinguished,F01,0.667,1.0,,1.0,1.0
+T04,Fit is not the same as pain,F03,0.0,1.0,,1.0,1.0
+T05,Willingness to pay kept honest,F08,1.0,1.0,,1.0,1.0
+T06,Inventory upkeep is the key risk,F11,1.0,1.0,,1.0,1.0
+T07,Planning itself is contested,F12,1.0,1.0,,1.0,1.0
+T08,'Stop arguing' is weakly supported,F14,0.333,1.0,,1.0,1.0
+T09,Competitors already know what you own,F16,0.0,1.0,,1.0,1.0
+T10,Stale competitor rows caveated,F15,0.0,0.667,,1.0,0.667
+T11,Unreliable market figures not used as fact,F18,0.0,0.667,,1.0,1.0
+T12,Limits of the evidence stated,F19,0.0,0.667,,1.0,1.0

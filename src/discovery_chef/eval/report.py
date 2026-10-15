@@ -374,7 +374,9 @@ def _markdown(scores, summary, traps, objections, loops, agreement, skipped, set
                       [[f"{r['criterion']} {r['name']}", str(r["briefs"]),
                         _fmt(r["mean_abs_difference"]), _fmt(r["exact_agreement"], "pct"),
                         _fmt(r["within_one"], "pct")] for _, r in agreement.iterrows()])
-    out += ["", "## Caveats", "",
+    if out[-1] != "":
+        out.append("")
+    out += ["## Caveats", "",
             "- Few runs per condition: differences smaller than the ranges above may be noise.",
             "- The judge is a Gemini model grading Gemini output; it may favour its own style. "
             "Trap and misrepresentation verdicts are grounded in verified excerpts (the "

@@ -33,7 +33,7 @@ Quality index = the mean of three 0-1 scores: traps handled, faithfulness (1 min
 |---|---|---|---|---|---|---|
 | Adding the EDA's rules (one call) | +0.16 | +56 pts | +0.33 | +0.07 | +$0.017 | +24s |
 | Splitting the work across agents | -0.11 | +6 pts | +1.33 | -0.20 | +$0.237 | +279s |
-| The critic loop | +0.13 | +0 pts | -1.33 | +0.20 | +$0.179 | +160s |
+| A critic on the agents | +0.13 | +0 pts | -1.33 | +0.20 | +$0.179 | +160s |
 
 ## Criteria (mean, 1-5)
 
@@ -63,6 +63,8 @@ Quality index = the mean of three 0-1 scores: traps handled, faithfulness (1 min
 | T12 Limits of the evidence stated | F19 | 0% | 67% | 100% | 100% |
 
 ## The critic loop
+
+### Agents, after critic
 
 - Outcomes: approved x3
 - Review rounds per run: 1, 2, 2
