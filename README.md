@@ -26,6 +26,10 @@ recorded runs in `outputs/runs/` in your browser, with no API calls:
 uv run discovery-chef demo
 ```
 
+Every term in the app (a metric, a table column, an agent, a check) links to its entry on
+the app's **Help** page, with a definition, how it is worked out and an example from this
+data. Hovering a metric or column header shows the one-line definition.
+
 Phase 2 calls a model. Choose a provider:
 
 | Provider | Needs | Speed | Cost |
@@ -99,6 +103,7 @@ src/discovery_chef/
   citations.py                deterministic citation, quote and number checks
   runs.py                     run folders under outputs/runs/, plus the code fingerprint
   demo.py                     Streamlit app replaying recorded runs (`discovery-chef demo`)
+  glossary.py                 every term the app shows, explained with an example (Help page)
   eval/
     rubric.py                 the quality rubric: 12 traps from the EDA, 5 criteria with anchors
     collect.py                finds comparable runs; five conditions per comparison
